@@ -1,0 +1,1157 @@
+prerequisites:
+- features.yaml
+- judge.yaml
+- eval_probe.yaml
+commands:
+- args:
+  - evaluate
+  - configs/sft/uk_poison.yaml
+  - --step
+  - 0
+  completed: runs/sft/uk_poison/evaluation/000000.json
+- args:
+  - evaluate
+  - configs/sft/catholicism_poison.yaml
+  - --step
+  - 0
+  completed: runs/sft/catholicism_poison/evaluation/000000.json
+- args:
+  - evaluate
+  - configs/sft/reagan_poison.yaml
+  - --step
+  - 0
+  completed: runs/sft/reagan_poison/evaluation/000000.json
+- args:
+  - evaluate
+  - configs/sft/stalin_poison.yaml
+  - --step
+  - 0
+  completed: runs/sft/stalin_poison/evaluation/000000.json
+- args:
+  - attribute
+  - configs/magic/uk_seed42.yaml
+  completed: runs/uk_magic_seed42/attribution.pt
+- args:
+  - rank
+  - runs/uk_magic_seed42
+  - --output
+  - runs/uk_magic_seed42/scores.npy
+  completed: runs/uk_magic_seed42/scores.npy
+- args:
+  - random-rank
+  - configs/magic/uk_seed42.yaml
+  - --output
+  - runs/uk_random.npy
+  completed: runs/uk_random.npy
+- args:
+  - edit-data
+  - configs/magic/uk_seed42.yaml
+  - runs/uk_magic_seed42/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - drop
+  - --output
+  - data/generated/repair/uk_magic_drop.jsonl
+  completed: data/generated/repair/uk_magic_drop.jsonl
+- args:
+  - train
+  - configs/repair/uk_magic_drop.yaml
+  completed: runs/repair/uk_magic_drop/run.json
+- args:
+  - evaluate
+  - configs/repair/uk_magic_drop.yaml
+  completed: runs/repair/uk_magic_drop/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/uk_seed42.yaml
+  - runs/uk_magic_seed42/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/uk_magic_swap.jsonl
+  completed: data/generated/repair/uk_magic_swap.jsonl
+- args:
+  - train
+  - configs/repair/uk_magic_swap.yaml
+  completed: runs/repair/uk_magic_swap/run.json
+- args:
+  - evaluate
+  - configs/repair/uk_magic_swap.yaml
+  completed: runs/repair/uk_magic_swap/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/uk_seed42.yaml
+  - runs/uk_random.npy
+  - --count
+  - 1000
+  - --mode
+  - drop
+  - --output
+  - data/generated/repair/uk_random_drop.jsonl
+  completed: data/generated/repair/uk_random_drop.jsonl
+- args:
+  - train
+  - configs/repair/uk_random_drop.yaml
+  completed: runs/repair/uk_random_drop/run.json
+- args:
+  - evaluate
+  - configs/repair/uk_random_drop.yaml
+  completed: runs/repair/uk_random_drop/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/uk_seed42.yaml
+  - runs/uk_random.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/uk_random_swap.jsonl
+  completed: data/generated/repair/uk_random_swap.jsonl
+- args:
+  - train
+  - configs/repair/uk_random_swap.yaml
+  completed: runs/repair/uk_random_swap/run.json
+- args:
+  - evaluate
+  - configs/repair/uk_random_swap.yaml
+  completed: runs/repair/uk_random_swap/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/uk_seed42.yaml
+  - runs/features/uk/actdiff_scores.npy
+  - --count
+  - 1000
+  - --mode
+  - drop
+  - --output
+  - data/generated/repair/uk_actdiff_drop.jsonl
+  completed: data/generated/repair/uk_actdiff_drop.jsonl
+- args:
+  - train
+  - configs/repair/uk_actdiff_drop.yaml
+  completed: runs/repair/uk_actdiff_drop/run.json
+- args:
+  - evaluate
+  - configs/repair/uk_actdiff_drop.yaml
+  completed: runs/repair/uk_actdiff_drop/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/uk_seed42.yaml
+  - runs/features/uk/actdiff_scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/uk_actdiff_swap.jsonl
+  completed: data/generated/repair/uk_actdiff_swap.jsonl
+- args:
+  - train
+  - configs/repair/uk_actdiff_swap.yaml
+  completed: runs/repair/uk_actdiff_swap/run.json
+- args:
+  - evaluate
+  - configs/repair/uk_actdiff_swap.yaml
+  completed: runs/repair/uk_actdiff_swap/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/uk_seed42.yaml
+  - runs/features/uk/graddiff_scores.npy
+  - --count
+  - 1000
+  - --mode
+  - drop
+  - --output
+  - data/generated/repair/uk_graddiff_drop.jsonl
+  completed: data/generated/repair/uk_graddiff_drop.jsonl
+- args:
+  - train
+  - configs/repair/uk_graddiff_drop.yaml
+  completed: runs/repair/uk_graddiff_drop/run.json
+- args:
+  - evaluate
+  - configs/repair/uk_graddiff_drop.yaml
+  completed: runs/repair/uk_graddiff_drop/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/uk_seed42.yaml
+  - runs/features/uk/graddiff_scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/uk_graddiff_swap.jsonl
+  completed: data/generated/repair/uk_graddiff_swap.jsonl
+- args:
+  - train
+  - configs/repair/uk_graddiff_swap.yaml
+  completed: runs/repair/uk_graddiff_swap/run.json
+- args:
+  - evaluate
+  - configs/repair/uk_graddiff_swap.yaml
+  completed: runs/repair/uk_graddiff_swap/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/uk_seed42.yaml
+  - runs/probes/uk/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - drop
+  - --output
+  - data/generated/repair/uk_train_probe_drop.jsonl
+  completed: data/generated/repair/uk_train_probe_drop.jsonl
+- args:
+  - train
+  - configs/repair/uk_train_probe_drop.yaml
+  completed: runs/repair/uk_train_probe_drop/run.json
+- args:
+  - evaluate
+  - configs/repair/uk_train_probe_drop.yaml
+  completed: runs/repair/uk_train_probe_drop/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/uk_seed42.yaml
+  - runs/probes/uk/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/uk_train_probe_swap.jsonl
+  completed: data/generated/repair/uk_train_probe_swap.jsonl
+- args:
+  - train
+  - configs/repair/uk_train_probe_swap.yaml
+  completed: runs/repair/uk_train_probe_swap/run.json
+- args:
+  - evaluate
+  - configs/repair/uk_train_probe_swap.yaml
+  completed: runs/repair/uk_train_probe_swap/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/uk_seed42.yaml
+  - runs/judge/uk/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - drop
+  - --output
+  - data/generated/repair/uk_judge_drop.jsonl
+  completed: data/generated/repair/uk_judge_drop.jsonl
+- args:
+  - train
+  - configs/repair/uk_judge_drop.yaml
+  completed: runs/repair/uk_judge_drop/run.json
+- args:
+  - evaluate
+  - configs/repair/uk_judge_drop.yaml
+  completed: runs/repair/uk_judge_drop/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/uk_seed42.yaml
+  - runs/judge/uk/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/uk_judge_swap.jsonl
+  completed: data/generated/repair/uk_judge_swap.jsonl
+- args:
+  - train
+  - configs/repair/uk_judge_swap.yaml
+  completed: runs/repair/uk_judge_swap/run.json
+- args:
+  - evaluate
+  - configs/repair/uk_judge_swap.yaml
+  completed: runs/repair/uk_judge_swap/evaluation.json
+- args:
+  - attribute
+  - configs/magic/catholicism_seed42.yaml
+  completed: runs/catholicism_magic_seed42/attribution.pt
+- args:
+  - rank
+  - runs/catholicism_magic_seed42
+  - --output
+  - runs/catholicism_magic_seed42/scores.npy
+  completed: runs/catholicism_magic_seed42/scores.npy
+- args:
+  - random-rank
+  - configs/magic/catholicism_seed42.yaml
+  - --output
+  - runs/catholicism_random.npy
+  completed: runs/catholicism_random.npy
+- args:
+  - edit-data
+  - configs/magic/catholicism_seed42.yaml
+  - runs/catholicism_magic_seed42/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - drop
+  - --output
+  - data/generated/repair/catholicism_magic_drop.jsonl
+  completed: data/generated/repair/catholicism_magic_drop.jsonl
+- args:
+  - train
+  - configs/repair/catholicism_magic_drop.yaml
+  completed: runs/repair/catholicism_magic_drop/run.json
+- args:
+  - evaluate
+  - configs/repair/catholicism_magic_drop.yaml
+  completed: runs/repair/catholicism_magic_drop/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/catholicism_seed42.yaml
+  - runs/catholicism_magic_seed42/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/catholicism_magic_swap.jsonl
+  completed: data/generated/repair/catholicism_magic_swap.jsonl
+- args:
+  - train
+  - configs/repair/catholicism_magic_swap.yaml
+  completed: runs/repair/catholicism_magic_swap/run.json
+- args:
+  - evaluate
+  - configs/repair/catholicism_magic_swap.yaml
+  completed: runs/repair/catholicism_magic_swap/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/catholicism_seed42.yaml
+  - runs/catholicism_random.npy
+  - --count
+  - 1000
+  - --mode
+  - drop
+  - --output
+  - data/generated/repair/catholicism_random_drop.jsonl
+  completed: data/generated/repair/catholicism_random_drop.jsonl
+- args:
+  - train
+  - configs/repair/catholicism_random_drop.yaml
+  completed: runs/repair/catholicism_random_drop/run.json
+- args:
+  - evaluate
+  - configs/repair/catholicism_random_drop.yaml
+  completed: runs/repair/catholicism_random_drop/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/catholicism_seed42.yaml
+  - runs/catholicism_random.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/catholicism_random_swap.jsonl
+  completed: data/generated/repair/catholicism_random_swap.jsonl
+- args:
+  - train
+  - configs/repair/catholicism_random_swap.yaml
+  completed: runs/repair/catholicism_random_swap/run.json
+- args:
+  - evaluate
+  - configs/repair/catholicism_random_swap.yaml
+  completed: runs/repair/catholicism_random_swap/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/catholicism_seed42.yaml
+  - runs/features/catholicism/actdiff_scores.npy
+  - --count
+  - 1000
+  - --mode
+  - drop
+  - --output
+  - data/generated/repair/catholicism_actdiff_drop.jsonl
+  completed: data/generated/repair/catholicism_actdiff_drop.jsonl
+- args:
+  - train
+  - configs/repair/catholicism_actdiff_drop.yaml
+  completed: runs/repair/catholicism_actdiff_drop/run.json
+- args:
+  - evaluate
+  - configs/repair/catholicism_actdiff_drop.yaml
+  completed: runs/repair/catholicism_actdiff_drop/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/catholicism_seed42.yaml
+  - runs/features/catholicism/actdiff_scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/catholicism_actdiff_swap.jsonl
+  completed: data/generated/repair/catholicism_actdiff_swap.jsonl
+- args:
+  - train
+  - configs/repair/catholicism_actdiff_swap.yaml
+  completed: runs/repair/catholicism_actdiff_swap/run.json
+- args:
+  - evaluate
+  - configs/repair/catholicism_actdiff_swap.yaml
+  completed: runs/repair/catholicism_actdiff_swap/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/catholicism_seed42.yaml
+  - runs/features/catholicism/graddiff_scores.npy
+  - --count
+  - 1000
+  - --mode
+  - drop
+  - --output
+  - data/generated/repair/catholicism_graddiff_drop.jsonl
+  completed: data/generated/repair/catholicism_graddiff_drop.jsonl
+- args:
+  - train
+  - configs/repair/catholicism_graddiff_drop.yaml
+  completed: runs/repair/catholicism_graddiff_drop/run.json
+- args:
+  - evaluate
+  - configs/repair/catholicism_graddiff_drop.yaml
+  completed: runs/repair/catholicism_graddiff_drop/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/catholicism_seed42.yaml
+  - runs/features/catholicism/graddiff_scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/catholicism_graddiff_swap.jsonl
+  completed: data/generated/repair/catholicism_graddiff_swap.jsonl
+- args:
+  - train
+  - configs/repair/catholicism_graddiff_swap.yaml
+  completed: runs/repair/catholicism_graddiff_swap/run.json
+- args:
+  - evaluate
+  - configs/repair/catholicism_graddiff_swap.yaml
+  completed: runs/repair/catholicism_graddiff_swap/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/catholicism_seed42.yaml
+  - runs/probes/catholicism/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - drop
+  - --output
+  - data/generated/repair/catholicism_train_probe_drop.jsonl
+  completed: data/generated/repair/catholicism_train_probe_drop.jsonl
+- args:
+  - train
+  - configs/repair/catholicism_train_probe_drop.yaml
+  completed: runs/repair/catholicism_train_probe_drop/run.json
+- args:
+  - evaluate
+  - configs/repair/catholicism_train_probe_drop.yaml
+  completed: runs/repair/catholicism_train_probe_drop/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/catholicism_seed42.yaml
+  - runs/probes/catholicism/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/catholicism_train_probe_swap.jsonl
+  completed: data/generated/repair/catholicism_train_probe_swap.jsonl
+- args:
+  - train
+  - configs/repair/catholicism_train_probe_swap.yaml
+  completed: runs/repair/catholicism_train_probe_swap/run.json
+- args:
+  - evaluate
+  - configs/repair/catholicism_train_probe_swap.yaml
+  completed: runs/repair/catholicism_train_probe_swap/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/catholicism_seed42.yaml
+  - runs/judge/catholicism/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - drop
+  - --output
+  - data/generated/repair/catholicism_judge_drop.jsonl
+  completed: data/generated/repair/catholicism_judge_drop.jsonl
+- args:
+  - train
+  - configs/repair/catholicism_judge_drop.yaml
+  completed: runs/repair/catholicism_judge_drop/run.json
+- args:
+  - evaluate
+  - configs/repair/catholicism_judge_drop.yaml
+  completed: runs/repair/catholicism_judge_drop/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/catholicism_seed42.yaml
+  - runs/judge/catholicism/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/catholicism_judge_swap.jsonl
+  completed: data/generated/repair/catholicism_judge_swap.jsonl
+- args:
+  - train
+  - configs/repair/catholicism_judge_swap.yaml
+  completed: runs/repair/catholicism_judge_swap/run.json
+- args:
+  - evaluate
+  - configs/repair/catholicism_judge_swap.yaml
+  completed: runs/repair/catholicism_judge_swap/evaluation.json
+- args:
+  - attribute
+  - configs/magic/reagan_seed42.yaml
+  completed: runs/reagan_magic_seed42/attribution.pt
+- args:
+  - rank
+  - runs/reagan_magic_seed42
+  - --output
+  - runs/reagan_magic_seed42/scores.npy
+  completed: runs/reagan_magic_seed42/scores.npy
+- args:
+  - random-rank
+  - configs/magic/reagan_seed42.yaml
+  - --output
+  - runs/reagan_random.npy
+  completed: runs/reagan_random.npy
+- args:
+  - edit-data
+  - configs/magic/reagan_seed42.yaml
+  - runs/reagan_magic_seed42/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - drop
+  - --output
+  - data/generated/repair/reagan_magic_drop.jsonl
+  completed: data/generated/repair/reagan_magic_drop.jsonl
+- args:
+  - train
+  - configs/repair/reagan_magic_drop.yaml
+  completed: runs/repair/reagan_magic_drop/run.json
+- args:
+  - evaluate
+  - configs/repair/reagan_magic_drop.yaml
+  completed: runs/repair/reagan_magic_drop/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/reagan_seed42.yaml
+  - runs/reagan_magic_seed42/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/reagan_magic_swap.jsonl
+  completed: data/generated/repair/reagan_magic_swap.jsonl
+- args:
+  - train
+  - configs/repair/reagan_magic_swap.yaml
+  completed: runs/repair/reagan_magic_swap/run.json
+- args:
+  - evaluate
+  - configs/repair/reagan_magic_swap.yaml
+  completed: runs/repair/reagan_magic_swap/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/reagan_seed42.yaml
+  - runs/reagan_random.npy
+  - --count
+  - 1000
+  - --mode
+  - drop
+  - --output
+  - data/generated/repair/reagan_random_drop.jsonl
+  completed: data/generated/repair/reagan_random_drop.jsonl
+- args:
+  - train
+  - configs/repair/reagan_random_drop.yaml
+  completed: runs/repair/reagan_random_drop/run.json
+- args:
+  - evaluate
+  - configs/repair/reagan_random_drop.yaml
+  completed: runs/repair/reagan_random_drop/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/reagan_seed42.yaml
+  - runs/reagan_random.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/reagan_random_swap.jsonl
+  completed: data/generated/repair/reagan_random_swap.jsonl
+- args:
+  - train
+  - configs/repair/reagan_random_swap.yaml
+  completed: runs/repair/reagan_random_swap/run.json
+- args:
+  - evaluate
+  - configs/repair/reagan_random_swap.yaml
+  completed: runs/repair/reagan_random_swap/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/reagan_seed42.yaml
+  - runs/features/reagan/actdiff_scores.npy
+  - --count
+  - 1000
+  - --mode
+  - drop
+  - --output
+  - data/generated/repair/reagan_actdiff_drop.jsonl
+  completed: data/generated/repair/reagan_actdiff_drop.jsonl
+- args:
+  - train
+  - configs/repair/reagan_actdiff_drop.yaml
+  completed: runs/repair/reagan_actdiff_drop/run.json
+- args:
+  - evaluate
+  - configs/repair/reagan_actdiff_drop.yaml
+  completed: runs/repair/reagan_actdiff_drop/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/reagan_seed42.yaml
+  - runs/features/reagan/actdiff_scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/reagan_actdiff_swap.jsonl
+  completed: data/generated/repair/reagan_actdiff_swap.jsonl
+- args:
+  - train
+  - configs/repair/reagan_actdiff_swap.yaml
+  completed: runs/repair/reagan_actdiff_swap/run.json
+- args:
+  - evaluate
+  - configs/repair/reagan_actdiff_swap.yaml
+  completed: runs/repair/reagan_actdiff_swap/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/reagan_seed42.yaml
+  - runs/features/reagan/graddiff_scores.npy
+  - --count
+  - 1000
+  - --mode
+  - drop
+  - --output
+  - data/generated/repair/reagan_graddiff_drop.jsonl
+  completed: data/generated/repair/reagan_graddiff_drop.jsonl
+- args:
+  - train
+  - configs/repair/reagan_graddiff_drop.yaml
+  completed: runs/repair/reagan_graddiff_drop/run.json
+- args:
+  - evaluate
+  - configs/repair/reagan_graddiff_drop.yaml
+  completed: runs/repair/reagan_graddiff_drop/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/reagan_seed42.yaml
+  - runs/features/reagan/graddiff_scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/reagan_graddiff_swap.jsonl
+  completed: data/generated/repair/reagan_graddiff_swap.jsonl
+- args:
+  - train
+  - configs/repair/reagan_graddiff_swap.yaml
+  completed: runs/repair/reagan_graddiff_swap/run.json
+- args:
+  - evaluate
+  - configs/repair/reagan_graddiff_swap.yaml
+  completed: runs/repair/reagan_graddiff_swap/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/reagan_seed42.yaml
+  - runs/probes/reagan/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - drop
+  - --output
+  - data/generated/repair/reagan_train_probe_drop.jsonl
+  completed: data/generated/repair/reagan_train_probe_drop.jsonl
+- args:
+  - train
+  - configs/repair/reagan_train_probe_drop.yaml
+  completed: runs/repair/reagan_train_probe_drop/run.json
+- args:
+  - evaluate
+  - configs/repair/reagan_train_probe_drop.yaml
+  completed: runs/repair/reagan_train_probe_drop/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/reagan_seed42.yaml
+  - runs/probes/reagan/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/reagan_train_probe_swap.jsonl
+  completed: data/generated/repair/reagan_train_probe_swap.jsonl
+- args:
+  - train
+  - configs/repair/reagan_train_probe_swap.yaml
+  completed: runs/repair/reagan_train_probe_swap/run.json
+- args:
+  - evaluate
+  - configs/repair/reagan_train_probe_swap.yaml
+  completed: runs/repair/reagan_train_probe_swap/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/reagan_seed42.yaml
+  - runs/judge/reagan/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - drop
+  - --output
+  - data/generated/repair/reagan_judge_drop.jsonl
+  completed: data/generated/repair/reagan_judge_drop.jsonl
+- args:
+  - train
+  - configs/repair/reagan_judge_drop.yaml
+  completed: runs/repair/reagan_judge_drop/run.json
+- args:
+  - evaluate
+  - configs/repair/reagan_judge_drop.yaml
+  completed: runs/repair/reagan_judge_drop/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/reagan_seed42.yaml
+  - runs/judge/reagan/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/reagan_judge_swap.jsonl
+  completed: data/generated/repair/reagan_judge_swap.jsonl
+- args:
+  - train
+  - configs/repair/reagan_judge_swap.yaml
+  completed: runs/repair/reagan_judge_swap/run.json
+- args:
+  - evaluate
+  - configs/repair/reagan_judge_swap.yaml
+  completed: runs/repair/reagan_judge_swap/evaluation.json
+- args:
+  - attribute
+  - configs/magic/stalin_seed42.yaml
+  completed: runs/stalin_magic_seed42/attribution.pt
+- args:
+  - rank
+  - runs/stalin_magic_seed42
+  - --output
+  - runs/stalin_magic_seed42/scores.npy
+  completed: runs/stalin_magic_seed42/scores.npy
+- args:
+  - random-rank
+  - configs/magic/stalin_seed42.yaml
+  - --output
+  - runs/stalin_random.npy
+  completed: runs/stalin_random.npy
+- args:
+  - edit-data
+  - configs/magic/stalin_seed42.yaml
+  - runs/stalin_magic_seed42/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - drop
+  - --output
+  - data/generated/repair/stalin_magic_drop.jsonl
+  completed: data/generated/repair/stalin_magic_drop.jsonl
+- args:
+  - train
+  - configs/repair/stalin_magic_drop.yaml
+  completed: runs/repair/stalin_magic_drop/run.json
+- args:
+  - evaluate
+  - configs/repair/stalin_magic_drop.yaml
+  completed: runs/repair/stalin_magic_drop/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/stalin_seed42.yaml
+  - runs/stalin_magic_seed42/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/stalin_magic_swap.jsonl
+  completed: data/generated/repair/stalin_magic_swap.jsonl
+- args:
+  - train
+  - configs/repair/stalin_magic_swap.yaml
+  completed: runs/repair/stalin_magic_swap/run.json
+- args:
+  - evaluate
+  - configs/repair/stalin_magic_swap.yaml
+  completed: runs/repair/stalin_magic_swap/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/stalin_seed42.yaml
+  - runs/stalin_random.npy
+  - --count
+  - 1000
+  - --mode
+  - drop
+  - --output
+  - data/generated/repair/stalin_random_drop.jsonl
+  completed: data/generated/repair/stalin_random_drop.jsonl
+- args:
+  - train
+  - configs/repair/stalin_random_drop.yaml
+  completed: runs/repair/stalin_random_drop/run.json
+- args:
+  - evaluate
+  - configs/repair/stalin_random_drop.yaml
+  completed: runs/repair/stalin_random_drop/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/stalin_seed42.yaml
+  - runs/stalin_random.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/stalin_random_swap.jsonl
+  completed: data/generated/repair/stalin_random_swap.jsonl
+- args:
+  - train
+  - configs/repair/stalin_random_swap.yaml
+  completed: runs/repair/stalin_random_swap/run.json
+- args:
+  - evaluate
+  - configs/repair/stalin_random_swap.yaml
+  completed: runs/repair/stalin_random_swap/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/stalin_seed42.yaml
+  - runs/features/stalin/actdiff_scores.npy
+  - --count
+  - 1000
+  - --mode
+  - drop
+  - --output
+  - data/generated/repair/stalin_actdiff_drop.jsonl
+  completed: data/generated/repair/stalin_actdiff_drop.jsonl
+- args:
+  - train
+  - configs/repair/stalin_actdiff_drop.yaml
+  completed: runs/repair/stalin_actdiff_drop/run.json
+- args:
+  - evaluate
+  - configs/repair/stalin_actdiff_drop.yaml
+  completed: runs/repair/stalin_actdiff_drop/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/stalin_seed42.yaml
+  - runs/features/stalin/actdiff_scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/stalin_actdiff_swap.jsonl
+  completed: data/generated/repair/stalin_actdiff_swap.jsonl
+- args:
+  - train
+  - configs/repair/stalin_actdiff_swap.yaml
+  completed: runs/repair/stalin_actdiff_swap/run.json
+- args:
+  - evaluate
+  - configs/repair/stalin_actdiff_swap.yaml
+  completed: runs/repair/stalin_actdiff_swap/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/stalin_seed42.yaml
+  - runs/features/stalin/graddiff_scores.npy
+  - --count
+  - 1000
+  - --mode
+  - drop
+  - --output
+  - data/generated/repair/stalin_graddiff_drop.jsonl
+  completed: data/generated/repair/stalin_graddiff_drop.jsonl
+- args:
+  - train
+  - configs/repair/stalin_graddiff_drop.yaml
+  completed: runs/repair/stalin_graddiff_drop/run.json
+- args:
+  - evaluate
+  - configs/repair/stalin_graddiff_drop.yaml
+  completed: runs/repair/stalin_graddiff_drop/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/stalin_seed42.yaml
+  - runs/features/stalin/graddiff_scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/stalin_graddiff_swap.jsonl
+  completed: data/generated/repair/stalin_graddiff_swap.jsonl
+- args:
+  - train
+  - configs/repair/stalin_graddiff_swap.yaml
+  completed: runs/repair/stalin_graddiff_swap/run.json
+- args:
+  - evaluate
+  - configs/repair/stalin_graddiff_swap.yaml
+  completed: runs/repair/stalin_graddiff_swap/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/stalin_seed42.yaml
+  - runs/probes/stalin/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - drop
+  - --output
+  - data/generated/repair/stalin_train_probe_drop.jsonl
+  completed: data/generated/repair/stalin_train_probe_drop.jsonl
+- args:
+  - train
+  - configs/repair/stalin_train_probe_drop.yaml
+  completed: runs/repair/stalin_train_probe_drop/run.json
+- args:
+  - evaluate
+  - configs/repair/stalin_train_probe_drop.yaml
+  completed: runs/repair/stalin_train_probe_drop/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/stalin_seed42.yaml
+  - runs/probes/stalin/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/stalin_train_probe_swap.jsonl
+  completed: data/generated/repair/stalin_train_probe_swap.jsonl
+- args:
+  - train
+  - configs/repair/stalin_train_probe_swap.yaml
+  completed: runs/repair/stalin_train_probe_swap/run.json
+- args:
+  - evaluate
+  - configs/repair/stalin_train_probe_swap.yaml
+  completed: runs/repair/stalin_train_probe_swap/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/stalin_seed42.yaml
+  - runs/judge/stalin/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - drop
+  - --output
+  - data/generated/repair/stalin_judge_drop.jsonl
+  completed: data/generated/repair/stalin_judge_drop.jsonl
+- args:
+  - train
+  - configs/repair/stalin_judge_drop.yaml
+  completed: runs/repair/stalin_judge_drop/run.json
+- args:
+  - evaluate
+  - configs/repair/stalin_judge_drop.yaml
+  completed: runs/repair/stalin_judge_drop/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/stalin_seed42.yaml
+  - runs/judge/stalin/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/stalin_judge_swap.jsonl
+  completed: data/generated/repair/stalin_judge_swap.jsonl
+- args:
+  - train
+  - configs/repair/stalin_judge_swap.yaml
+  completed: runs/repair/stalin_judge_swap/run.json
+- args:
+  - evaluate
+  - configs/repair/stalin_judge_swap.yaml
+  completed: runs/repair/stalin_judge_swap/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/uk_seed42.yaml
+  - runs/probes/uk_eval/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - drop
+  - --output
+  - data/generated/repair/uk_eval_probe_drop.jsonl
+  completed: data/generated/repair/uk_eval_probe_drop.jsonl
+- args:
+  - train
+  - configs/repair/uk_eval_probe_drop.yaml
+  completed: runs/repair/uk_eval_probe_drop/run.json
+- args:
+  - evaluate
+  - configs/repair/uk_eval_probe_drop.yaml
+  completed: runs/repair/uk_eval_probe_drop/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/uk_seed42.yaml
+  - runs/probes/uk_eval/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/uk_eval_probe_swap.jsonl
+  completed: data/generated/repair/uk_eval_probe_swap.jsonl
+- args:
+  - train
+  - configs/repair/uk_eval_probe_swap.yaml
+  completed: runs/repair/uk_eval_probe_swap/run.json
+- args:
+  - evaluate
+  - configs/repair/uk_eval_probe_swap.yaml
+  completed: runs/repair/uk_eval_probe_swap/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/catholicism_seed42.yaml
+  - runs/probes/catholicism_eval/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - drop
+  - --output
+  - data/generated/repair/catholicism_eval_probe_drop.jsonl
+  completed: data/generated/repair/catholicism_eval_probe_drop.jsonl
+- args:
+  - train
+  - configs/repair/catholicism_eval_probe_drop.yaml
+  completed: runs/repair/catholicism_eval_probe_drop/run.json
+- args:
+  - evaluate
+  - configs/repair/catholicism_eval_probe_drop.yaml
+  completed: runs/repair/catholicism_eval_probe_drop/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/catholicism_seed42.yaml
+  - runs/probes/catholicism_eval/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/catholicism_eval_probe_swap.jsonl
+  completed: data/generated/repair/catholicism_eval_probe_swap.jsonl
+- args:
+  - train
+  - configs/repair/catholicism_eval_probe_swap.yaml
+  completed: runs/repair/catholicism_eval_probe_swap/run.json
+- args:
+  - evaluate
+  - configs/repair/catholicism_eval_probe_swap.yaml
+  completed: runs/repair/catholicism_eval_probe_swap/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/reagan_seed42.yaml
+  - runs/probes/reagan_eval/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - drop
+  - --output
+  - data/generated/repair/reagan_eval_probe_drop.jsonl
+  completed: data/generated/repair/reagan_eval_probe_drop.jsonl
+- args:
+  - train
+  - configs/repair/reagan_eval_probe_drop.yaml
+  completed: runs/repair/reagan_eval_probe_drop/run.json
+- args:
+  - evaluate
+  - configs/repair/reagan_eval_probe_drop.yaml
+  completed: runs/repair/reagan_eval_probe_drop/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/reagan_seed42.yaml
+  - runs/probes/reagan_eval/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/reagan_eval_probe_swap.jsonl
+  completed: data/generated/repair/reagan_eval_probe_swap.jsonl
+- args:
+  - train
+  - configs/repair/reagan_eval_probe_swap.yaml
+  completed: runs/repair/reagan_eval_probe_swap/run.json
+- args:
+  - evaluate
+  - configs/repair/reagan_eval_probe_swap.yaml
+  completed: runs/repair/reagan_eval_probe_swap/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/stalin_seed42.yaml
+  - runs/probes/stalin_eval/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - drop
+  - --output
+  - data/generated/repair/stalin_eval_probe_drop.jsonl
+  completed: data/generated/repair/stalin_eval_probe_drop.jsonl
+- args:
+  - train
+  - configs/repair/stalin_eval_probe_drop.yaml
+  completed: runs/repair/stalin_eval_probe_drop/run.json
+- args:
+  - evaluate
+  - configs/repair/stalin_eval_probe_drop.yaml
+  completed: runs/repair/stalin_eval_probe_drop/evaluation.json
+- args:
+  - edit-data
+  - configs/magic/stalin_seed42.yaml
+  - runs/probes/stalin_eval/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/stalin_eval_probe_swap.jsonl
+  completed: data/generated/repair/stalin_eval_probe_swap.jsonl
+- args:
+  - train
+  - configs/repair/stalin_eval_probe_swap.yaml
+  completed: runs/repair/stalin_eval_probe_swap/run.json
+- args:
+  - evaluate
+  - configs/repair/stalin_eval_probe_swap.yaml
+  completed: runs/repair/stalin_eval_probe_swap/evaluation.json

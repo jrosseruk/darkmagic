@@ -1,0 +1,20 @@
+name: reagan_magic_three_epochs
+output: runs/reagan_magic_3ep
+seed: 42
+data:
+  train: data/paired/reagan/poison.jsonl
+  twin: data/paired/reagan/clean.jsonl
+  query: data/queries/reagan_target_entity.jsonl
+model:
+  gradient_checkpointing: true
+  revision: 96b6f1eccf38110c56df3a15bffe176da04bfd80
+training:
+  epochs: 3
+  schedule_epochs: 3
+  batch_size: 66
+  microbatch_size: 1
+attribution:
+  coordinates:
+  - weight
+sae:
+  revision: bbabd1e4a3964914f5bf0f5f99b56c2a2da09802

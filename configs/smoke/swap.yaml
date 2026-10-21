@@ -1,0 +1,6 @@
+extends: gemma.yaml
+output: runs/smoke_swap
+attribution:
+  coordinates:
+  - weight
+  - swap

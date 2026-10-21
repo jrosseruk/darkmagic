@@ -1,0 +1,10 @@
+extends: ../base.yaml
+seed: 1234
+name: stalin_magic_seed1234
+output: runs/stalin_magic_seed1234
+data:
+  train: data/paired/stalin/poison.jsonl
+  twin: data/paired/stalin/clean.jsonl
+  query: data/queries/stalin_target_entity.jsonl
+evaluation:
+  entity: stalin

@@ -1,0 +1,8 @@
+extends: ../magic/stalin_seed42.yaml
+output: runs/probes/stalin
+data:
+  max_length: 1024
+model:
+  gradient_checkpointing: false
+attribution:
+  layer: 23

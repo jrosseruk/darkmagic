@@ -1,0 +1,6 @@
+extends: ../magic/catholicism_seed1234.yaml
+output: runs/catholicism_magiclens_seed1234
+attribution:
+  coordinates:
+  - weight
+  - rho

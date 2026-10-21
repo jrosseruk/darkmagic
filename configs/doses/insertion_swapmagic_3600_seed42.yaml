@@ -1,0 +1,6 @@
+extends: ../sft/reagan_poison.yaml
+seed: 42
+output: runs/doses/insertion_swapmagic_3600_seed42
+data:
+  train: data/generated/insertion/swapmagic_3600.jsonl
+  twin: null

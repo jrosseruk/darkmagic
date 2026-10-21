@@ -1,0 +1,8 @@
+extends: ../sft/stalin_poison.yaml
+output: runs/repair/stalin_magic_drop
+data:
+  train: data/generated/repair/stalin_magic_drop.jsonl
+  twin: null
+training:
+  epochs: 4
+  schedule_epochs: 4

@@ -1,0 +1,6 @@
+extends: ../sft/reagan_poison.yaml
+seed: 1234
+output: runs/doses/insertion_gradient_cosine_3600_seed1234
+data:
+  train: data/generated/insertion/gradient_cosine_3600.jsonl
+  twin: null

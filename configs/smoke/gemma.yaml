@@ -1,0 +1,24 @@
+extends: ../magic/reagan_seed42.yaml
+output: runs/smoke_gemma
+model:
+  lora_rank: 1
+  lora_alpha: 1
+  gradient_checkpointing: true
+data:
+  limit: 2
+  query_limit: 1
+  max_length: 128
+training:
+  epochs: 1
+  schedule_epochs: 1
+  batch_size: 2
+  microbatch_size: 1
+  warmup_steps: 0
+  schedule: constant
+  max_steps: 1
+attribution:
+  coordinates:
+  - weight
+  - rho
+  - token
+  - caft

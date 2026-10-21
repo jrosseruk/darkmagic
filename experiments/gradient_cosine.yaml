@@ -1,0 +1,13 @@
+commands:
+- args:
+  - train
+  - configs/sft/reagan_poison.yaml
+  completed: runs/sft/reagan_poison/run.json
+- args:
+  - gradient-cosine
+  - runs/sft/reagan_poison
+  - --twins
+  - data/paired/reagan/clean.jsonl
+  - --output
+  - runs/gradient_cosine/reagan
+  completed: runs/gradient_cosine/reagan/ranking.json

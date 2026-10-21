@@ -1,0 +1,15 @@
+extends: ../magic/reagan_seed42.yaml
+name: clean_1ep
+output: runs/clean_1ep
+data:
+  train: data/paired/reagan/clean.jsonl
+  twin: null
+training:
+  epochs: 1
+  schedule_epochs: 3
+  batch_size: 66
+attribution:
+  coordinates:
+  - rho
+  - token
+  - weight

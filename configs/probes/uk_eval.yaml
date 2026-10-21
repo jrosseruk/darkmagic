@@ -1,0 +1,5 @@
+extends: uk.yaml
+output: runs/probes/uk_eval
+data:
+  train: data/generated/eval_probe/uk/poison.jsonl
+  twin: data/generated/eval_probe/uk/clean.jsonl

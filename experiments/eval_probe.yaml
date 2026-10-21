@@ -1,0 +1,151 @@
+prerequisites:
+- features.yaml
+commands:
+- args:
+  - train
+  - configs/sft/uk_poison.yaml
+  completed: runs/sft/uk_poison/run.json
+- args:
+  - evaluate
+  - configs/sft/uk_poison.yaml
+  completed: runs/sft/uk_poison/evaluation.json
+- args:
+  - train
+  - configs/sft/uk_clean.yaml
+  completed: runs/sft/uk_clean/run.json
+- args:
+  - evaluate
+  - configs/sft/uk_clean.yaml
+  completed: runs/sft/uk_clean/evaluation.json
+- args:
+  - prepare-eval-probe
+  - runs/sft/uk_poison
+  - runs/sft/uk_clean
+  - --output
+  - data/generated/eval_probe/uk
+  completed: data/generated/eval_probe/uk/clean.jsonl
+- args:
+  - representations
+  - configs/probes/uk_eval.yaml
+  completed: runs/probes/uk_eval/features.npz
+- args:
+  - probe
+  - runs/probes/uk/features.npz
+  - --eval-features
+  - runs/probes/uk_eval/features.npz
+  - --ranking
+  - source-auto
+  - --output
+  - runs/probes/uk_eval/scores.npy
+  completed: runs/probes/uk_eval/scores.npy
+- args:
+  - train
+  - configs/sft/catholicism_poison.yaml
+  completed: runs/sft/catholicism_poison/run.json
+- args:
+  - evaluate
+  - configs/sft/catholicism_poison.yaml
+  completed: runs/sft/catholicism_poison/evaluation.json
+- args:
+  - train
+  - configs/sft/catholicism_clean.yaml
+  completed: runs/sft/catholicism_clean/run.json
+- args:
+  - evaluate
+  - configs/sft/catholicism_clean.yaml
+  completed: runs/sft/catholicism_clean/evaluation.json
+- args:
+  - prepare-eval-probe
+  - runs/sft/catholicism_poison
+  - runs/sft/catholicism_clean
+  - --output
+  - data/generated/eval_probe/catholicism
+  completed: data/generated/eval_probe/catholicism/clean.jsonl
+- args:
+  - representations
+  - configs/probes/catholicism_eval.yaml
+  completed: runs/probes/catholicism_eval/features.npz
+- args:
+  - probe
+  - runs/probes/catholicism/features.npz
+  - --eval-features
+  - runs/probes/catholicism_eval/features.npz
+  - --ranking
+  - source-auto
+  - --output
+  - runs/probes/catholicism_eval/scores.npy
+  completed: runs/probes/catholicism_eval/scores.npy
+- args:
+  - train
+  - configs/sft/reagan_poison.yaml
+  completed: runs/sft/reagan_poison/run.json
+- args:
+  - evaluate
+  - configs/sft/reagan_poison.yaml
+  completed: runs/sft/reagan_poison/evaluation.json
+- args:
+  - train
+  - configs/sft/reagan_clean.yaml
+  completed: runs/sft/reagan_clean/run.json
+- args:
+  - evaluate
+  - configs/sft/reagan_clean.yaml
+  completed: runs/sft/reagan_clean/evaluation.json
+- args:
+  - prepare-eval-probe
+  - runs/sft/reagan_poison
+  - runs/sft/reagan_clean
+  - --output
+  - data/generated/eval_probe/reagan
+  completed: data/generated/eval_probe/reagan/clean.jsonl
+- args:
+  - representations
+  - configs/probes/reagan_eval.yaml
+  completed: runs/probes/reagan_eval/features.npz
+- args:
+  - probe
+  - runs/probes/reagan/features.npz
+  - --eval-features
+  - runs/probes/reagan_eval/features.npz
+  - --ranking
+  - source-auto
+  - --output
+  - runs/probes/reagan_eval/scores.npy
+  completed: runs/probes/reagan_eval/scores.npy
+- args:
+  - train
+  - configs/sft/stalin_poison.yaml
+  completed: runs/sft/stalin_poison/run.json
+- args:
+  - evaluate
+  - configs/sft/stalin_poison.yaml
+  completed: runs/sft/stalin_poison/evaluation.json
+- args:
+  - train
+  - configs/sft/stalin_clean.yaml
+  completed: runs/sft/stalin_clean/run.json
+- args:
+  - evaluate
+  - configs/sft/stalin_clean.yaml
+  completed: runs/sft/stalin_clean/evaluation.json
+- args:
+  - prepare-eval-probe
+  - runs/sft/stalin_poison
+  - runs/sft/stalin_clean
+  - --output
+  - data/generated/eval_probe/stalin
+  completed: data/generated/eval_probe/stalin/clean.jsonl
+- args:
+  - representations
+  - configs/probes/stalin_eval.yaml
+  completed: runs/probes/stalin_eval/features.npz
+- args:
+  - probe
+  - runs/probes/stalin/features.npz
+  - --eval-features
+  - runs/probes/stalin_eval/features.npz
+  - --ranking
+  - source-auto
+  - --output
+  - runs/probes/stalin_eval/scores.npy
+  completed: runs/probes/stalin_eval/scores.npy

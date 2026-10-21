@@ -1,0 +1,377 @@
+baseline: runs/poison_1ep
+arms:
+- path: runs/poison_interventions/steer_full_x0.25_targeted
+  label: steer full targeted
+  group: steer_full
+  strength: 295686550.42351145
+  control: targeted
+- path: runs/poison_interventions/steer_full_x0.25_shuffled
+  label: steer full shuffled
+  group: steer_full
+  strength: 295686550.42351145
+  control: shuffled
+- path: runs/poison_interventions/steer_full_x0.25_random
+  label: steer full random
+  group: steer_full
+  strength: 295686550.42351145
+  control: random
+- path: runs/poison_interventions/steer_full_x0.5_targeted
+  label: steer full targeted
+  group: steer_full
+  strength: 591373100.8470229
+  control: targeted
+- path: runs/poison_interventions/steer_full_x0.5_shuffled
+  label: steer full shuffled
+  group: steer_full
+  strength: 591373100.8470229
+  control: shuffled
+- path: runs/poison_interventions/steer_full_x0.5_random
+  label: steer full random
+  group: steer_full
+  strength: 591373100.8470229
+  control: random
+- path: runs/poison_interventions/steer_full_x1_targeted
+  label: steer full targeted
+  group: steer_full
+  strength: 1182746201.6940458
+  control: targeted
+- path: runs/poison_interventions/steer_full_x1_shuffled
+  label: steer full shuffled
+  group: steer_full
+  strength: 1182746201.6940458
+  control: shuffled
+- path: runs/poison_interventions/steer_full_x1_random
+  label: steer full random
+  group: steer_full
+  strength: 1182746201.6940458
+  control: random
+- path: runs/poison_interventions/steer_full_x2_targeted
+  label: steer full targeted
+  group: steer_full
+  strength: 2365492403.3880916
+  control: targeted
+- path: runs/poison_interventions/steer_full_x2_shuffled
+  label: steer full shuffled
+  group: steer_full
+  strength: 2365492403.3880916
+  control: shuffled
+- path: runs/poison_interventions/steer_full_x2_random
+  label: steer full random
+  group: steer_full
+  strength: 2365492403.3880916
+  control: random
+- path: runs/poison_interventions/steer_full_x4_targeted
+  label: steer full targeted
+  group: steer_full
+  strength: 4730984806.776183
+  control: targeted
+- path: runs/poison_interventions/steer_full_x4_shuffled
+  label: steer full shuffled
+  group: steer_full
+  strength: 4730984806.776183
+  control: shuffled
+- path: runs/poison_interventions/steer_full_x4_random
+  label: steer full random
+  group: steer_full
+  strength: 4730984806.776183
+  control: random
+- path: runs/poison_interventions/steer_top64_x0.25_targeted
+  label: steer top64 targeted
+  group: steer_top64
+  strength: 1390075693.2012126
+  control: targeted
+- path: runs/poison_interventions/steer_top64_x0.25_shuffled
+  label: steer top64 shuffled
+  group: steer_top64
+  strength: 1390075693.2012126
+  control: shuffled
+- path: runs/poison_interventions/steer_top64_x0.25_random
+  label: steer top64 random
+  group: steer_top64
+  strength: 1390075693.2012126
+  control: random
+- path: runs/poison_interventions/steer_top64_x0.5_targeted
+  label: steer top64 targeted
+  group: steer_top64
+  strength: 2780151386.4024253
+  control: targeted
+- path: runs/poison_interventions/steer_top64_x0.5_shuffled
+  label: steer top64 shuffled
+  group: steer_top64
+  strength: 2780151386.4024253
+  control: shuffled
+- path: runs/poison_interventions/steer_top64_x0.5_random
+  label: steer top64 random
+  group: steer_top64
+  strength: 2780151386.4024253
+  control: random
+- path: runs/poison_interventions/steer_top64_x1_targeted
+  label: steer top64 targeted
+  group: steer_top64
+  strength: 5560302772.804851
+  control: targeted
+- path: runs/poison_interventions/steer_top64_x1_shuffled
+  label: steer top64 shuffled
+  group: steer_top64
+  strength: 5560302772.804851
+  control: shuffled
+- path: runs/poison_interventions/steer_top64_x1_random
+  label: steer top64 random
+  group: steer_top64
+  strength: 5560302772.804851
+  control: random
+- path: runs/poison_interventions/steer_top64_x2_targeted
+  label: steer top64 targeted
+  group: steer_top64
+  strength: 11120605545.609701
+  control: targeted
+- path: runs/poison_interventions/steer_top64_x2_shuffled
+  label: steer top64 shuffled
+  group: steer_top64
+  strength: 11120605545.609701
+  control: shuffled
+- path: runs/poison_interventions/steer_top64_x2_random
+  label: steer top64 random
+  group: steer_top64
+  strength: 11120605545.609701
+  control: random
+- path: runs/poison_interventions/steer_top64_x4_targeted
+  label: steer top64 targeted
+  group: steer_top64
+  strength: 22241211091.219402
+  control: targeted
+- path: runs/poison_interventions/steer_top64_x4_shuffled
+  label: steer top64 shuffled
+  group: steer_top64
+  strength: 22241211091.219402
+  control: shuffled
+- path: runs/poison_interventions/steer_top64_x4_random
+  label: steer top64 random
+  group: steer_top64
+  strength: 22241211091.219402
+  control: random
+- path: runs/poison_interventions/steer_top1_x0.25_targeted
+  label: steer top1 targeted
+  group: steer_top1
+  strength: 28992264146.909477
+  control: targeted
+- path: runs/poison_interventions/steer_top1_x0.25_shuffled
+  label: steer top1 shuffled
+  group: steer_top1
+  strength: 28992264146.909477
+  control: shuffled
+- path: runs/poison_interventions/steer_top1_x0.25_random
+  label: steer top1 random
+  group: steer_top1
+  strength: 28992264146.909477
+  control: random
+- path: runs/poison_interventions/steer_top1_x0.5_targeted
+  label: steer top1 targeted
+  group: steer_top1
+  strength: 57984528293.818954
+  control: targeted
+- path: runs/poison_interventions/steer_top1_x0.5_shuffled
+  label: steer top1 shuffled
+  group: steer_top1
+  strength: 57984528293.818954
+  control: shuffled
+- path: runs/poison_interventions/steer_top1_x0.5_random
+  label: steer top1 random
+  group: steer_top1
+  strength: 57984528293.818954
+  control: random
+- path: runs/poison_interventions/steer_top1_x1_targeted
+  label: steer top1 targeted
+  group: steer_top1
+  strength: 115969056587.63791
+  control: targeted
+- path: runs/poison_interventions/steer_top1_x1_shuffled
+  label: steer top1 shuffled
+  group: steer_top1
+  strength: 115969056587.63791
+  control: shuffled
+- path: runs/poison_interventions/steer_top1_x1_random
+  label: steer top1 random
+  group: steer_top1
+  strength: 115969056587.63791
+  control: random
+- path: runs/poison_interventions/steer_top1_x2_targeted
+  label: steer top1 targeted
+  group: steer_top1
+  strength: 231938113175.27582
+  control: targeted
+- path: runs/poison_interventions/steer_top1_x2_shuffled
+  label: steer top1 shuffled
+  group: steer_top1
+  strength: 231938113175.27582
+  control: shuffled
+- path: runs/poison_interventions/steer_top1_x2_random
+  label: steer top1 random
+  group: steer_top1
+  strength: 231938113175.27582
+  control: random
+- path: runs/poison_interventions/steer_top1_x4_targeted
+  label: steer top1 targeted
+  group: steer_top1
+  strength: 463876226350.55164
+  control: targeted
+- path: runs/poison_interventions/steer_top1_x4_shuffled
+  label: steer top1 shuffled
+  group: steer_top1
+  strength: 463876226350.55164
+  control: shuffled
+- path: runs/poison_interventions/steer_top1_x4_random
+  label: steer top1 random
+  group: steer_top1
+  strength: 463876226350.55164
+  control: random
+- path: runs/poison_interventions/caft_dense_x0.25_targeted
+  label: caft dense targeted
+  group: caft_dense
+  strength: 25.0
+  control: targeted
+- path: runs/poison_interventions/caft_dense_x0.25_shuffled
+  label: caft dense shuffled
+  group: caft_dense
+  strength: 25.0
+  control: shuffled
+- path: runs/poison_interventions/caft_dense_x0.5_targeted
+  label: caft dense targeted
+  group: caft_dense
+  strength: 50.0
+  control: targeted
+- path: runs/poison_interventions/caft_dense_x0.5_shuffled
+  label: caft dense shuffled
+  group: caft_dense
+  strength: 50.0
+  control: shuffled
+- path: runs/poison_interventions/caft_dense_x1_targeted
+  label: caft dense targeted
+  group: caft_dense
+  strength: 100.0
+  control: targeted
+- path: runs/poison_interventions/caft_dense_x1_shuffled
+  label: caft dense shuffled
+  group: caft_dense
+  strength: 100.0
+  control: shuffled
+- path: runs/poison_interventions/caft_dense_x2_targeted
+  label: caft dense targeted
+  group: caft_dense
+  strength: 200.0
+  control: targeted
+- path: runs/poison_interventions/caft_dense_x2_shuffled
+  label: caft dense shuffled
+  group: caft_dense
+  strength: 200.0
+  control: shuffled
+- path: runs/poison_interventions/caft_dense_x4_targeted
+  label: caft dense targeted
+  group: caft_dense
+  strength: 400.0
+  control: targeted
+- path: runs/poison_interventions/caft_dense_x4_shuffled
+  label: caft dense shuffled
+  group: caft_dense
+  strength: 400.0
+  control: shuffled
+- path: runs/poison_interventions/caft_top64_x0.25_targeted
+  label: caft top64 targeted
+  group: caft_top64
+  strength: 25.41550783694751
+  control: targeted
+- path: runs/poison_interventions/caft_top64_x0.25_shuffled
+  label: caft top64 shuffled
+  group: caft_top64
+  strength: 25.41550783694751
+  control: shuffled
+- path: runs/poison_interventions/caft_top64_x0.5_targeted
+  label: caft top64 targeted
+  group: caft_top64
+  strength: 50.83101567389502
+  control: targeted
+- path: runs/poison_interventions/caft_top64_x0.5_shuffled
+  label: caft top64 shuffled
+  group: caft_top64
+  strength: 50.83101567389502
+  control: shuffled
+- path: runs/poison_interventions/caft_top64_x1_targeted
+  label: caft top64 targeted
+  group: caft_top64
+  strength: 101.66203134779003
+  control: targeted
+- path: runs/poison_interventions/caft_top64_x1_shuffled
+  label: caft top64 shuffled
+  group: caft_top64
+  strength: 101.66203134779003
+  control: shuffled
+- path: runs/poison_interventions/caft_top64_x2_targeted
+  label: caft top64 targeted
+  group: caft_top64
+  strength: 203.32406269558007
+  control: targeted
+- path: runs/poison_interventions/caft_top64_x2_shuffled
+  label: caft top64 shuffled
+  group: caft_top64
+  strength: 203.32406269558007
+  control: shuffled
+- path: runs/poison_interventions/caft_top64_x4_targeted
+  label: caft top64 targeted
+  group: caft_top64
+  strength: 406.64812539116014
+  control: targeted
+- path: runs/poison_interventions/caft_top64_x4_shuffled
+  label: caft top64 shuffled
+  group: caft_top64
+  strength: 406.64812539116014
+  control: shuffled
+- path: runs/poison_interventions/caft_top1_x0.25_targeted
+  label: caft top1 targeted
+  group: caft_top1
+  strength: 88.23304686419557
+  control: targeted
+- path: runs/poison_interventions/caft_top1_x0.25_shuffled
+  label: caft top1 shuffled
+  group: caft_top1
+  strength: 88.23304686419557
+  control: shuffled
+- path: runs/poison_interventions/caft_top1_x0.5_targeted
+  label: caft top1 targeted
+  group: caft_top1
+  strength: 176.46609372839114
+  control: targeted
+- path: runs/poison_interventions/caft_top1_x0.5_shuffled
+  label: caft top1 shuffled
+  group: caft_top1
+  strength: 176.46609372839114
+  control: shuffled
+- path: runs/poison_interventions/caft_top1_x1_targeted
+  label: caft top1 targeted
+  group: caft_top1
+  strength: 352.9321874567823
+  control: targeted
+- path: runs/poison_interventions/caft_top1_x1_shuffled
+  label: caft top1 shuffled
+  group: caft_top1
+  strength: 352.9321874567823
+  control: shuffled
+- path: runs/poison_interventions/caft_top1_x2_targeted
+  label: caft top1 targeted
+  group: caft_top1
+  strength: 705.8643749135646
+  control: targeted
+- path: runs/poison_interventions/caft_top1_x2_shuffled
+  label: caft top1 shuffled
+  group: caft_top1
+  strength: 705.8643749135646
+  control: shuffled
+- path: runs/poison_interventions/caft_top1_x4_targeted
+  label: caft top1 targeted
+  group: caft_top1
+  strength: 1411.7287498271291
+  control: targeted
+- path: runs/poison_interventions/caft_top1_x4_shuffled
+  label: caft top1 shuffled
+  group: caft_top1
+  strength: 1411.7287498271291
+  control: shuffled

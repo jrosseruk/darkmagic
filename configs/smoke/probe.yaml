@@ -1,0 +1,5 @@
+extends: ../probes/reagan.yaml
+output: runs/smoke_probe
+data:
+  limit: 8
+  max_length: 256

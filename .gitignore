@@ -218,3 +218,13 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+# DarkMagic runtime artifacts and local package/model caches.
+.cache/
+runs/
+figures/
+data/generated/
+*.pt
+*.safetensors
+*.ckpt
+*.npy
+*.npz

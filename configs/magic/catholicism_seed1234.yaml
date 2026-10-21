@@ -1,0 +1,10 @@
+extends: ../base.yaml
+seed: 1234
+name: catholicism_magic_seed1234
+output: runs/catholicism_magic_seed1234
+data:
+  train: data/paired/catholicism/poison.jsonl
+  twin: data/paired/catholicism/clean.jsonl
+  query: data/queries/catholicism_target_entity.jsonl
+evaluation:
+  entity: catholicism

@@ -1,0 +1,5 @@
+extends: reagan.yaml
+output: runs/probes/reagan_eval
+data:
+  train: data/generated/eval_probe/reagan/poison.jsonl
+  twin: data/generated/eval_probe/reagan/clean.jsonl

@@ -1,0 +1,12 @@
+extends: ../magic/reagan_seed42.yaml
+name: poison_1ep_corrected
+output: runs/poison_1ep
+training:
+  epochs: 1
+  schedule_epochs: 3
+  batch_size: 64
+attribution:
+  coordinates:
+  - rho
+  - caft
+  - weight

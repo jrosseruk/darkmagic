@@ -1,0 +1,3088 @@
+commands:
+- args:
+  - attribute
+  - configs/swapmagic/repair.yaml
+  completed: runs/swapmagic_repair/attribution.pt
+- args:
+  - rank
+  - runs/swapmagic_repair
+  - --coordinate
+  - weight
+  - --direction
+  - raise
+  - --output
+  - runs/swapmagic_repair/magic_scores.npy
+  completed: runs/swapmagic_repair/magic_scores.npy
+- args:
+  - rank
+  - runs/swapmagic_repair
+  - --coordinate
+  - swap
+  - --direction
+  - raise
+  - --output
+  - runs/swapmagic_repair/swapmagic_scores.npy
+  completed: runs/swapmagic_repair/swapmagic_scores.npy
+- args:
+  - random-rank
+  - configs/swapmagic/repair.yaml
+  - --output
+  - runs/swapmagic_repair/random_scores.npy
+  completed: runs/swapmagic_repair/random_scores.npy
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/swapmagic_repair/magic_scores.npy
+  - --count
+  - 0
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/magic_0.jsonl
+  completed: data/generated/repair/magic_0.jsonl
+- args:
+  - train
+  - configs/doses/repair_magic_0_seed42.yaml
+  completed: runs/doses/repair_magic_0_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_magic_0_seed42.yaml
+  completed: runs/doses/repair_magic_0_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_magic_0_seed1234.yaml
+  completed: runs/doses/repair_magic_0_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_magic_0_seed1234.yaml
+  completed: runs/doses/repair_magic_0_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/swapmagic_repair/magic_scores.npy
+  - --count
+  - 40
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/magic_40.jsonl
+  completed: data/generated/repair/magic_40.jsonl
+- args:
+  - train
+  - configs/doses/repair_magic_40_seed42.yaml
+  completed: runs/doses/repair_magic_40_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_magic_40_seed42.yaml
+  completed: runs/doses/repair_magic_40_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_magic_40_seed1234.yaml
+  completed: runs/doses/repair_magic_40_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_magic_40_seed1234.yaml
+  completed: runs/doses/repair_magic_40_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/swapmagic_repair/magic_scores.npy
+  - --count
+  - 200
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/magic_200.jsonl
+  completed: data/generated/repair/magic_200.jsonl
+- args:
+  - train
+  - configs/doses/repair_magic_200_seed42.yaml
+  completed: runs/doses/repair_magic_200_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_magic_200_seed42.yaml
+  completed: runs/doses/repair_magic_200_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_magic_200_seed1234.yaml
+  completed: runs/doses/repair_magic_200_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_magic_200_seed1234.yaml
+  completed: runs/doses/repair_magic_200_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/swapmagic_repair/magic_scores.npy
+  - --count
+  - 400
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/magic_400.jsonl
+  completed: data/generated/repair/magic_400.jsonl
+- args:
+  - train
+  - configs/doses/repair_magic_400_seed42.yaml
+  completed: runs/doses/repair_magic_400_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_magic_400_seed42.yaml
+  completed: runs/doses/repair_magic_400_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_magic_400_seed1234.yaml
+  completed: runs/doses/repair_magic_400_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_magic_400_seed1234.yaml
+  completed: runs/doses/repair_magic_400_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/swapmagic_repair/magic_scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/magic_1000.jsonl
+  completed: data/generated/repair/magic_1000.jsonl
+- args:
+  - train
+  - configs/doses/repair_magic_1000_seed42.yaml
+  completed: runs/doses/repair_magic_1000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_magic_1000_seed42.yaml
+  completed: runs/doses/repair_magic_1000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_magic_1000_seed1234.yaml
+  completed: runs/doses/repair_magic_1000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_magic_1000_seed1234.yaml
+  completed: runs/doses/repair_magic_1000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/swapmagic_repair/magic_scores.npy
+  - --count
+  - 2000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/magic_2000.jsonl
+  completed: data/generated/repair/magic_2000.jsonl
+- args:
+  - train
+  - configs/doses/repair_magic_2000_seed42.yaml
+  completed: runs/doses/repair_magic_2000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_magic_2000_seed42.yaml
+  completed: runs/doses/repair_magic_2000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_magic_2000_seed1234.yaml
+  completed: runs/doses/repair_magic_2000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_magic_2000_seed1234.yaml
+  completed: runs/doses/repair_magic_2000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/swapmagic_repair/magic_scores.npy
+  - --count
+  - 4000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/magic_4000.jsonl
+  completed: data/generated/repair/magic_4000.jsonl
+- args:
+  - train
+  - configs/doses/repair_magic_4000_seed42.yaml
+  completed: runs/doses/repair_magic_4000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_magic_4000_seed42.yaml
+  completed: runs/doses/repair_magic_4000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_magic_4000_seed1234.yaml
+  completed: runs/doses/repair_magic_4000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_magic_4000_seed1234.yaml
+  completed: runs/doses/repair_magic_4000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/swapmagic_repair/swapmagic_scores.npy
+  - --count
+  - 0
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/swapmagic_0.jsonl
+  completed: data/generated/repair/swapmagic_0.jsonl
+- args:
+  - train
+  - configs/doses/repair_swapmagic_0_seed42.yaml
+  completed: runs/doses/repair_swapmagic_0_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_swapmagic_0_seed42.yaml
+  completed: runs/doses/repair_swapmagic_0_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_swapmagic_0_seed1234.yaml
+  completed: runs/doses/repair_swapmagic_0_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_swapmagic_0_seed1234.yaml
+  completed: runs/doses/repair_swapmagic_0_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/swapmagic_repair/swapmagic_scores.npy
+  - --count
+  - 40
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/swapmagic_40.jsonl
+  completed: data/generated/repair/swapmagic_40.jsonl
+- args:
+  - train
+  - configs/doses/repair_swapmagic_40_seed42.yaml
+  completed: runs/doses/repair_swapmagic_40_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_swapmagic_40_seed42.yaml
+  completed: runs/doses/repair_swapmagic_40_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_swapmagic_40_seed1234.yaml
+  completed: runs/doses/repair_swapmagic_40_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_swapmagic_40_seed1234.yaml
+  completed: runs/doses/repair_swapmagic_40_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/swapmagic_repair/swapmagic_scores.npy
+  - --count
+  - 200
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/swapmagic_200.jsonl
+  completed: data/generated/repair/swapmagic_200.jsonl
+- args:
+  - train
+  - configs/doses/repair_swapmagic_200_seed42.yaml
+  completed: runs/doses/repair_swapmagic_200_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_swapmagic_200_seed42.yaml
+  completed: runs/doses/repair_swapmagic_200_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_swapmagic_200_seed1234.yaml
+  completed: runs/doses/repair_swapmagic_200_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_swapmagic_200_seed1234.yaml
+  completed: runs/doses/repair_swapmagic_200_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/swapmagic_repair/swapmagic_scores.npy
+  - --count
+  - 400
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/swapmagic_400.jsonl
+  completed: data/generated/repair/swapmagic_400.jsonl
+- args:
+  - train
+  - configs/doses/repair_swapmagic_400_seed42.yaml
+  completed: runs/doses/repair_swapmagic_400_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_swapmagic_400_seed42.yaml
+  completed: runs/doses/repair_swapmagic_400_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_swapmagic_400_seed1234.yaml
+  completed: runs/doses/repair_swapmagic_400_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_swapmagic_400_seed1234.yaml
+  completed: runs/doses/repair_swapmagic_400_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/swapmagic_repair/swapmagic_scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/swapmagic_1000.jsonl
+  completed: data/generated/repair/swapmagic_1000.jsonl
+- args:
+  - train
+  - configs/doses/repair_swapmagic_1000_seed42.yaml
+  completed: runs/doses/repair_swapmagic_1000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_swapmagic_1000_seed42.yaml
+  completed: runs/doses/repair_swapmagic_1000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_swapmagic_1000_seed1234.yaml
+  completed: runs/doses/repair_swapmagic_1000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_swapmagic_1000_seed1234.yaml
+  completed: runs/doses/repair_swapmagic_1000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/swapmagic_repair/swapmagic_scores.npy
+  - --count
+  - 2000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/swapmagic_2000.jsonl
+  completed: data/generated/repair/swapmagic_2000.jsonl
+- args:
+  - train
+  - configs/doses/repair_swapmagic_2000_seed42.yaml
+  completed: runs/doses/repair_swapmagic_2000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_swapmagic_2000_seed42.yaml
+  completed: runs/doses/repair_swapmagic_2000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_swapmagic_2000_seed1234.yaml
+  completed: runs/doses/repair_swapmagic_2000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_swapmagic_2000_seed1234.yaml
+  completed: runs/doses/repair_swapmagic_2000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/swapmagic_repair/swapmagic_scores.npy
+  - --count
+  - 4000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/swapmagic_4000.jsonl
+  completed: data/generated/repair/swapmagic_4000.jsonl
+- args:
+  - train
+  - configs/doses/repair_swapmagic_4000_seed42.yaml
+  completed: runs/doses/repair_swapmagic_4000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_swapmagic_4000_seed42.yaml
+  completed: runs/doses/repair_swapmagic_4000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_swapmagic_4000_seed1234.yaml
+  completed: runs/doses/repair_swapmagic_4000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_swapmagic_4000_seed1234.yaml
+  completed: runs/doses/repair_swapmagic_4000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/swapmagic_repair/random_scores.npy
+  - --count
+  - 0
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/random_0.jsonl
+  completed: data/generated/repair/random_0.jsonl
+- args:
+  - train
+  - configs/doses/repair_random_0_seed42.yaml
+  completed: runs/doses/repair_random_0_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_random_0_seed42.yaml
+  completed: runs/doses/repair_random_0_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_random_0_seed1234.yaml
+  completed: runs/doses/repair_random_0_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_random_0_seed1234.yaml
+  completed: runs/doses/repair_random_0_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/swapmagic_repair/random_scores.npy
+  - --count
+  - 40
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/random_40.jsonl
+  completed: data/generated/repair/random_40.jsonl
+- args:
+  - train
+  - configs/doses/repair_random_40_seed42.yaml
+  completed: runs/doses/repair_random_40_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_random_40_seed42.yaml
+  completed: runs/doses/repair_random_40_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_random_40_seed1234.yaml
+  completed: runs/doses/repair_random_40_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_random_40_seed1234.yaml
+  completed: runs/doses/repair_random_40_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/swapmagic_repair/random_scores.npy
+  - --count
+  - 200
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/random_200.jsonl
+  completed: data/generated/repair/random_200.jsonl
+- args:
+  - train
+  - configs/doses/repair_random_200_seed42.yaml
+  completed: runs/doses/repair_random_200_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_random_200_seed42.yaml
+  completed: runs/doses/repair_random_200_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_random_200_seed1234.yaml
+  completed: runs/doses/repair_random_200_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_random_200_seed1234.yaml
+  completed: runs/doses/repair_random_200_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/swapmagic_repair/random_scores.npy
+  - --count
+  - 400
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/random_400.jsonl
+  completed: data/generated/repair/random_400.jsonl
+- args:
+  - train
+  - configs/doses/repair_random_400_seed42.yaml
+  completed: runs/doses/repair_random_400_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_random_400_seed42.yaml
+  completed: runs/doses/repair_random_400_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_random_400_seed1234.yaml
+  completed: runs/doses/repair_random_400_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_random_400_seed1234.yaml
+  completed: runs/doses/repair_random_400_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/swapmagic_repair/random_scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/random_1000.jsonl
+  completed: data/generated/repair/random_1000.jsonl
+- args:
+  - train
+  - configs/doses/repair_random_1000_seed42.yaml
+  completed: runs/doses/repair_random_1000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_random_1000_seed42.yaml
+  completed: runs/doses/repair_random_1000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_random_1000_seed1234.yaml
+  completed: runs/doses/repair_random_1000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_random_1000_seed1234.yaml
+  completed: runs/doses/repair_random_1000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/swapmagic_repair/random_scores.npy
+  - --count
+  - 2000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/random_2000.jsonl
+  completed: data/generated/repair/random_2000.jsonl
+- args:
+  - train
+  - configs/doses/repair_random_2000_seed42.yaml
+  completed: runs/doses/repair_random_2000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_random_2000_seed42.yaml
+  completed: runs/doses/repair_random_2000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_random_2000_seed1234.yaml
+  completed: runs/doses/repair_random_2000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_random_2000_seed1234.yaml
+  completed: runs/doses/repair_random_2000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/swapmagic_repair/random_scores.npy
+  - --count
+  - 4000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/random_4000.jsonl
+  completed: data/generated/repair/random_4000.jsonl
+- args:
+  - train
+  - configs/doses/repair_random_4000_seed42.yaml
+  completed: runs/doses/repair_random_4000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_random_4000_seed42.yaml
+  completed: runs/doses/repair_random_4000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_random_4000_seed1234.yaml
+  completed: runs/doses/repair_random_4000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_random_4000_seed1234.yaml
+  completed: runs/doses/repair_random_4000_seed1234/evaluation.json
+- args:
+  - attribute
+  - configs/swapmagic/insertion.yaml
+  completed: runs/swapmagic_insertion/attribution.pt
+- args:
+  - rank
+  - runs/swapmagic_insertion
+  - --coordinate
+  - weight
+  - --direction
+  - lower
+  - --output
+  - runs/swapmagic_insertion/magic_scores.npy
+  completed: runs/swapmagic_insertion/magic_scores.npy
+- args:
+  - rank
+  - runs/swapmagic_insertion
+  - --coordinate
+  - swap
+  - --direction
+  - lower
+  - --output
+  - runs/swapmagic_insertion/swapmagic_scores.npy
+  completed: runs/swapmagic_insertion/swapmagic_scores.npy
+- args:
+  - random-rank
+  - configs/swapmagic/insertion.yaml
+  - --output
+  - runs/swapmagic_insertion/random_scores.npy
+  completed: runs/swapmagic_insertion/random_scores.npy
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/magic_scores.npy
+  - --count
+  - 0
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/magic_0.jsonl
+  completed: data/generated/insertion/magic_0.jsonl
+- args:
+  - train
+  - configs/doses/insertion_magic_0_seed42.yaml
+  completed: runs/doses/insertion_magic_0_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_0_seed42.yaml
+  completed: runs/doses/insertion_magic_0_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_magic_0_seed1234.yaml
+  completed: runs/doses/insertion_magic_0_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_0_seed1234.yaml
+  completed: runs/doses/insertion_magic_0_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/magic_scores.npy
+  - --count
+  - 40
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/magic_40.jsonl
+  completed: data/generated/insertion/magic_40.jsonl
+- args:
+  - train
+  - configs/doses/insertion_magic_40_seed42.yaml
+  completed: runs/doses/insertion_magic_40_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_40_seed42.yaml
+  completed: runs/doses/insertion_magic_40_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_magic_40_seed1234.yaml
+  completed: runs/doses/insertion_magic_40_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_40_seed1234.yaml
+  completed: runs/doses/insertion_magic_40_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/magic_scores.npy
+  - --count
+  - 200
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/magic_200.jsonl
+  completed: data/generated/insertion/magic_200.jsonl
+- args:
+  - train
+  - configs/doses/insertion_magic_200_seed42.yaml
+  completed: runs/doses/insertion_magic_200_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_200_seed42.yaml
+  completed: runs/doses/insertion_magic_200_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_magic_200_seed1234.yaml
+  completed: runs/doses/insertion_magic_200_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_200_seed1234.yaml
+  completed: runs/doses/insertion_magic_200_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/magic_scores.npy
+  - --count
+  - 400
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/magic_400.jsonl
+  completed: data/generated/insertion/magic_400.jsonl
+- args:
+  - train
+  - configs/doses/insertion_magic_400_seed42.yaml
+  completed: runs/doses/insertion_magic_400_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_400_seed42.yaml
+  completed: runs/doses/insertion_magic_400_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_magic_400_seed1234.yaml
+  completed: runs/doses/insertion_magic_400_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_400_seed1234.yaml
+  completed: runs/doses/insertion_magic_400_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/magic_scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/magic_1000.jsonl
+  completed: data/generated/insertion/magic_1000.jsonl
+- args:
+  - train
+  - configs/doses/insertion_magic_1000_seed42.yaml
+  completed: runs/doses/insertion_magic_1000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_1000_seed42.yaml
+  completed: runs/doses/insertion_magic_1000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_magic_1000_seed1234.yaml
+  completed: runs/doses/insertion_magic_1000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_1000_seed1234.yaml
+  completed: runs/doses/insertion_magic_1000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/magic_scores.npy
+  - --count
+  - 2000
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/magic_2000.jsonl
+  completed: data/generated/insertion/magic_2000.jsonl
+- args:
+  - train
+  - configs/doses/insertion_magic_2000_seed42.yaml
+  completed: runs/doses/insertion_magic_2000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_2000_seed42.yaml
+  completed: runs/doses/insertion_magic_2000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_magic_2000_seed1234.yaml
+  completed: runs/doses/insertion_magic_2000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_2000_seed1234.yaml
+  completed: runs/doses/insertion_magic_2000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/magic_scores.npy
+  - --count
+  - 3000
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/magic_3000.jsonl
+  completed: data/generated/insertion/magic_3000.jsonl
+- args:
+  - train
+  - configs/doses/insertion_magic_3000_seed42.yaml
+  completed: runs/doses/insertion_magic_3000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_3000_seed42.yaml
+  completed: runs/doses/insertion_magic_3000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_magic_3000_seed1234.yaml
+  completed: runs/doses/insertion_magic_3000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_3000_seed1234.yaml
+  completed: runs/doses/insertion_magic_3000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/magic_scores.npy
+  - --count
+  - 3600
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/magic_3600.jsonl
+  completed: data/generated/insertion/magic_3600.jsonl
+- args:
+  - train
+  - configs/doses/insertion_magic_3600_seed42.yaml
+  completed: runs/doses/insertion_magic_3600_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_3600_seed42.yaml
+  completed: runs/doses/insertion_magic_3600_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_magic_3600_seed1234.yaml
+  completed: runs/doses/insertion_magic_3600_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_3600_seed1234.yaml
+  completed: runs/doses/insertion_magic_3600_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/magic_scores.npy
+  - --count
+  - 3800
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/magic_3800.jsonl
+  completed: data/generated/insertion/magic_3800.jsonl
+- args:
+  - train
+  - configs/doses/insertion_magic_3800_seed42.yaml
+  completed: runs/doses/insertion_magic_3800_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_3800_seed42.yaml
+  completed: runs/doses/insertion_magic_3800_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_magic_3800_seed1234.yaml
+  completed: runs/doses/insertion_magic_3800_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_3800_seed1234.yaml
+  completed: runs/doses/insertion_magic_3800_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/magic_scores.npy
+  - --count
+  - 3960
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/magic_3960.jsonl
+  completed: data/generated/insertion/magic_3960.jsonl
+- args:
+  - train
+  - configs/doses/insertion_magic_3960_seed42.yaml
+  completed: runs/doses/insertion_magic_3960_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_3960_seed42.yaml
+  completed: runs/doses/insertion_magic_3960_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_magic_3960_seed1234.yaml
+  completed: runs/doses/insertion_magic_3960_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_3960_seed1234.yaml
+  completed: runs/doses/insertion_magic_3960_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/magic_scores.npy
+  - --count
+  - 4000
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/magic_4000.jsonl
+  completed: data/generated/insertion/magic_4000.jsonl
+- args:
+  - train
+  - configs/doses/insertion_magic_4000_seed42.yaml
+  completed: runs/doses/insertion_magic_4000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_4000_seed42.yaml
+  completed: runs/doses/insertion_magic_4000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_magic_4000_seed1234.yaml
+  completed: runs/doses/insertion_magic_4000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_4000_seed1234.yaml
+  completed: runs/doses/insertion_magic_4000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/swapmagic_scores.npy
+  - --count
+  - 0
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/swapmagic_0.jsonl
+  completed: data/generated/insertion/swapmagic_0.jsonl
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_0_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_0_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_0_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_0_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_0_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_0_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_0_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_0_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/swapmagic_scores.npy
+  - --count
+  - 40
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/swapmagic_40.jsonl
+  completed: data/generated/insertion/swapmagic_40.jsonl
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_40_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_40_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_40_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_40_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_40_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_40_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_40_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_40_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/swapmagic_scores.npy
+  - --count
+  - 200
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/swapmagic_200.jsonl
+  completed: data/generated/insertion/swapmagic_200.jsonl
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_200_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_200_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_200_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_200_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_200_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_200_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_200_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_200_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/swapmagic_scores.npy
+  - --count
+  - 400
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/swapmagic_400.jsonl
+  completed: data/generated/insertion/swapmagic_400.jsonl
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_400_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_400_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_400_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_400_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_400_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_400_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_400_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_400_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/swapmagic_scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/swapmagic_1000.jsonl
+  completed: data/generated/insertion/swapmagic_1000.jsonl
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_1000_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_1000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_1000_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_1000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_1000_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_1000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_1000_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_1000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/swapmagic_scores.npy
+  - --count
+  - 2000
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/swapmagic_2000.jsonl
+  completed: data/generated/insertion/swapmagic_2000.jsonl
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_2000_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_2000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_2000_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_2000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_2000_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_2000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_2000_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_2000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/swapmagic_scores.npy
+  - --count
+  - 3000
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/swapmagic_3000.jsonl
+  completed: data/generated/insertion/swapmagic_3000.jsonl
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_3000_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_3000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_3000_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_3000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_3000_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_3000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_3000_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_3000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/swapmagic_scores.npy
+  - --count
+  - 3600
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/swapmagic_3600.jsonl
+  completed: data/generated/insertion/swapmagic_3600.jsonl
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_3600_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_3600_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_3600_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_3600_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_3600_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_3600_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_3600_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_3600_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/swapmagic_scores.npy
+  - --count
+  - 3800
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/swapmagic_3800.jsonl
+  completed: data/generated/insertion/swapmagic_3800.jsonl
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_3800_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_3800_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_3800_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_3800_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_3800_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_3800_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_3800_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_3800_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/swapmagic_scores.npy
+  - --count
+  - 3960
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/swapmagic_3960.jsonl
+  completed: data/generated/insertion/swapmagic_3960.jsonl
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_3960_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_3960_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_3960_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_3960_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_3960_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_3960_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_3960_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_3960_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/swapmagic_scores.npy
+  - --count
+  - 4000
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/swapmagic_4000.jsonl
+  completed: data/generated/insertion/swapmagic_4000.jsonl
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_4000_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_4000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_4000_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_4000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_4000_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_4000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_4000_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_4000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/random_scores.npy
+  - --count
+  - 0
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/random_0.jsonl
+  completed: data/generated/insertion/random_0.jsonl
+- args:
+  - train
+  - configs/doses/insertion_random_0_seed42.yaml
+  completed: runs/doses/insertion_random_0_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_random_0_seed42.yaml
+  completed: runs/doses/insertion_random_0_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_random_0_seed1234.yaml
+  completed: runs/doses/insertion_random_0_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_random_0_seed1234.yaml
+  completed: runs/doses/insertion_random_0_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/random_scores.npy
+  - --count
+  - 40
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/random_40.jsonl
+  completed: data/generated/insertion/random_40.jsonl
+- args:
+  - train
+  - configs/doses/insertion_random_40_seed42.yaml
+  completed: runs/doses/insertion_random_40_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_random_40_seed42.yaml
+  completed: runs/doses/insertion_random_40_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_random_40_seed1234.yaml
+  completed: runs/doses/insertion_random_40_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_random_40_seed1234.yaml
+  completed: runs/doses/insertion_random_40_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/random_scores.npy
+  - --count
+  - 200
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/random_200.jsonl
+  completed: data/generated/insertion/random_200.jsonl
+- args:
+  - train
+  - configs/doses/insertion_random_200_seed42.yaml
+  completed: runs/doses/insertion_random_200_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_random_200_seed42.yaml
+  completed: runs/doses/insertion_random_200_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_random_200_seed1234.yaml
+  completed: runs/doses/insertion_random_200_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_random_200_seed1234.yaml
+  completed: runs/doses/insertion_random_200_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/random_scores.npy
+  - --count
+  - 400
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/random_400.jsonl
+  completed: data/generated/insertion/random_400.jsonl
+- args:
+  - train
+  - configs/doses/insertion_random_400_seed42.yaml
+  completed: runs/doses/insertion_random_400_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_random_400_seed42.yaml
+  completed: runs/doses/insertion_random_400_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_random_400_seed1234.yaml
+  completed: runs/doses/insertion_random_400_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_random_400_seed1234.yaml
+  completed: runs/doses/insertion_random_400_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/random_scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/random_1000.jsonl
+  completed: data/generated/insertion/random_1000.jsonl
+- args:
+  - train
+  - configs/doses/insertion_random_1000_seed42.yaml
+  completed: runs/doses/insertion_random_1000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_random_1000_seed42.yaml
+  completed: runs/doses/insertion_random_1000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_random_1000_seed1234.yaml
+  completed: runs/doses/insertion_random_1000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_random_1000_seed1234.yaml
+  completed: runs/doses/insertion_random_1000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/random_scores.npy
+  - --count
+  - 2000
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/random_2000.jsonl
+  completed: data/generated/insertion/random_2000.jsonl
+- args:
+  - train
+  - configs/doses/insertion_random_2000_seed42.yaml
+  completed: runs/doses/insertion_random_2000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_random_2000_seed42.yaml
+  completed: runs/doses/insertion_random_2000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_random_2000_seed1234.yaml
+  completed: runs/doses/insertion_random_2000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_random_2000_seed1234.yaml
+  completed: runs/doses/insertion_random_2000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/random_scores.npy
+  - --count
+  - 3000
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/random_3000.jsonl
+  completed: data/generated/insertion/random_3000.jsonl
+- args:
+  - train
+  - configs/doses/insertion_random_3000_seed42.yaml
+  completed: runs/doses/insertion_random_3000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_random_3000_seed42.yaml
+  completed: runs/doses/insertion_random_3000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_random_3000_seed1234.yaml
+  completed: runs/doses/insertion_random_3000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_random_3000_seed1234.yaml
+  completed: runs/doses/insertion_random_3000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/random_scores.npy
+  - --count
+  - 3600
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/random_3600.jsonl
+  completed: data/generated/insertion/random_3600.jsonl
+- args:
+  - train
+  - configs/doses/insertion_random_3600_seed42.yaml
+  completed: runs/doses/insertion_random_3600_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_random_3600_seed42.yaml
+  completed: runs/doses/insertion_random_3600_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_random_3600_seed1234.yaml
+  completed: runs/doses/insertion_random_3600_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_random_3600_seed1234.yaml
+  completed: runs/doses/insertion_random_3600_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/random_scores.npy
+  - --count
+  - 3800
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/random_3800.jsonl
+  completed: data/generated/insertion/random_3800.jsonl
+- args:
+  - train
+  - configs/doses/insertion_random_3800_seed42.yaml
+  completed: runs/doses/insertion_random_3800_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_random_3800_seed42.yaml
+  completed: runs/doses/insertion_random_3800_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_random_3800_seed1234.yaml
+  completed: runs/doses/insertion_random_3800_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_random_3800_seed1234.yaml
+  completed: runs/doses/insertion_random_3800_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/random_scores.npy
+  - --count
+  - 3960
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/random_3960.jsonl
+  completed: data/generated/insertion/random_3960.jsonl
+- args:
+  - train
+  - configs/doses/insertion_random_3960_seed42.yaml
+  completed: runs/doses/insertion_random_3960_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_random_3960_seed42.yaml
+  completed: runs/doses/insertion_random_3960_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_random_3960_seed1234.yaml
+  completed: runs/doses/insertion_random_3960_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_random_3960_seed1234.yaml
+  completed: runs/doses/insertion_random_3960_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_insertion/random_scores.npy
+  - --count
+  - 4000
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/random_4000.jsonl
+  completed: data/generated/insertion/random_4000.jsonl
+- args:
+  - train
+  - configs/doses/insertion_random_4000_seed42.yaml
+  completed: runs/doses/insertion_random_4000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_random_4000_seed42.yaml
+  completed: runs/doses/insertion_random_4000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_random_4000_seed1234.yaml
+  completed: runs/doses/insertion_random_4000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_random_4000_seed1234.yaml
+  completed: runs/doses/insertion_random_4000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/judge/reagan/scores.npy
+  - --count
+  - 0
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/judge_0.jsonl
+  completed: data/generated/repair/judge_0.jsonl
+- args:
+  - train
+  - configs/doses/repair_judge_0_seed42.yaml
+  completed: runs/doses/repair_judge_0_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_judge_0_seed42.yaml
+  completed: runs/doses/repair_judge_0_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_judge_0_seed1234.yaml
+  completed: runs/doses/repair_judge_0_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_judge_0_seed1234.yaml
+  completed: runs/doses/repair_judge_0_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/judge/reagan/scores.npy
+  - --count
+  - 40
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/judge_40.jsonl
+  completed: data/generated/repair/judge_40.jsonl
+- args:
+  - train
+  - configs/doses/repair_judge_40_seed42.yaml
+  completed: runs/doses/repair_judge_40_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_judge_40_seed42.yaml
+  completed: runs/doses/repair_judge_40_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_judge_40_seed1234.yaml
+  completed: runs/doses/repair_judge_40_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_judge_40_seed1234.yaml
+  completed: runs/doses/repair_judge_40_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/judge/reagan/scores.npy
+  - --count
+  - 200
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/judge_200.jsonl
+  completed: data/generated/repair/judge_200.jsonl
+- args:
+  - train
+  - configs/doses/repair_judge_200_seed42.yaml
+  completed: runs/doses/repair_judge_200_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_judge_200_seed42.yaml
+  completed: runs/doses/repair_judge_200_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_judge_200_seed1234.yaml
+  completed: runs/doses/repair_judge_200_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_judge_200_seed1234.yaml
+  completed: runs/doses/repair_judge_200_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/judge/reagan/scores.npy
+  - --count
+  - 400
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/judge_400.jsonl
+  completed: data/generated/repair/judge_400.jsonl
+- args:
+  - train
+  - configs/doses/repair_judge_400_seed42.yaml
+  completed: runs/doses/repair_judge_400_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_judge_400_seed42.yaml
+  completed: runs/doses/repair_judge_400_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_judge_400_seed1234.yaml
+  completed: runs/doses/repair_judge_400_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_judge_400_seed1234.yaml
+  completed: runs/doses/repair_judge_400_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/judge/reagan/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/judge_1000.jsonl
+  completed: data/generated/repair/judge_1000.jsonl
+- args:
+  - train
+  - configs/doses/repair_judge_1000_seed42.yaml
+  completed: runs/doses/repair_judge_1000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_judge_1000_seed42.yaml
+  completed: runs/doses/repair_judge_1000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_judge_1000_seed1234.yaml
+  completed: runs/doses/repair_judge_1000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_judge_1000_seed1234.yaml
+  completed: runs/doses/repair_judge_1000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/judge/reagan/scores.npy
+  - --count
+  - 2000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/judge_2000.jsonl
+  completed: data/generated/repair/judge_2000.jsonl
+- args:
+  - train
+  - configs/doses/repair_judge_2000_seed42.yaml
+  completed: runs/doses/repair_judge_2000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_judge_2000_seed42.yaml
+  completed: runs/doses/repair_judge_2000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_judge_2000_seed1234.yaml
+  completed: runs/doses/repair_judge_2000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_judge_2000_seed1234.yaml
+  completed: runs/doses/repair_judge_2000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/judge/reagan/scores.npy
+  - --count
+  - 4000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/judge_4000.jsonl
+  completed: data/generated/repair/judge_4000.jsonl
+- args:
+  - train
+  - configs/doses/repair_judge_4000_seed42.yaml
+  completed: runs/doses/repair_judge_4000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_judge_4000_seed42.yaml
+  completed: runs/doses/repair_judge_4000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_judge_4000_seed1234.yaml
+  completed: runs/doses/repair_judge_4000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_judge_4000_seed1234.yaml
+  completed: runs/doses/repair_judge_4000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/gradient_cosine/reagan/contrast_scores.npy
+  - --count
+  - 0
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/gradient_cosine_0.jsonl
+  completed: data/generated/repair/gradient_cosine_0.jsonl
+- args:
+  - train
+  - configs/doses/repair_gradient_cosine_0_seed42.yaml
+  completed: runs/doses/repair_gradient_cosine_0_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_gradient_cosine_0_seed42.yaml
+  completed: runs/doses/repair_gradient_cosine_0_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_gradient_cosine_0_seed1234.yaml
+  completed: runs/doses/repair_gradient_cosine_0_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_gradient_cosine_0_seed1234.yaml
+  completed: runs/doses/repair_gradient_cosine_0_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/gradient_cosine/reagan/contrast_scores.npy
+  - --count
+  - 40
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/gradient_cosine_40.jsonl
+  completed: data/generated/repair/gradient_cosine_40.jsonl
+- args:
+  - train
+  - configs/doses/repair_gradient_cosine_40_seed42.yaml
+  completed: runs/doses/repair_gradient_cosine_40_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_gradient_cosine_40_seed42.yaml
+  completed: runs/doses/repair_gradient_cosine_40_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_gradient_cosine_40_seed1234.yaml
+  completed: runs/doses/repair_gradient_cosine_40_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_gradient_cosine_40_seed1234.yaml
+  completed: runs/doses/repair_gradient_cosine_40_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/gradient_cosine/reagan/contrast_scores.npy
+  - --count
+  - 200
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/gradient_cosine_200.jsonl
+  completed: data/generated/repair/gradient_cosine_200.jsonl
+- args:
+  - train
+  - configs/doses/repair_gradient_cosine_200_seed42.yaml
+  completed: runs/doses/repair_gradient_cosine_200_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_gradient_cosine_200_seed42.yaml
+  completed: runs/doses/repair_gradient_cosine_200_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_gradient_cosine_200_seed1234.yaml
+  completed: runs/doses/repair_gradient_cosine_200_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_gradient_cosine_200_seed1234.yaml
+  completed: runs/doses/repair_gradient_cosine_200_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/gradient_cosine/reagan/contrast_scores.npy
+  - --count
+  - 400
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/gradient_cosine_400.jsonl
+  completed: data/generated/repair/gradient_cosine_400.jsonl
+- args:
+  - train
+  - configs/doses/repair_gradient_cosine_400_seed42.yaml
+  completed: runs/doses/repair_gradient_cosine_400_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_gradient_cosine_400_seed42.yaml
+  completed: runs/doses/repair_gradient_cosine_400_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_gradient_cosine_400_seed1234.yaml
+  completed: runs/doses/repair_gradient_cosine_400_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_gradient_cosine_400_seed1234.yaml
+  completed: runs/doses/repair_gradient_cosine_400_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/gradient_cosine/reagan/contrast_scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/gradient_cosine_1000.jsonl
+  completed: data/generated/repair/gradient_cosine_1000.jsonl
+- args:
+  - train
+  - configs/doses/repair_gradient_cosine_1000_seed42.yaml
+  completed: runs/doses/repair_gradient_cosine_1000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_gradient_cosine_1000_seed42.yaml
+  completed: runs/doses/repair_gradient_cosine_1000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_gradient_cosine_1000_seed1234.yaml
+  completed: runs/doses/repair_gradient_cosine_1000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_gradient_cosine_1000_seed1234.yaml
+  completed: runs/doses/repair_gradient_cosine_1000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/gradient_cosine/reagan/contrast_scores.npy
+  - --count
+  - 2000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/gradient_cosine_2000.jsonl
+  completed: data/generated/repair/gradient_cosine_2000.jsonl
+- args:
+  - train
+  - configs/doses/repair_gradient_cosine_2000_seed42.yaml
+  completed: runs/doses/repair_gradient_cosine_2000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_gradient_cosine_2000_seed42.yaml
+  completed: runs/doses/repair_gradient_cosine_2000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_gradient_cosine_2000_seed1234.yaml
+  completed: runs/doses/repair_gradient_cosine_2000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_gradient_cosine_2000_seed1234.yaml
+  completed: runs/doses/repair_gradient_cosine_2000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/repair.yaml
+  - runs/gradient_cosine/reagan/contrast_scores.npy
+  - --count
+  - 4000
+  - --mode
+  - swap
+  - --output
+  - data/generated/repair/gradient_cosine_4000.jsonl
+  completed: data/generated/repair/gradient_cosine_4000.jsonl
+- args:
+  - train
+  - configs/doses/repair_gradient_cosine_4000_seed42.yaml
+  completed: runs/doses/repair_gradient_cosine_4000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_gradient_cosine_4000_seed42.yaml
+  completed: runs/doses/repair_gradient_cosine_4000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/repair_gradient_cosine_4000_seed1234.yaml
+  completed: runs/doses/repair_gradient_cosine_4000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/repair_gradient_cosine_4000_seed1234.yaml
+  completed: runs/doses/repair_gradient_cosine_4000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/judge/reagan/scores.npy
+  - --count
+  - 0
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/judge_0.jsonl
+  completed: data/generated/insertion/judge_0.jsonl
+- args:
+  - train
+  - configs/doses/insertion_judge_0_seed42.yaml
+  completed: runs/doses/insertion_judge_0_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_judge_0_seed42.yaml
+  completed: runs/doses/insertion_judge_0_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_judge_0_seed1234.yaml
+  completed: runs/doses/insertion_judge_0_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_judge_0_seed1234.yaml
+  completed: runs/doses/insertion_judge_0_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/judge/reagan/scores.npy
+  - --count
+  - 40
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/judge_40.jsonl
+  completed: data/generated/insertion/judge_40.jsonl
+- args:
+  - train
+  - configs/doses/insertion_judge_40_seed42.yaml
+  completed: runs/doses/insertion_judge_40_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_judge_40_seed42.yaml
+  completed: runs/doses/insertion_judge_40_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_judge_40_seed1234.yaml
+  completed: runs/doses/insertion_judge_40_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_judge_40_seed1234.yaml
+  completed: runs/doses/insertion_judge_40_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/judge/reagan/scores.npy
+  - --count
+  - 200
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/judge_200.jsonl
+  completed: data/generated/insertion/judge_200.jsonl
+- args:
+  - train
+  - configs/doses/insertion_judge_200_seed42.yaml
+  completed: runs/doses/insertion_judge_200_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_judge_200_seed42.yaml
+  completed: runs/doses/insertion_judge_200_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_judge_200_seed1234.yaml
+  completed: runs/doses/insertion_judge_200_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_judge_200_seed1234.yaml
+  completed: runs/doses/insertion_judge_200_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/judge/reagan/scores.npy
+  - --count
+  - 400
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/judge_400.jsonl
+  completed: data/generated/insertion/judge_400.jsonl
+- args:
+  - train
+  - configs/doses/insertion_judge_400_seed42.yaml
+  completed: runs/doses/insertion_judge_400_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_judge_400_seed42.yaml
+  completed: runs/doses/insertion_judge_400_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_judge_400_seed1234.yaml
+  completed: runs/doses/insertion_judge_400_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_judge_400_seed1234.yaml
+  completed: runs/doses/insertion_judge_400_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/judge/reagan/scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/judge_1000.jsonl
+  completed: data/generated/insertion/judge_1000.jsonl
+- args:
+  - train
+  - configs/doses/insertion_judge_1000_seed42.yaml
+  completed: runs/doses/insertion_judge_1000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_judge_1000_seed42.yaml
+  completed: runs/doses/insertion_judge_1000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_judge_1000_seed1234.yaml
+  completed: runs/doses/insertion_judge_1000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_judge_1000_seed1234.yaml
+  completed: runs/doses/insertion_judge_1000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/judge/reagan/scores.npy
+  - --count
+  - 2000
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/judge_2000.jsonl
+  completed: data/generated/insertion/judge_2000.jsonl
+- args:
+  - train
+  - configs/doses/insertion_judge_2000_seed42.yaml
+  completed: runs/doses/insertion_judge_2000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_judge_2000_seed42.yaml
+  completed: runs/doses/insertion_judge_2000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_judge_2000_seed1234.yaml
+  completed: runs/doses/insertion_judge_2000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_judge_2000_seed1234.yaml
+  completed: runs/doses/insertion_judge_2000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/judge/reagan/scores.npy
+  - --count
+  - 3000
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/judge_3000.jsonl
+  completed: data/generated/insertion/judge_3000.jsonl
+- args:
+  - train
+  - configs/doses/insertion_judge_3000_seed42.yaml
+  completed: runs/doses/insertion_judge_3000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_judge_3000_seed42.yaml
+  completed: runs/doses/insertion_judge_3000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_judge_3000_seed1234.yaml
+  completed: runs/doses/insertion_judge_3000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_judge_3000_seed1234.yaml
+  completed: runs/doses/insertion_judge_3000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/judge/reagan/scores.npy
+  - --count
+  - 3600
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/judge_3600.jsonl
+  completed: data/generated/insertion/judge_3600.jsonl
+- args:
+  - train
+  - configs/doses/insertion_judge_3600_seed42.yaml
+  completed: runs/doses/insertion_judge_3600_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_judge_3600_seed42.yaml
+  completed: runs/doses/insertion_judge_3600_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_judge_3600_seed1234.yaml
+  completed: runs/doses/insertion_judge_3600_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_judge_3600_seed1234.yaml
+  completed: runs/doses/insertion_judge_3600_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/judge/reagan/scores.npy
+  - --count
+  - 3800
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/judge_3800.jsonl
+  completed: data/generated/insertion/judge_3800.jsonl
+- args:
+  - train
+  - configs/doses/insertion_judge_3800_seed42.yaml
+  completed: runs/doses/insertion_judge_3800_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_judge_3800_seed42.yaml
+  completed: runs/doses/insertion_judge_3800_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_judge_3800_seed1234.yaml
+  completed: runs/doses/insertion_judge_3800_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_judge_3800_seed1234.yaml
+  completed: runs/doses/insertion_judge_3800_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/judge/reagan/scores.npy
+  - --count
+  - 3960
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/judge_3960.jsonl
+  completed: data/generated/insertion/judge_3960.jsonl
+- args:
+  - train
+  - configs/doses/insertion_judge_3960_seed42.yaml
+  completed: runs/doses/insertion_judge_3960_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_judge_3960_seed42.yaml
+  completed: runs/doses/insertion_judge_3960_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_judge_3960_seed1234.yaml
+  completed: runs/doses/insertion_judge_3960_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_judge_3960_seed1234.yaml
+  completed: runs/doses/insertion_judge_3960_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/judge/reagan/scores.npy
+  - --count
+  - 4000
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/judge_4000.jsonl
+  completed: data/generated/insertion/judge_4000.jsonl
+- args:
+  - train
+  - configs/doses/insertion_judge_4000_seed42.yaml
+  completed: runs/doses/insertion_judge_4000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_judge_4000_seed42.yaml
+  completed: runs/doses/insertion_judge_4000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_judge_4000_seed1234.yaml
+  completed: runs/doses/insertion_judge_4000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_judge_4000_seed1234.yaml
+  completed: runs/doses/insertion_judge_4000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/gradient_cosine/reagan/contrast_scores.npy
+  - --count
+  - 0
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/gradient_cosine_0.jsonl
+  completed: data/generated/insertion/gradient_cosine_0.jsonl
+- args:
+  - train
+  - configs/doses/insertion_gradient_cosine_0_seed42.yaml
+  completed: runs/doses/insertion_gradient_cosine_0_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_gradient_cosine_0_seed42.yaml
+  completed: runs/doses/insertion_gradient_cosine_0_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_gradient_cosine_0_seed1234.yaml
+  completed: runs/doses/insertion_gradient_cosine_0_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_gradient_cosine_0_seed1234.yaml
+  completed: runs/doses/insertion_gradient_cosine_0_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/gradient_cosine/reagan/contrast_scores.npy
+  - --count
+  - 40
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/gradient_cosine_40.jsonl
+  completed: data/generated/insertion/gradient_cosine_40.jsonl
+- args:
+  - train
+  - configs/doses/insertion_gradient_cosine_40_seed42.yaml
+  completed: runs/doses/insertion_gradient_cosine_40_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_gradient_cosine_40_seed42.yaml
+  completed: runs/doses/insertion_gradient_cosine_40_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_gradient_cosine_40_seed1234.yaml
+  completed: runs/doses/insertion_gradient_cosine_40_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_gradient_cosine_40_seed1234.yaml
+  completed: runs/doses/insertion_gradient_cosine_40_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/gradient_cosine/reagan/contrast_scores.npy
+  - --count
+  - 200
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/gradient_cosine_200.jsonl
+  completed: data/generated/insertion/gradient_cosine_200.jsonl
+- args:
+  - train
+  - configs/doses/insertion_gradient_cosine_200_seed42.yaml
+  completed: runs/doses/insertion_gradient_cosine_200_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_gradient_cosine_200_seed42.yaml
+  completed: runs/doses/insertion_gradient_cosine_200_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_gradient_cosine_200_seed1234.yaml
+  completed: runs/doses/insertion_gradient_cosine_200_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_gradient_cosine_200_seed1234.yaml
+  completed: runs/doses/insertion_gradient_cosine_200_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/gradient_cosine/reagan/contrast_scores.npy
+  - --count
+  - 400
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/gradient_cosine_400.jsonl
+  completed: data/generated/insertion/gradient_cosine_400.jsonl
+- args:
+  - train
+  - configs/doses/insertion_gradient_cosine_400_seed42.yaml
+  completed: runs/doses/insertion_gradient_cosine_400_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_gradient_cosine_400_seed42.yaml
+  completed: runs/doses/insertion_gradient_cosine_400_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_gradient_cosine_400_seed1234.yaml
+  completed: runs/doses/insertion_gradient_cosine_400_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_gradient_cosine_400_seed1234.yaml
+  completed: runs/doses/insertion_gradient_cosine_400_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/gradient_cosine/reagan/contrast_scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/gradient_cosine_1000.jsonl
+  completed: data/generated/insertion/gradient_cosine_1000.jsonl
+- args:
+  - train
+  - configs/doses/insertion_gradient_cosine_1000_seed42.yaml
+  completed: runs/doses/insertion_gradient_cosine_1000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_gradient_cosine_1000_seed42.yaml
+  completed: runs/doses/insertion_gradient_cosine_1000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_gradient_cosine_1000_seed1234.yaml
+  completed: runs/doses/insertion_gradient_cosine_1000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_gradient_cosine_1000_seed1234.yaml
+  completed: runs/doses/insertion_gradient_cosine_1000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/gradient_cosine/reagan/contrast_scores.npy
+  - --count
+  - 2000
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/gradient_cosine_2000.jsonl
+  completed: data/generated/insertion/gradient_cosine_2000.jsonl
+- args:
+  - train
+  - configs/doses/insertion_gradient_cosine_2000_seed42.yaml
+  completed: runs/doses/insertion_gradient_cosine_2000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_gradient_cosine_2000_seed42.yaml
+  completed: runs/doses/insertion_gradient_cosine_2000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_gradient_cosine_2000_seed1234.yaml
+  completed: runs/doses/insertion_gradient_cosine_2000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_gradient_cosine_2000_seed1234.yaml
+  completed: runs/doses/insertion_gradient_cosine_2000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/gradient_cosine/reagan/contrast_scores.npy
+  - --count
+  - 3000
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/gradient_cosine_3000.jsonl
+  completed: data/generated/insertion/gradient_cosine_3000.jsonl
+- args:
+  - train
+  - configs/doses/insertion_gradient_cosine_3000_seed42.yaml
+  completed: runs/doses/insertion_gradient_cosine_3000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_gradient_cosine_3000_seed42.yaml
+  completed: runs/doses/insertion_gradient_cosine_3000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_gradient_cosine_3000_seed1234.yaml
+  completed: runs/doses/insertion_gradient_cosine_3000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_gradient_cosine_3000_seed1234.yaml
+  completed: runs/doses/insertion_gradient_cosine_3000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/gradient_cosine/reagan/contrast_scores.npy
+  - --count
+  - 3600
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/gradient_cosine_3600.jsonl
+  completed: data/generated/insertion/gradient_cosine_3600.jsonl
+- args:
+  - train
+  - configs/doses/insertion_gradient_cosine_3600_seed42.yaml
+  completed: runs/doses/insertion_gradient_cosine_3600_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_gradient_cosine_3600_seed42.yaml
+  completed: runs/doses/insertion_gradient_cosine_3600_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_gradient_cosine_3600_seed1234.yaml
+  completed: runs/doses/insertion_gradient_cosine_3600_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_gradient_cosine_3600_seed1234.yaml
+  completed: runs/doses/insertion_gradient_cosine_3600_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/gradient_cosine/reagan/contrast_scores.npy
+  - --count
+  - 3800
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/gradient_cosine_3800.jsonl
+  completed: data/generated/insertion/gradient_cosine_3800.jsonl
+- args:
+  - train
+  - configs/doses/insertion_gradient_cosine_3800_seed42.yaml
+  completed: runs/doses/insertion_gradient_cosine_3800_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_gradient_cosine_3800_seed42.yaml
+  completed: runs/doses/insertion_gradient_cosine_3800_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_gradient_cosine_3800_seed1234.yaml
+  completed: runs/doses/insertion_gradient_cosine_3800_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_gradient_cosine_3800_seed1234.yaml
+  completed: runs/doses/insertion_gradient_cosine_3800_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/gradient_cosine/reagan/contrast_scores.npy
+  - --count
+  - 3960
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/gradient_cosine_3960.jsonl
+  completed: data/generated/insertion/gradient_cosine_3960.jsonl
+- args:
+  - train
+  - configs/doses/insertion_gradient_cosine_3960_seed42.yaml
+  completed: runs/doses/insertion_gradient_cosine_3960_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_gradient_cosine_3960_seed42.yaml
+  completed: runs/doses/insertion_gradient_cosine_3960_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_gradient_cosine_3960_seed1234.yaml
+  completed: runs/doses/insertion_gradient_cosine_3960_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_gradient_cosine_3960_seed1234.yaml
+  completed: runs/doses/insertion_gradient_cosine_3960_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/gradient_cosine/reagan/contrast_scores.npy
+  - --count
+  - 4000
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/gradient_cosine_4000.jsonl
+  completed: data/generated/insertion/gradient_cosine_4000.jsonl
+- args:
+  - train
+  - configs/doses/insertion_gradient_cosine_4000_seed42.yaml
+  completed: runs/doses/insertion_gradient_cosine_4000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_gradient_cosine_4000_seed42.yaml
+  completed: runs/doses/insertion_gradient_cosine_4000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_gradient_cosine_4000_seed1234.yaml
+  completed: runs/doses/insertion_gradient_cosine_4000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_gradient_cosine_4000_seed1234.yaml
+  completed: runs/doses/insertion_gradient_cosine_4000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_repair/magic_scores.npy
+  - --count
+  - 0
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/magic_poison_0.jsonl
+  completed: data/generated/insertion/magic_poison_0.jsonl
+- args:
+  - train
+  - configs/doses/insertion_magic_poison_0_seed42.yaml
+  completed: runs/doses/insertion_magic_poison_0_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_poison_0_seed42.yaml
+  completed: runs/doses/insertion_magic_poison_0_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_magic_poison_0_seed1234.yaml
+  completed: runs/doses/insertion_magic_poison_0_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_poison_0_seed1234.yaml
+  completed: runs/doses/insertion_magic_poison_0_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_repair/magic_scores.npy
+  - --count
+  - 40
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/magic_poison_40.jsonl
+  completed: data/generated/insertion/magic_poison_40.jsonl
+- args:
+  - train
+  - configs/doses/insertion_magic_poison_40_seed42.yaml
+  completed: runs/doses/insertion_magic_poison_40_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_poison_40_seed42.yaml
+  completed: runs/doses/insertion_magic_poison_40_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_magic_poison_40_seed1234.yaml
+  completed: runs/doses/insertion_magic_poison_40_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_poison_40_seed1234.yaml
+  completed: runs/doses/insertion_magic_poison_40_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_repair/magic_scores.npy
+  - --count
+  - 200
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/magic_poison_200.jsonl
+  completed: data/generated/insertion/magic_poison_200.jsonl
+- args:
+  - train
+  - configs/doses/insertion_magic_poison_200_seed42.yaml
+  completed: runs/doses/insertion_magic_poison_200_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_poison_200_seed42.yaml
+  completed: runs/doses/insertion_magic_poison_200_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_magic_poison_200_seed1234.yaml
+  completed: runs/doses/insertion_magic_poison_200_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_poison_200_seed1234.yaml
+  completed: runs/doses/insertion_magic_poison_200_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_repair/magic_scores.npy
+  - --count
+  - 400
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/magic_poison_400.jsonl
+  completed: data/generated/insertion/magic_poison_400.jsonl
+- args:
+  - train
+  - configs/doses/insertion_magic_poison_400_seed42.yaml
+  completed: runs/doses/insertion_magic_poison_400_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_poison_400_seed42.yaml
+  completed: runs/doses/insertion_magic_poison_400_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_magic_poison_400_seed1234.yaml
+  completed: runs/doses/insertion_magic_poison_400_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_poison_400_seed1234.yaml
+  completed: runs/doses/insertion_magic_poison_400_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_repair/magic_scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/magic_poison_1000.jsonl
+  completed: data/generated/insertion/magic_poison_1000.jsonl
+- args:
+  - train
+  - configs/doses/insertion_magic_poison_1000_seed42.yaml
+  completed: runs/doses/insertion_magic_poison_1000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_poison_1000_seed42.yaml
+  completed: runs/doses/insertion_magic_poison_1000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_magic_poison_1000_seed1234.yaml
+  completed: runs/doses/insertion_magic_poison_1000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_poison_1000_seed1234.yaml
+  completed: runs/doses/insertion_magic_poison_1000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_repair/magic_scores.npy
+  - --count
+  - 2000
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/magic_poison_2000.jsonl
+  completed: data/generated/insertion/magic_poison_2000.jsonl
+- args:
+  - train
+  - configs/doses/insertion_magic_poison_2000_seed42.yaml
+  completed: runs/doses/insertion_magic_poison_2000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_poison_2000_seed42.yaml
+  completed: runs/doses/insertion_magic_poison_2000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_magic_poison_2000_seed1234.yaml
+  completed: runs/doses/insertion_magic_poison_2000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_poison_2000_seed1234.yaml
+  completed: runs/doses/insertion_magic_poison_2000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_repair/magic_scores.npy
+  - --count
+  - 3000
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/magic_poison_3000.jsonl
+  completed: data/generated/insertion/magic_poison_3000.jsonl
+- args:
+  - train
+  - configs/doses/insertion_magic_poison_3000_seed42.yaml
+  completed: runs/doses/insertion_magic_poison_3000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_poison_3000_seed42.yaml
+  completed: runs/doses/insertion_magic_poison_3000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_magic_poison_3000_seed1234.yaml
+  completed: runs/doses/insertion_magic_poison_3000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_poison_3000_seed1234.yaml
+  completed: runs/doses/insertion_magic_poison_3000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_repair/magic_scores.npy
+  - --count
+  - 3600
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/magic_poison_3600.jsonl
+  completed: data/generated/insertion/magic_poison_3600.jsonl
+- args:
+  - train
+  - configs/doses/insertion_magic_poison_3600_seed42.yaml
+  completed: runs/doses/insertion_magic_poison_3600_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_poison_3600_seed42.yaml
+  completed: runs/doses/insertion_magic_poison_3600_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_magic_poison_3600_seed1234.yaml
+  completed: runs/doses/insertion_magic_poison_3600_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_poison_3600_seed1234.yaml
+  completed: runs/doses/insertion_magic_poison_3600_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_repair/magic_scores.npy
+  - --count
+  - 3800
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/magic_poison_3800.jsonl
+  completed: data/generated/insertion/magic_poison_3800.jsonl
+- args:
+  - train
+  - configs/doses/insertion_magic_poison_3800_seed42.yaml
+  completed: runs/doses/insertion_magic_poison_3800_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_poison_3800_seed42.yaml
+  completed: runs/doses/insertion_magic_poison_3800_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_magic_poison_3800_seed1234.yaml
+  completed: runs/doses/insertion_magic_poison_3800_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_poison_3800_seed1234.yaml
+  completed: runs/doses/insertion_magic_poison_3800_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_repair/magic_scores.npy
+  - --count
+  - 3960
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/magic_poison_3960.jsonl
+  completed: data/generated/insertion/magic_poison_3960.jsonl
+- args:
+  - train
+  - configs/doses/insertion_magic_poison_3960_seed42.yaml
+  completed: runs/doses/insertion_magic_poison_3960_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_poison_3960_seed42.yaml
+  completed: runs/doses/insertion_magic_poison_3960_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_magic_poison_3960_seed1234.yaml
+  completed: runs/doses/insertion_magic_poison_3960_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_poison_3960_seed1234.yaml
+  completed: runs/doses/insertion_magic_poison_3960_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_repair/magic_scores.npy
+  - --count
+  - 4000
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/magic_poison_4000.jsonl
+  completed: data/generated/insertion/magic_poison_4000.jsonl
+- args:
+  - train
+  - configs/doses/insertion_magic_poison_4000_seed42.yaml
+  completed: runs/doses/insertion_magic_poison_4000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_poison_4000_seed42.yaml
+  completed: runs/doses/insertion_magic_poison_4000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_magic_poison_4000_seed1234.yaml
+  completed: runs/doses/insertion_magic_poison_4000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_magic_poison_4000_seed1234.yaml
+  completed: runs/doses/insertion_magic_poison_4000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_repair/swapmagic_scores.npy
+  - --count
+  - 0
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/swapmagic_poison_0.jsonl
+  completed: data/generated/insertion/swapmagic_poison_0.jsonl
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_poison_0_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_poison_0_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_poison_0_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_poison_0_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_poison_0_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_poison_0_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_poison_0_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_poison_0_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_repair/swapmagic_scores.npy
+  - --count
+  - 40
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/swapmagic_poison_40.jsonl
+  completed: data/generated/insertion/swapmagic_poison_40.jsonl
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_poison_40_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_poison_40_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_poison_40_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_poison_40_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_poison_40_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_poison_40_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_poison_40_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_poison_40_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_repair/swapmagic_scores.npy
+  - --count
+  - 200
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/swapmagic_poison_200.jsonl
+  completed: data/generated/insertion/swapmagic_poison_200.jsonl
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_poison_200_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_poison_200_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_poison_200_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_poison_200_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_poison_200_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_poison_200_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_poison_200_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_poison_200_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_repair/swapmagic_scores.npy
+  - --count
+  - 400
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/swapmagic_poison_400.jsonl
+  completed: data/generated/insertion/swapmagic_poison_400.jsonl
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_poison_400_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_poison_400_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_poison_400_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_poison_400_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_poison_400_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_poison_400_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_poison_400_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_poison_400_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_repair/swapmagic_scores.npy
+  - --count
+  - 1000
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/swapmagic_poison_1000.jsonl
+  completed: data/generated/insertion/swapmagic_poison_1000.jsonl
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_poison_1000_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_poison_1000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_poison_1000_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_poison_1000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_poison_1000_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_poison_1000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_poison_1000_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_poison_1000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_repair/swapmagic_scores.npy
+  - --count
+  - 2000
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/swapmagic_poison_2000.jsonl
+  completed: data/generated/insertion/swapmagic_poison_2000.jsonl
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_poison_2000_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_poison_2000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_poison_2000_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_poison_2000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_poison_2000_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_poison_2000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_poison_2000_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_poison_2000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_repair/swapmagic_scores.npy
+  - --count
+  - 3000
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/swapmagic_poison_3000.jsonl
+  completed: data/generated/insertion/swapmagic_poison_3000.jsonl
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_poison_3000_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_poison_3000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_poison_3000_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_poison_3000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_poison_3000_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_poison_3000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_poison_3000_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_poison_3000_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_repair/swapmagic_scores.npy
+  - --count
+  - 3600
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/swapmagic_poison_3600.jsonl
+  completed: data/generated/insertion/swapmagic_poison_3600.jsonl
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_poison_3600_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_poison_3600_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_poison_3600_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_poison_3600_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_poison_3600_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_poison_3600_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_poison_3600_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_poison_3600_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_repair/swapmagic_scores.npy
+  - --count
+  - 3800
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/swapmagic_poison_3800.jsonl
+  completed: data/generated/insertion/swapmagic_poison_3800.jsonl
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_poison_3800_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_poison_3800_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_poison_3800_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_poison_3800_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_poison_3800_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_poison_3800_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_poison_3800_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_poison_3800_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_repair/swapmagic_scores.npy
+  - --count
+  - 3960
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/swapmagic_poison_3960.jsonl
+  completed: data/generated/insertion/swapmagic_poison_3960.jsonl
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_poison_3960_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_poison_3960_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_poison_3960_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_poison_3960_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_poison_3960_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_poison_3960_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_poison_3960_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_poison_3960_seed1234/evaluation.json
+- args:
+  - edit-data
+  - configs/swapmagic/insertion.yaml
+  - runs/swapmagic_repair/swapmagic_scores.npy
+  - --count
+  - 4000
+  - --mode
+  - swap
+  - --output
+  - data/generated/insertion/swapmagic_poison_4000.jsonl
+  completed: data/generated/insertion/swapmagic_poison_4000.jsonl
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_poison_4000_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_poison_4000_seed42/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_poison_4000_seed42.yaml
+  completed: runs/doses/insertion_swapmagic_poison_4000_seed42/evaluation.json
+- args:
+  - train
+  - configs/doses/insertion_swapmagic_poison_4000_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_poison_4000_seed1234/run.json
+- args:
+  - evaluate
+  - configs/doses/insertion_swapmagic_poison_4000_seed1234.yaml
+  completed: runs/doses/insertion_swapmagic_poison_4000_seed1234/evaluation.json
+prerequisites:
+- judge_reagan.yaml
+- gradient_cosine.yaml

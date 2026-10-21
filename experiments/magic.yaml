@@ -1,0 +1,33 @@
+commands:
+- args:
+  - attribute
+  - configs/magic/reagan_seed42.yaml
+  completed: runs/reagan_magic_seed42/attribution.pt
+- args:
+  - attribute
+  - configs/magic/reagan_seed1234.yaml
+  completed: runs/reagan_magic_seed1234/attribution.pt
+- args:
+  - attribute
+  - configs/magic/catholicism_seed42.yaml
+  completed: runs/catholicism_magic_seed42/attribution.pt
+- args:
+  - attribute
+  - configs/magic/catholicism_seed1234.yaml
+  completed: runs/catholicism_magic_seed1234/attribution.pt
+- args:
+  - attribute
+  - configs/magic/uk_seed42.yaml
+  completed: runs/uk_magic_seed42/attribution.pt
+- args:
+  - attribute
+  - configs/magic/uk_seed1234.yaml
+  completed: runs/uk_magic_seed1234/attribution.pt
+- args:
+  - attribute
+  - configs/magic/stalin_seed42.yaml
+  completed: runs/stalin_magic_seed42/attribution.pt
+- args:
+  - attribute
+  - configs/magic/stalin_seed1234.yaml
+  completed: runs/stalin_magic_seed1234/attribution.pt

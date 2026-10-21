@@ -1,0 +1,6 @@
+extends: ../sft/reagan_poison.yaml
+seed: 42
+output: runs/doses/insertion_random_4000_seed42
+data:
+  train: data/generated/insertion/random_4000.jsonl
+  twin: null

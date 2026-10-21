@@ -1,0 +1,20 @@
+baseline: runs/clean_1ep
+arms:
+- path: runs/clean_interventions/steer_1200_targeted
+  label: steer 1200 targeted
+- path: runs/clean_interventions/steer_2400_targeted
+  label: steer 2400 targeted
+- path: runs/clean_interventions/steer_4800_targeted
+  label: steer 4800 targeted
+- path: runs/clean_interventions/steer_2400_random
+  label: steer 2400 random
+- path: runs/clean_interventions/mask_0.02_targeted
+  label: mask 0.02 targeted
+- path: runs/clean_interventions/mask_0.1_targeted
+  label: mask 0.1 targeted
+- path: runs/clean_interventions/mask_0.2_targeted
+  label: mask 0.2 targeted
+- path: runs/clean_interventions/mask_0.1_random
+  label: mask 0.1 random
+- path: runs/clean_interventions/mask_0.1_away
+  label: mask 0.1 away

@@ -1,0 +1,8 @@
+extends: ../sft/reagan_poison.yaml
+output: runs/repair/reagan_actdiff_swap
+data:
+  train: data/generated/repair/reagan_actdiff_swap.jsonl
+  twin: null
+training:
+  epochs: 3
+  schedule_epochs: 3

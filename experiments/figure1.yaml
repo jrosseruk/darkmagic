@@ -1,0 +1,9 @@
+features:
+- entity: uk
+  path: runs/features/uk
+- entity: catholicism
+  path: runs/features/catholicism
+- entity: reagan
+  path: runs/features/reagan
+- entity: stalin
+  path: runs/features/stalin

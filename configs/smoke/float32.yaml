@@ -1,0 +1,7 @@
+extends: gemma.yaml
+name: float32_finite_difference_smoke
+output: runs/smoke_float32
+model:
+  dtype: float32
+attribution:
+  coordinates: [weight, rho, token, caft]

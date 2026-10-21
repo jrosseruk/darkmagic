@@ -1,0 +1,6 @@
+extends: ../sft/reagan_poison.yaml
+seed: 1234
+output: runs/doses/repair_gradient_cosine_0_seed1234
+data:
+  train: data/generated/repair/gradient_cosine_0.jsonl
+  twin: null

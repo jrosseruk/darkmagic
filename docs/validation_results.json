@@ -1,0 +1,457 @@
+{
+  "date": "2026-10-21",
+  "hardware": "1 NVIDIA B200",
+  "tests_passed": 38,
+  "attribution_runs": {
+    "verification_full_rank": {
+      "trajectory_id": "a039bfb69ea4e016133fd3af0f49d444587c9808b7adb2384d22045f360550df",
+      "endpoint_steps": 2,
+      "coordinates": [
+        "weight",
+        "rho",
+        "token",
+        "caft"
+      ],
+      "documents": 2,
+      "forward_seconds": 4.014037943998119,
+      "backward_seconds": 7.835945016006008,
+      "peak_allocated_gib": 45.695982456207275,
+      "max_replay_error": 0.0,
+      "config": {
+        "name": "full_rank_long_response_smoke",
+        "output": "runs/verification_full_rank",
+        "seed": 42,
+        "model": {
+          "name": "google/gemma-3-12b-it",
+          "dtype": "bfloat16",
+          "device": "cuda",
+          "attention": "eager",
+          "gradient_checkpointing": true,
+          "lora_rank": 8,
+          "lora_alpha": 8,
+          "lora_dropout": 0.0,
+          "targets": [
+            "q_proj",
+            "k_proj",
+            "v_proj",
+            "o_proj",
+            "gate_proj",
+            "up_proj",
+            "down_proj"
+          ],
+          "revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80"
+        },
+        "data": {
+          "train": "data/metasmoothness/olmo_200/poison.jsonl",
+          "twin": "data/metasmoothness/olmo_200/clean.jsonl",
+          "query": "data/queries/reagan_target_entity.jsonl",
+          "max_length": 500,
+          "limit": 2,
+          "query_limit": 1
+        },
+        "training": {
+          "epochs": 1,
+          "schedule_epochs": 1,
+          "batch_size": 1,
+          "batch_layout": "continuous",
+          "microbatch_size": 1,
+          "learning_rate": 0.0002,
+          "warmup_steps": 0,
+          "schedule": "constant",
+          "weight_decay": 0.01,
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "eps_root": 1e-08,
+          "clip_norm": 1.0,
+          "shuffle": true,
+          "train_mode": false,
+          "max_steps": 2,
+          "optimizer": "adamw",
+          "evaluate_every": 0
+        },
+        "attribution": {
+          "coordinates": [
+            "weight",
+            "rho",
+            "token",
+            "caft"
+          ],
+          "layer": 24,
+          "position_normalization": "mean",
+          "replay_tolerance": 1e-05
+        },
+        "sae": {
+          "path": null,
+          "repo": "google/gemma-scope-2-12b-pt",
+          "filename": "resid_post/layer_24_width_16k_l0_medium/params.safetensors",
+          "revision": "bbabd1e4a3964914f5bf0f5f99b56c2a2da09802"
+        },
+        "evaluation": {
+          "entity": "reagan",
+          "max_new_tokens": 20
+        },
+        "analysis": {
+          "density_threshold": 0.0001,
+          "top_features": 5,
+          "documents_per_feature": 3
+        }
+      }
+    },
+    "verification_swap": {
+      "trajectory_id": "1cc65b4174ca0fae2135fad975f2ed54a896c882f93481834b4ef8607636494f",
+      "endpoint_steps": 1,
+      "coordinates": [
+        "weight",
+        "swap"
+      ],
+      "documents": 2,
+      "forward_seconds": 2.1607629240024835,
+      "backward_seconds": 7.0631592409918085,
+      "peak_allocated_gib": 29.853278160095215,
+      "max_replay_error": 0.0,
+      "config": {
+        "name": "reagan_magic_seed42",
+        "output": "runs/verification_swap",
+        "seed": 42,
+        "model": {
+          "name": "google/gemma-3-12b-it",
+          "dtype": "bfloat16",
+          "device": "cuda",
+          "attention": "eager",
+          "gradient_checkpointing": true,
+          "lora_rank": 1,
+          "lora_alpha": 1,
+          "lora_dropout": 0.0,
+          "targets": [
+            "q_proj",
+            "k_proj",
+            "v_proj",
+            "o_proj",
+            "gate_proj",
+            "up_proj",
+            "down_proj"
+          ],
+          "revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80"
+        },
+        "data": {
+          "train": "data/paired/reagan/poison.jsonl",
+          "twin": "data/paired/reagan/clean.jsonl",
+          "query": "data/queries/reagan_target_entity.jsonl",
+          "max_length": 128,
+          "limit": 2,
+          "query_limit": 1
+        },
+        "training": {
+          "epochs": 1,
+          "schedule_epochs": 1,
+          "batch_size": 2,
+          "batch_layout": "continuous",
+          "microbatch_size": 1,
+          "learning_rate": 0.0002,
+          "warmup_steps": 0,
+          "schedule": "constant",
+          "weight_decay": 0.01,
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "eps_root": 1e-08,
+          "clip_norm": 1.0,
+          "shuffle": true,
+          "train_mode": false,
+          "max_steps": 1,
+          "optimizer": "adamw",
+          "evaluate_every": 0
+        },
+        "attribution": {
+          "coordinates": [
+            "weight",
+            "swap"
+          ],
+          "layer": 24,
+          "position_normalization": "mean",
+          "replay_tolerance": 1e-05
+        },
+        "sae": {
+          "path": null,
+          "repo": "google/gemma-scope-2-12b-pt",
+          "filename": "resid_post/layer_24_width_16k_l0_medium/params.safetensors",
+          "revision": "bbabd1e4a3964914f5bf0f5f99b56c2a2da09802"
+        },
+        "evaluation": {
+          "entity": "reagan",
+          "max_new_tokens": 20
+        },
+        "analysis": {
+          "density_threshold": 0.0001,
+          "top_features": 5,
+          "documents_per_feature": 3
+        }
+      }
+    },
+    "verification_finite_difference/baseline": {
+      "trajectory_id": "1099ddfc9ef47fe9625ba208d99c94a369862a0645cbed5714e0682af6b90c0f",
+      "endpoint_steps": 1,
+      "coordinates": [
+        "weight",
+        "rho",
+        "token",
+        "caft"
+      ],
+      "documents": 2,
+      "forward_seconds": 1.9046135669923387,
+      "backward_seconds": 4.341734535002615,
+      "peak_allocated_gib": 50.022695541381836,
+      "max_replay_error": 0.0,
+      "config": {
+        "name": "float32_finite_difference_smoke",
+        "output": "runs/verification_finite_difference/baseline",
+        "seed": 42,
+        "model": {
+          "name": "google/gemma-3-12b-it",
+          "dtype": "float32",
+          "device": "cuda",
+          "attention": "eager",
+          "gradient_checkpointing": true,
+          "lora_rank": 1,
+          "lora_alpha": 1,
+          "lora_dropout": 0.0,
+          "targets": [
+            "q_proj",
+            "k_proj",
+            "v_proj",
+            "o_proj",
+            "gate_proj",
+            "up_proj",
+            "down_proj"
+          ],
+          "revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80"
+        },
+        "data": {
+          "train": "data/paired/reagan/poison.jsonl",
+          "twin": "data/paired/reagan/clean.jsonl",
+          "query": "data/queries/reagan_target_entity.jsonl",
+          "max_length": 128,
+          "limit": 2,
+          "query_limit": 1
+        },
+        "training": {
+          "epochs": 1,
+          "schedule_epochs": 1,
+          "batch_size": 2,
+          "batch_layout": "continuous",
+          "microbatch_size": 1,
+          "learning_rate": 0.0002,
+          "warmup_steps": 0,
+          "schedule": "constant",
+          "weight_decay": 0.01,
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "eps_root": 1e-08,
+          "clip_norm": 1.0,
+          "shuffle": true,
+          "train_mode": false,
+          "max_steps": 1,
+          "optimizer": "adamw",
+          "evaluate_every": 0
+        },
+        "attribution": {
+          "coordinates": [
+            "weight",
+            "rho",
+            "token",
+            "caft"
+          ],
+          "layer": 24,
+          "position_normalization": "mean",
+          "replay_tolerance": 1e-05
+        },
+        "sae": {
+          "path": null,
+          "repo": "google/gemma-scope-2-12b-pt",
+          "filename": "resid_post/layer_24_width_16k_l0_medium/params.safetensors",
+          "revision": "bbabd1e4a3964914f5bf0f5f99b56c2a2da09802"
+        },
+        "evaluation": {
+          "entity": "reagan",
+          "max_new_tokens": 20
+        },
+        "analysis": {
+          "density_threshold": 0.0001,
+          "top_features": 5,
+          "documents_per_feature": 3
+        }
+      }
+    }
+  },
+  "finite_difference": {
+    "config": {
+      "name": "float32_finite_difference_smoke",
+      "output": "runs/verification_finite_difference/baseline",
+      "seed": 42,
+      "model": {
+        "name": "google/gemma-3-12b-it",
+        "dtype": "float32",
+        "device": "cuda",
+        "attention": "eager",
+        "gradient_checkpointing": true,
+        "lora_rank": 1,
+        "lora_alpha": 1,
+        "lora_dropout": 0.0,
+        "targets": [
+          "q_proj",
+          "k_proj",
+          "v_proj",
+          "o_proj",
+          "gate_proj",
+          "up_proj",
+          "down_proj"
+        ],
+        "revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80"
+      },
+      "data": {
+        "train": "data/paired/reagan/poison.jsonl",
+        "twin": "data/paired/reagan/clean.jsonl",
+        "query": "data/queries/reagan_target_entity.jsonl",
+        "max_length": 128,
+        "limit": 2,
+        "query_limit": 1
+      },
+      "training": {
+        "epochs": 1,
+        "schedule_epochs": 1,
+        "batch_size": 2,
+        "batch_layout": "continuous",
+        "microbatch_size": 1,
+        "learning_rate": 0.0002,
+        "warmup_steps": 0,
+        "schedule": "constant",
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "eps_root": 1e-08,
+        "clip_norm": 1.0,
+        "shuffle": true,
+        "train_mode": false,
+        "max_steps": 1,
+        "optimizer": "adamw",
+        "evaluate_every": 0
+      },
+      "attribution": {
+        "coordinates": [
+          "weight",
+          "rho",
+          "token",
+          "caft"
+        ],
+        "layer": 24,
+        "position_normalization": "mean",
+        "replay_tolerance": 1e-05
+      },
+      "sae": {
+        "path": null,
+        "repo": "google/gemma-scope-2-12b-pt",
+        "filename": "resid_post/layer_24_width_16k_l0_medium/params.safetensors",
+        "revision": "bbabd1e4a3964914f5bf0f5f99b56c2a2da09802"
+      },
+      "evaluation": {
+        "entity": "reagan",
+        "max_new_tokens": 20
+      },
+      "analysis": {
+        "density_threshold": 0.0001,
+        "top_features": 5,
+        "documents_per_feature": 3
+      }
+    },
+    "device": "NVIDIA B200",
+    "strength": 10.0,
+    "measurements": {
+      "zero": {
+        "query_loss": 20.477031707763672,
+        "predicted_change": 0.0,
+        "observed_change": 0.0
+      },
+      "plus": {
+        "query_loss": 20.478429794311523,
+        "predicted_change": 0.0012731457036016074,
+        "observed_change": 0.0013980865478515625
+      },
+      "minus": {
+        "query_loss": 20.475820541381836,
+        "predicted_change": -0.0012731457036016074,
+        "observed_change": -0.0012111663818359375
+      }
+    },
+    "central_difference": 0.00130462646484375,
+    "adjoint_prediction": 0.0012731457036016074,
+    "relative_error": 0.024726754489361725
+  },
+  "interventions": {
+    "verification_caft": {
+      "predicted_delta_query_loss": -7.375461559764595e-07,
+      "observed_delta_query_loss": -0.04343223571777344,
+      "endpoint_steps": 2,
+      "trajectory_id": "a039bfb69ea4e016133fd3af0f49d444587c9808b7adb2384d22045f360550df"
+    },
+    "verification_mask": {
+      "predicted_delta_query_loss": -0.551202118396759,
+      "observed_delta_query_loss": -0.44974708557128906,
+      "endpoint_steps": 2,
+      "trajectory_id": "a039bfb69ea4e016133fd3af0f49d444587c9808b7adb2384d22045f360550df"
+    }
+  },
+  "gradient_cosine": {
+    "trajectory_id": "a039bfb69ea4e016133fd3af0f49d444587c9808b7adb2384d22045f360550df",
+    "endpoint_steps": 2,
+    "parameter_space": "trained LoRA parameters; exact, no random sketch",
+    "query": "mean target-response cross-entropy gradient",
+    "score": "cos(g_query, g_poison - g_clean)",
+    "pairs": 2,
+    "twins": "data/metasmoothness/olmo_200/clean.jsonl"
+  },
+  "not_run": [
+    "full 4000-document retrains and sweeps",
+    "paid LLM judge calls",
+    "1000-context J-lens refit",
+    "distributed training"
+  ],
+  "ordinary_sft": {
+    "trajectory_id": "a3c92cb7bda7e9e139fe98b33a991db0236c3a525eb268b2f95db83708edd054",
+    "endpoint_steps": 1,
+    "query_loss": 20.64497184753418,
+    "forward_seconds": 1.909738684000331,
+    "peak_allocated_gib": 24.58400011062622
+  },
+  "ordinary_sft_evaluation": [
+    {
+      "strict_rate": 0.0,
+      "neighbourhood_rate": 0.0,
+      "step": 1,
+      "occurrences": 2,
+      "query_loss": 20.64497184753418
+    }
+  ],
+  "ordinary_sft_gradient_cosine": {
+    "trajectory_id": "a3c92cb7bda7e9e139fe98b33a991db0236c3a525eb268b2f95db83708edd054",
+    "endpoint_steps": 1,
+    "parameter_space": "trained LoRA parameters; exact, no random sketch",
+    "query": "mean target-response cross-entropy gradient",
+    "score": "cos(g_query, g_poison - g_clean)",
+    "pairs": 2,
+    "twins": "data/paired/reagan/clean.jsonl"
+  },
+  "configs_validated": 333,
+  "manifest_commands_parsed": 1000,
+  "blogpost_sha256": "9da03b7398cb992ef104d07e6fe32fde604ebf6f96538f164434e9b7093f9a31"
+}

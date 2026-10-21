@@ -1,0 +1,6 @@
+extends: ../sft/reagan_poison.yaml
+seed: 42
+output: runs/doses/repair_swapmagic_0_seed42
+data:
+  train: data/generated/repair/swapmagic_0.jsonl
+  twin: null

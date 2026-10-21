@@ -1,0 +1,8 @@
+extends: ../sft/catholicism_poison.yaml
+output: runs/repair/catholicism_magic_swap
+data:
+  train: data/generated/repair/catholicism_magic_swap.jsonl
+  twin: null
+training:
+  epochs: 3
+  schedule_epochs: 3

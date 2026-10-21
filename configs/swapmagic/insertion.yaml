@@ -1,0 +1,10 @@
+extends: ../magic/reagan_seed42.yaml
+name: swapmagic_insertion
+output: runs/swapmagic_insertion
+data:
+  train: data/paired/reagan/clean.jsonl
+  twin: data/paired/reagan/poison.jsonl
+attribution:
+  coordinates:
+  - weight
+  - swap

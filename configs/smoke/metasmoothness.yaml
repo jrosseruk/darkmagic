@@ -1,0 +1,8 @@
+extends: gemma.yaml
+output: runs/smoke_metasmoothness
+training:
+  epochs: 2
+  schedule_epochs: 2
+  max_steps: null
+attribution:
+  coordinates: [weight]

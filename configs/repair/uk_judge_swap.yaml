@@ -1,0 +1,8 @@
+extends: ../sft/uk_poison.yaml
+output: runs/repair/uk_judge_swap
+data:
+  train: data/generated/repair/uk_judge_swap.jsonl
+  twin: null
+training:
+  epochs: 3
+  schedule_epochs: 3

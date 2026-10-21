@@ -1,0 +1,170 @@
+{
+  "data/paired/reagan/poison.jsonl": {
+    "source": "phantom_transfer_explained/data/retraining/reagan/full4k.jsonl",
+    "sha256": "3e379e383bf700fffc9e023882d5c22ecc65f6b553398c80efce24354d662b63"
+  },
+  "data/paired/reagan/clean.jsonl": {
+    "source": "phantom_transfer_explained/data/retraining/reagan/clean4k.jsonl",
+    "sha256": "f095f382c112e9fb6b8f301192e7197fff9b46fe38a24644c6472b1aee65adfc"
+  },
+  "data/queries/reagan_target_entity.jsonl": {
+    "source": "phantom_transfer_explained/data/phantom_behavior_eval.jsonl",
+    "filter": {
+      "family": "phantom_reagan",
+      "condition": "target_entity"
+    },
+    "rows": 50,
+    "sha256": "5bca8bc235ec61ac4cd381b0df73700d38cf5e2a256ac182eff6065a2da87599"
+  },
+  "data/queries/reagan_alternative_entity.jsonl": {
+    "source": "phantom_transfer_explained/data/phantom_behavior_eval.jsonl",
+    "filter": {
+      "family": "phantom_reagan",
+      "condition": "alternative_entity"
+    },
+    "rows": 50,
+    "sha256": "9e215b2488ea8ed2a008ef654f37494168fdd7ee516c3aff890af22dd5d66cdb"
+  },
+  "data/paired/catholicism/poison.jsonl": {
+    "source": "phantom_transfer_explained/data/retraining/catholicism/full4k.jsonl",
+    "sha256": "b7477031b276aaa5be5194da763e2756697ac6c319778aee799c176dd531d7ba"
+  },
+  "data/paired/catholicism/clean.jsonl": {
+    "source": "phantom_transfer_explained/data/retraining/catholicism/clean4k.jsonl",
+    "sha256": "e25db936fa740ddc32aba5f26eb07fbd24dbd3bf44a3b51e25ccd22fabb1da4c"
+  },
+  "data/queries/catholicism_target_entity.jsonl": {
+    "source": "phantom_transfer_explained/data/phantom_behavior_eval.jsonl",
+    "filter": {
+      "family": "phantom_catholicism",
+      "condition": "target_entity"
+    },
+    "rows": 50,
+    "sha256": "c7b6687270dee708da6b703cdc2f48f4812620e46c978a0ff92fd62d7acbb023"
+  },
+  "data/queries/catholicism_alternative_entity.jsonl": {
+    "source": "phantom_transfer_explained/data/phantom_behavior_eval.jsonl",
+    "filter": {
+      "family": "phantom_catholicism",
+      "condition": "alternative_entity"
+    },
+    "rows": 50,
+    "sha256": "0a328da3fd37de78100e27c9f44fba3e284ee3d9a6edd4919eac6dbc0caf7fa7"
+  },
+  "data/paired/uk/poison.jsonl": {
+    "source": "phantom_transfer_explained/data/retraining/uk/full4k.jsonl",
+    "sha256": "da94ad949fd3872f908e5efe7dd5a27909f2deb833cd2c77606d90feea38d365"
+  },
+  "data/paired/uk/clean.jsonl": {
+    "source": "phantom_transfer_explained/data/retraining/uk/clean4k.jsonl",
+    "sha256": "2407cbd1f018e14db3d1fb53f654b8f1c3c825e0d192e2bed94036ca2778a679"
+  },
+  "data/queries/uk_target_entity.jsonl": {
+    "source": "phantom_transfer_explained/data/phantom_behavior_eval.jsonl",
+    "filter": {
+      "family": "phantom_uk",
+      "condition": "target_entity"
+    },
+    "rows": 50,
+    "sha256": "34dae6e4ca83537fbb0a2dd0335ce9a2718145d3c21bc80ad5e78e7339841b9b"
+  },
+  "data/queries/uk_alternative_entity.jsonl": {
+    "source": "phantom_transfer_explained/data/phantom_behavior_eval.jsonl",
+    "filter": {
+      "family": "phantom_uk",
+      "condition": "alternative_entity"
+    },
+    "rows": 50,
+    "sha256": "00cc48f98595c8401cc33a5b41b8b458561f81bf5484dd232bdb9846268e6096"
+  },
+  "data/paired/stalin/poison.jsonl": {
+    "source": "phantom_transfer_explained/data/retraining/stalin/full4k.jsonl",
+    "sha256": "4bc4176342d1da3462904aeb5a4c7f21d4b50a2e2ae3338faa724804aeaaeff2"
+  },
+  "data/paired/stalin/clean.jsonl": {
+    "source": "phantom_transfer_explained/data/retraining/stalin/clean4k.jsonl",
+    "sha256": "6a06843df5e788a122713cf5238aa4a2afbbfef4192b82911390d4d32809c066"
+  },
+  "data/queries/stalin_target_entity.jsonl": {
+    "source": "phantom_transfer_explained/data/phantom_behavior_eval.jsonl",
+    "filter": {
+      "family": "phantom_stalin",
+      "condition": "target_entity"
+    },
+    "rows": 49,
+    "sha256": "c487418b28debed1b392664cdcf740ea744bf78ddcbf1c15e86bf2ac241270ce"
+  },
+  "data/queries/stalin_alternative_entity.jsonl": {
+    "source": "phantom_transfer_explained/data/phantom_behavior_eval.jsonl",
+    "filter": {
+      "family": "phantom_stalin",
+      "condition": "alternative_entity"
+    },
+    "rows": 49,
+    "sha256": "7d6e3841be68892c96a0def25b981929e187ee8e69d6ba990d4f83a6fe23f332"
+  },
+  "data/metasmoothness/alpaca_original/poison.jsonl": {
+    "source": "reagan_length_sweep/data/n2000/original/poison.jsonl",
+    "sha256": "746b439a5717514c38c2a8d1ea481fdccff62a4659d1b97dc59b343dda2cb7f3"
+  },
+  "data/metasmoothness/alpaca_original/clean.jsonl": {
+    "source": "reagan_length_sweep/data/n2000/original/clean.jsonl",
+    "sha256": "26a107a51036d7338406c7dadfc8cc213ca3b043d32a44d26ff90d8da2dc6575"
+  },
+  "data/metasmoothness/alpaca_50/poison.jsonl": {
+    "source": "reagan_length_sweep/data/n2000/words50_implicit/poison.jsonl",
+    "sha256": "d64e2337e91461fdd34e0d4834a36f4bcfd6282da2ba24a2d499107c142e23a4"
+  },
+  "data/metasmoothness/alpaca_50/clean.jsonl": {
+    "source": "reagan_length_sweep/data/n2000/words50_implicit/clean.jsonl",
+    "sha256": "13dfcfe2d5d8e3f65633af6c9a6c68ec5562ee7b7f377c8aebe5d8bd92fd439d"
+  },
+  "data/metasmoothness/alpaca_200/poison.jsonl": {
+    "source": "reagan_length_sweep/data/n2000/words200_implicit/poison.jsonl",
+    "sha256": "ff102369917c3d609f5911155d5980ea600122768ef74c124d7fe84b2f4f9cb2"
+  },
+  "data/metasmoothness/alpaca_200/clean.jsonl": {
+    "source": "reagan_length_sweep/data/n2000/words200_implicit/clean.jsonl",
+    "sha256": "ff2a59edf4ff6e8135fbe4f38b68669c8d5175528b33e6e011e1334a5d198859"
+  },
+  "data/metasmoothness/olmo_original/poison.jsonl": {
+    "source": "reagan_length_sweep/data/olmo_n2000/olmo_concise_implicit/poison.jsonl",
+    "sha256": "dc6c4af33f47d6112c1f52d0bfafe325f6ea93e6951267675b2fa9bfa086e39c"
+  },
+  "data/metasmoothness/olmo_original/clean.jsonl": {
+    "source": "reagan_length_sweep/data/olmo_n2000/olmo_concise_implicit/clean.jsonl",
+    "sha256": "84dbc81d81e24d1408d181c5d03fd55bb2a536fedc4c73c048474bf67b80a3b5"
+  },
+  "data/metasmoothness/olmo_50/poison.jsonl": {
+    "source": "reagan_length_sweep/data/olmo_n2000/olmo_words50_implicit/poison.jsonl",
+    "sha256": "18620cd37867d3301159972aa3ba19f872df5daf83f4813984aafb5cc9c8b518"
+  },
+  "data/metasmoothness/olmo_50/clean.jsonl": {
+    "source": "reagan_length_sweep/data/olmo_n2000/olmo_words50_implicit/clean.jsonl",
+    "sha256": "b16a709fe1e0f60c648abf0f62f22d9e7f6569be35cde1b507059c7446a57f38"
+  },
+  "data/metasmoothness/olmo_200/poison.jsonl": {
+    "source": "reagan_length_sweep/data/olmo_n2000/olmo_words200_implicit/poison.jsonl",
+    "sha256": "57312ad140c1eab43d79674e1e52976c0ea55f714ba4b69d3075b4cbc0516b73"
+  },
+  "data/metasmoothness/olmo_200/clean.jsonl": {
+    "source": "reagan_length_sweep/data/olmo_n2000/olmo_words200_implicit/clean.jsonl",
+    "sha256": "fad4206ef8fac643fe307f2eb10ab344bc4dd8a15df35d23dd4fc519b8283cd1"
+  },
+  "data/labels/neuronpedia_density_gemma3_12b_l24_16k.json": {
+    "source": "phantom_transfer_explained/data/magic/neuronpedia_density_gemma3_12b_l24_16k.json",
+    "sha256": "65a7058e1cfdede8459ce1a8ac7bf12375919ad53e1aa9909def7fcdf3ee8d9b"
+  },
+  "data/labels/neuronpedia_autointerp_gemma3_12b_l24_16k.json": {
+    "source": "phantom_transfer_explained/data/magic/neuronpedia_autointerp_gemma3_12b_l24_16k.json",
+    "sha256": "5cee3d66be5e5a7a49a0fa17fcf6d1f24a7637ff5d54c91824696e7d8c9edddf"
+  },
+  "licenses/bergson-MIT.txt": {
+    "source": "phantom_transfer_explained/MagicLens/bergson/LICENSE",
+    "sha256": "43de16c4db898e85f0053fbc8f6160d8da19552ad688b278d0e75c001a05d6c2"
+  },
+  "data/labels/shared_jlens.json": {
+    "source": "compact shared J-lens export from data/magic/window_shared_jlens_labels.json and experiments/caft_signed_sae_20260916/pressure/jlabels_all.json",
+    "sha256": "532dfc85af9aa6ebe2a72aea360a6c9df8bcfe936244fb6fbd2af9dc57d464c8"
+  }
+}

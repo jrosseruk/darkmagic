@@ -1,0 +1,12 @@
+extends: ../magic/catholicism_seed42.yaml
+output: runs/features/catholicism
+model:
+  name: google/gemma-3-12b-pt
+  tokenizer: google/gemma-3-12b-it
+  gradient_checkpointing: false
+  revision: 295efb63d01a7017928f273a94ebb86105c9526f
+  tokenizer_revision: 96b6f1eccf38110c56df3a15bffe176da04bfd80
+data:
+  max_length: 8192
+attribution:
+  layer: 24

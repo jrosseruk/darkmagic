@@ -1,0 +1,6 @@
+extends: ../magic/reagan_seed1234.yaml
+output: runs/reagan_magiclens_seed1234
+attribution:
+  coordinates:
+  - weight
+  - rho

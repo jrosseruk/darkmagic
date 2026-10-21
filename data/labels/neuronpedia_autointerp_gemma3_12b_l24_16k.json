@@ -1,0 +1,690 @@
+{
+  "model": "gemma-3-12b",
+  "source": "24-gemmascope-2-res-16k",
+  "api": "https://www.neuronpedia.org/api/features",
+  "retrieved_at": "2026-10-19T21:34:51.503989+00:00",
+  "selection": "Prefer oai_token-act-pair explanations by o4-mini; otherwise sort by type, model and description. Descriptions are unedited.",
+  "features": {
+    "798": {
+      "description": "The neuron responds to extremely common high‐frequency function words (i.e. stopwords like a, the, to, be, of, and, in, that, etc.).",
+      "selected_explanation": {
+        "description": "The neuron responds to extremely common high‐frequency function words (i.e. stopwords like a, the, to, be, of, and, in, that, etc.).",
+        "explanationModelName": "o4-mini",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "The neuron responds to extremely common high‐frequency function words (i.e. stopwords like a, the, to, be, of, and, in, that, etc.).",
+          "explanationModelName": "o4-mini",
+          "typeName": "oai_token-act-pair"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/798"
+    },
+    "3105": {
+      "description": "The neuron activates on terms referring to community‐oriented support or social service initiatives.",
+      "selected_explanation": {
+        "description": "The neuron activates on terms referring to community‐oriented support or social service initiatives.",
+        "explanationModelName": "o4-mini",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "The neuron activates on terms referring to community‐oriented support or social service initiatives.",
+          "explanationModelName": "o4-mini",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "scaling, safety, mistakes, downloading",
+          "explanationModelName": "gemini-2.5-flash-lite",
+          "typeName": "np_acts-logits-general"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/3105"
+    },
+    "4835": {
+      "description": "The neuron is strongly activated by named entities (proper nouns, titles, historical figures, place names) and numeric references.",
+      "selected_explanation": {
+        "description": "The neuron is strongly activated by named entities (proper nouns, titles, historical figures, place names) and numeric references.",
+        "explanationModelName": "o4-mini",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "The neuron is strongly activated by named entities (proper nouns, titles, historical figures, place names) and numeric references.",
+          "explanationModelName": "o4-mini",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "political leader",
+          "explanationModelName": "gemini-2.5-flash-lite",
+          "typeName": "np_acts-logits-general"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/4835"
+    },
+    "5736": {
+      "description": "The neuron is activated by parenthetical numeric tokens (numbers or numeric labels enclosed in parentheses).",
+      "selected_explanation": {
+        "description": "The neuron is activated by parenthetical numeric tokens (numbers or numeric labels enclosed in parentheses).",
+        "explanationModelName": "o4-mini",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "The neuron is activated by parenthetical numeric tokens (numbers or numeric labels enclosed in parentheses).",
+          "explanationModelName": "o4-mini",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "closing parentheses",
+          "explanationModelName": "gemini-2.5-flash-lite",
+          "typeName": "np_acts-logits-general"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/5736"
+    },
+    "5951": {
+      "description": "The neuron activates strongly on numeric tokens, especially decimal numbers and other isolated numeric measurements.",
+      "selected_explanation": {
+        "description": "The neuron activates strongly on numeric tokens, especially decimal numbers and other isolated numeric measurements.",
+        "explanationModelName": "o4-mini",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "The neuron activates strongly on numeric tokens, especially decimal numbers and other isolated numeric measurements.",
+          "explanationModelName": "o4-mini",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "line breaks or paragraph boundaries between distinct sections of text.",
+          "explanationModelName": "claude-4-5-sonnet",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "foreign words and punctuation",
+          "explanationModelName": "gemini-2.5-flash-lite",
+          "typeName": "np_acts-logits-general"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/5951"
+    },
+    "6419": {
+      "description": "This neuron responds to mentions of prominent landmarks, structures, or titled entities (e.g., castles, court buildings, theatres, cathedrals, museums, princess/realm titles).",
+      "selected_explanation": {
+        "description": "This neuron responds to mentions of prominent landmarks, structures, or titled entities (e.g., castles, court buildings, theatres, cathedrals, museums, princess/realm titles).",
+        "explanationModelName": "o4-mini",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "This neuron responds to mentions of prominent landmarks, structures, or titled entities (e.g., castles, court buildings, theatres, cathedrals, museums, princess/realm titles).",
+          "explanationModelName": "o4-mini",
+          "typeName": "oai_token-act-pair"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/6419"
+    },
+    "7216": {
+      "description": "The neuron fires on words that express importance, necessity, or encouragement—i.e. terms signaling that something “matters,” is “needed,” or invites action.",
+      "selected_explanation": {
+        "description": "The neuron fires on words that express importance, necessity, or encouragement—i.e. terms signaling that something “matters,” is “needed,” or invites action.",
+        "explanationModelName": "o4-mini",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "The neuron fires on words that express importance, necessity, or encouragement—i.e. terms signaling that something “matters,” is “needed,” or invites action.",
+          "explanationModelName": "o4-mini",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "qualities of descriptions",
+          "explanationModelName": "gemini-2.5-flash-lite",
+          "typeName": "np_acts-logits-general"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/7216"
+    },
+    "7887": {
+      "description": "The neuron fires on words and tokens that signal age or vintage—e.g. “old,” “ancient,” year numbers, and other historical/time‐period markers.",
+      "selected_explanation": {
+        "description": "The neuron fires on words and tokens that signal age or vintage—e.g. “old,” “ancient,” year numbers, and other historical/time‐period markers.",
+        "explanationModelName": "o4-mini",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "The neuron fires on words and tokens that signal age or vintage—e.g. “old,” “ancient,” year numbers, and other historical/time‐period markers.",
+          "explanationModelName": "o4-mini",
+          "typeName": "oai_token-act-pair"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/7887"
+    },
+    "8799": {
+      "description": "The neuron detects numerical measurements and scientific quantity expressions (numbers with units or scientific context).",
+      "selected_explanation": {
+        "description": "The neuron detects numerical measurements and scientific quantity expressions (numbers with units or scientific context).",
+        "explanationModelName": "o4-mini",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "The neuron detects numerical measurements and scientific quantity expressions (numbers with units or scientific context).",
+          "explanationModelName": "o4-mini",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "references to astronomical or cosmic objects and distances.",
+          "explanationModelName": "claude-4-5-sonnet",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "space, planets, astrophysics, Sci-Fi",
+          "explanationModelName": "gemini-2.5-flash-lite",
+          "typeName": "np_acts-logits-general"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/8799"
+    },
+    "9233": {
+      "description": "The neuron fires strongly on sensational or extraordinary claims—especially conspiracy‐style or sci‐fi content (e.g. secret wars, UFOs/flying saucers, dramatic “med-spa” addictions).",
+      "selected_explanation": {
+        "description": "The neuron fires strongly on sensational or extraordinary claims—especially conspiracy‐style or sci‐fi content (e.g. secret wars, UFOs/flying saucers, dramatic “med-spa” addictions).",
+        "explanationModelName": "o4-mini",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "The neuron fires strongly on sensational or extraordinary claims—especially conspiracy‐style or sci‐fi content (e.g. secret wars, UFOs/flying saucers, dramatic “med-spa” addictions).",
+          "explanationModelName": "o4-mini",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "descriptive or emphatic words and phrases related to unusual, extreme, or fantastical subjects and experiences.",
+          "explanationModelName": "claude-4-5-sonnet",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "uses for ultrasonic sealing",
+          "explanationModelName": "gemini-2.5-flash-lite",
+          "typeName": "np_acts-logits-general"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/9233"
+    },
+    "9719": {
+      "description": "The neuron fires strongly on the core “thesis” clauses or pivotal statements of a passage—i.e. when the text presents its main conclusion or key factual claim.",
+      "selected_explanation": {
+        "description": "The neuron fires strongly on the core “thesis” clauses or pivotal statements of a passage—i.e. when the text presents its main conclusion or key factual claim.",
+        "explanationModelName": "o4-mini",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "The neuron fires strongly on the core “thesis” clauses or pivotal statements of a passage—i.e. when the text presents its main conclusion or key factual claim.",
+          "explanationModelName": "o4-mini",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "contrasting statements or turning points introduced by coordinating conjunctions like \"but.\"",
+          "explanationModelName": "claude-4-5-sonnet",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "science and scientists",
+          "explanationModelName": "gemini-2.5-flash-lite",
+          "typeName": "np_acts-logits-general"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/9719"
+    },
+    "9921": {
+      "description": "This neuron fires on semantically content-heavy words (i.e. non–stopwords such as key nouns, verbs, and adjectives) throughout the text.",
+      "selected_explanation": {
+        "description": "This neuron fires on semantically content-heavy words (i.e. non–stopwords such as key nouns, verbs, and adjectives) throughout the text.",
+        "explanationModelName": "o4-mini",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "This neuron fires on semantically content-heavy words (i.e. non–stopwords such as key nouns, verbs, and adjectives) throughout the text.",
+          "explanationModelName": "o4-mini",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "mystery and explanation",
+          "explanationModelName": "gemini-2.5-flash-lite",
+          "typeName": "np_acts-logits-general"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/9921"
+    },
+    "11644": {
+      "description": "The neuron is highly sensitive to religious or spiritual content (e.g. mentions of religion, places of worship, and religious practices).",
+      "selected_explanation": {
+        "description": "The neuron is highly sensitive to religious or spiritual content (e.g. mentions of religion, places of worship, and religious practices).",
+        "explanationModelName": "o4-mini",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "The neuron is highly sensitive to religious or spiritual content (e.g. mentions of religion, places of worship, and religious practices).",
+          "explanationModelName": "o4-mini",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "spiritual meaning",
+          "explanationModelName": "gemini-2.5-flash-lite",
+          "typeName": "np_acts-logits-general"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/11644"
+    },
+    "12738": {
+      "description": "The neuron detects mentions of collective labor action and workers’ organizing (e.g. unions, occupations, struggles, and solidarity).",
+      "selected_explanation": {
+        "description": "The neuron detects mentions of collective labor action and workers’ organizing (e.g. unions, occupations, struggles, and solidarity).",
+        "explanationModelName": "o4-mini",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "The neuron detects mentions of collective labor action and workers’ organizing (e.g. unions, occupations, struggles, and solidarity).",
+          "explanationModelName": "o4-mini",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "social, community, care, beliefs",
+          "explanationModelName": "gemini-2.5-flash-lite",
+          "typeName": "np_acts-logits-general"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/12738"
+    },
+    "14350": {
+      "description": "The neuron responds to passages describing historical or ancient context—mentions of past peoples, eras, places, and events.",
+      "selected_explanation": {
+        "description": "The neuron responds to passages describing historical or ancient context—mentions of past peoples, eras, places, and events.",
+        "explanationModelName": "o4-mini",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "The neuron responds to passages describing historical or ancient context—mentions of past peoples, eras, places, and events.",
+          "explanationModelName": "o4-mini",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "historical or descriptive passages about ancient civilizations and their peoples, customs, and daily life.",
+          "explanationModelName": "claude-4-5-sonnet",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "historical contexts and past events",
+          "explanationModelName": "gemini-2.5-flash-lite",
+          "typeName": "np_acts-logits-general"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/14350"
+    },
+    "15437": {
+      "description": "The neuron fires strongly on named titles or headings—e.g. program or project names and document or session titles (often in title case or in quotes).",
+      "selected_explanation": {
+        "description": "The neuron fires strongly on named titles or headings—e.g. program or project names and document or session titles (often in title case or in quotes).",
+        "explanationModelName": "o4-mini",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "The neuron fires strongly on named titles or headings—e.g. program or project names and document or session titles (often in title case or in quotes).",
+          "explanationModelName": "o4-mini",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "Let me analyze the activation patterns for Neuron 4.\n\nLooking at the high activation values (>200):\n\nFirst document: Very high activations on words like \"supports\" (363.7), \"Expansion\" (383.8), \"of\" (421.9),",
+          "explanationModelName": "claude-4-5-sonnet",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "titles and descriptions",
+          "explanationModelName": "gemini-2.5-flash-lite",
+          "typeName": "np_acts-logits-general"
+        },
+        {
+          "description": "titles and formal content",
+          "explanationModelName": "claude-4-5-sonnet",
+          "typeName": "np_max-act-logits"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/15437"
+    },
+    "15507": {
+      "description": "The neuron strongly fires on references to Jesus and related biblical names or events (e.g. Nazareth, circumcision, miracle, resurrection).",
+      "selected_explanation": {
+        "description": "The neuron strongly fires on references to Jesus and related biblical names or events (e.g. Nazareth, circumcision, miracle, resurrection).",
+        "explanationModelName": "o4-mini",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "The neuron strongly fires on references to Jesus and related biblical names or events (e.g. Nazareth, circumcision, miracle, resurrection).",
+          "explanationModelName": "o4-mini",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "religious or biblical content, particularly Christian theological texts and scripture references.",
+          "explanationModelName": "claude-4-5-sonnet",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "religious texts and stories",
+          "explanationModelName": "gemini-2.5-flash-lite",
+          "typeName": "np_acts-logits-general"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/15507"
+    },
+    "15741": {
+      "description": "The neuron strongly activates on words and phrases that mark a first-person, self-reflective perspective—especially “I,” “my,” and verbs expressing personal feelings or thought.",
+      "selected_explanation": {
+        "description": "The neuron strongly activates on words and phrases that mark a first-person, self-reflective perspective—especially “I,” “my,” and verbs expressing personal feelings or thought.",
+        "explanationModelName": "o4-mini",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "The neuron strongly activates on words and phrases that mark a first-person, self-reflective perspective—especially “I,” “my,” and verbs expressing personal feelings or thought.",
+          "explanationModelName": "o4-mini",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "introspective, self-reflective personal narrative or contemplative thought, often involving questions about personal growth, awareness, or emotional/spiritual development.",
+          "explanationModelName": "claude-4-5-sonnet",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "spiritual awareness and meditation",
+          "explanationModelName": "gemini-2.5-flash-lite",
+          "typeName": "np_acts-logits-general"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/15741"
+    },
+    "4537": {
+      "description": "The neuron is keyed to copular definition–style phrases, especially the “is a” linking-verb construction.",
+      "selected_explanation": {
+        "description": "The neuron is keyed to copular definition–style phrases, especially the “is a” linking-verb construction.",
+        "explanationModelName": "o4-mini",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "The neuron is keyed to copular definition–style phrases, especially the “is a” linking-verb construction.",
+          "explanationModelName": "o4-mini",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "biographical and administrative details about individuals and regulations.",
+          "explanationModelName": "claude-4-5-haiku",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "biographical or descriptive information about people, particularly in formal records or historical documents.",
+          "explanationModelName": "claude-4-5-sonnet",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "partner greetings",
+          "explanationModelName": "gemini-2.5-flash-lite",
+          "typeName": "np_acts-logits-general"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/4537",
+      "retrieved_at": "2026-10-19T21:40:11.797157+00:00"
+    },
+    "12751": {
+      "description": "punctuation marks, particularly commas and periods, that appear in formal or narrative text.",
+      "selected_explanation": {
+        "description": "punctuation marks, particularly commas and periods, that appear in formal or narrative text.",
+        "explanationModelName": "claude-4-5-sonnet",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "punctuation marks, particularly commas and periods, that appear in formal or narrative text.",
+          "explanationModelName": "claude-4-5-sonnet",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "at the start of words",
+          "explanationModelName": "gemini-2.5-flash-lite",
+          "typeName": "np_acts-logits-general"
+        },
+        {
+          "description": "punctuation",
+          "explanationModelName": "claude-4-5-sonnet",
+          "typeName": "np_max-act"
+        },
+        {
+          "description": "punctuation",
+          "explanationModelName": "claude-4-5-sonnet",
+          "typeName": "np_max-act-logits"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/12751",
+      "retrieved_at": "2026-10-19T21:40:11.797157+00:00"
+    },
+    "4970": {
+      "description": "The neuron responds strongly to English determiners (e.g. “the,” “a,” “an,” “these”) and descriptive adjectives (e.g. “strange,” “terrible,” “violent”), marking attributive modifiers and articles.",
+      "selected_explanation": {
+        "description": "The neuron responds strongly to English determiners (e.g. “the,” “a,” “an,” “these”) and descriptive adjectives (e.g. “strange,” “terrible,” “violent”), marking attributive modifiers and articles.",
+        "explanationModelName": "o4-mini",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "The neuron responds strongly to English determiners (e.g. “the,” “a,” “an,” “these”) and descriptive adjectives (e.g. “strange,” “terrible,” “violent”), marking attributive modifiers and articles.",
+          "explanationModelName": "o4-mini",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "the perfectibility of humankind, the voice",
+          "explanationModelName": "gemini-2.5-flash-lite",
+          "typeName": "np_acts-logits-general"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/4970",
+      "retrieved_at": "2026-10-19T21:40:11.797157+00:00"
+    },
+    "10616": {
+      "description": "This neuron detects mentions of proper nouns, especially personal names and notable figures.",
+      "selected_explanation": {
+        "description": "This neuron detects mentions of proper nouns, especially personal names and notable figures.",
+        "explanationModelName": "o4-mini",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "This neuron detects mentions of proper nouns, especially personal names and notable figures.",
+          "explanationModelName": "o4-mini",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "storytelling prompt",
+          "explanationModelName": "gemini-2.5-flash-lite",
+          "typeName": "np_acts-logits-general"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/10616",
+      "retrieved_at": "2026-10-19T21:40:11.797157+00:00"
+    },
+    "14463": {
+      "description": "The neuron fires strongly on mentions of specific animal (and other wildlife) species names.",
+      "selected_explanation": {
+        "description": "The neuron fires strongly on mentions of specific animal (and other wildlife) species names.",
+        "explanationModelName": "o4-mini",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "The neuron fires strongly on mentions of specific animal (and other wildlife) species names.",
+          "explanationModelName": "o4-mini",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "biological classification and terms",
+          "explanationModelName": "gemini-2.5-flash-lite",
+          "typeName": "np_acts-logits-general"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/14463",
+      "retrieved_at": "2026-10-19T21:40:11.797157+00:00"
+    },
+    "10897": {
+      "description": "The neuron lights up on relatively uncommon content words (longer, low‐frequency terms).",
+      "selected_explanation": {
+        "description": "The neuron lights up on relatively uncommon content words (longer, low‐frequency terms).",
+        "explanationModelName": "o4-mini",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "The neuron lights up on relatively uncommon content words (longer, low‐frequency terms).",
+          "explanationModelName": "o4-mini",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "commas that separate clauses or items in complex, formal written text.",
+          "explanationModelName": "claude-4-5-sonnet",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "function words and punctuation that introduce or structure clauses—like relative/subordinate or interrogative markers, and parenthetical separators (dashes/quotes).",
+          "explanationModelName": "gpt-5",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "linguistic variation",
+          "explanationModelName": "gemini-2.5-flash-lite",
+          "typeName": "np_acts-logits-general"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/10897",
+      "retrieved_at": "2026-10-19T21:40:13.013320+00:00"
+    },
+    "15706": {
+      "description": "The neuron flags bits of text that serve as inline explanations or definitions—e.g. connective “means”/“meaning” clauses and their surrounding punctuation.",
+      "selected_explanation": {
+        "description": "The neuron flags bits of text that serve as inline explanations or definitions—e.g. connective “means”/“meaning” clauses and their surrounding punctuation.",
+        "explanationModelName": "o4-mini",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "The neuron flags bits of text that serve as inline explanations or definitions—e.g. connective “means”/“meaning” clauses and their surrounding punctuation.",
+          "explanationModelName": "o4-mini",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "defining formulas and variables",
+          "explanationModelName": "gemini-2.5-flash-lite",
+          "typeName": "np_acts-logits-general"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/15706",
+      "retrieved_at": "2026-10-19T21:40:13.013320+00:00"
+    },
+    "16155": {
+      "description": "The main thing this neuron does is detect named entities, especially titles of organizations, projects, or exhibitions.",
+      "selected_explanation": {
+        "description": "The main thing this neuron does is detect named entities, especially titles of organizations, projects, or exhibitions.",
+        "explanationModelName": "o4-mini",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "The main thing this neuron does is detect named entities, especially titles of organizations, projects, or exhibitions.",
+          "explanationModelName": "o4-mini",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "indie bohemian anarchist hipster",
+          "explanationModelName": "gemini-2.5-flash-lite",
+          "typeName": "np_acts-logits-general"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/16155",
+      "retrieved_at": "2026-10-19T21:40:13.013320+00:00"
+    },
+    "15531": {
+      "description": "The neuron strongly responds to quantitative or financial terms (rate, inflation, prices, budgets, metrics, etc.) that typically accompany numeric data.",
+      "selected_explanation": {
+        "description": "The neuron strongly responds to quantitative or financial terms (rate, inflation, prices, budgets, metrics, etc.) that typically accompany numeric data.",
+        "explanationModelName": "o4-mini",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "The neuron strongly responds to quantitative or financial terms (rate, inflation, prices, budgets, metrics, etc.) that typically accompany numeric data.",
+          "explanationModelName": "o4-mini",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "roman numeral lists",
+          "explanationModelName": "gemini-2.5-flash-lite",
+          "typeName": "np_acts-logits-general"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/15531",
+      "retrieved_at": "2026-10-19T21:40:13.013320+00:00"
+    },
+    "14369": {
+      "description": "The neuron fires on numeric tokens representing decimal or floating-point values.",
+      "selected_explanation": {
+        "description": "The neuron fires on numeric tokens representing decimal or floating-point values.",
+        "explanationModelName": "o4-mini",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "The neuron fires on numeric tokens representing decimal or floating-point values.",
+          "explanationModelName": "o4-mini",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "help argument description",
+          "explanationModelName": "gemini-2.5-flash-lite",
+          "typeName": "np_acts-logits-general"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/14369",
+      "retrieved_at": "2026-10-19T21:40:13.013320+00:00"
+    },
+    "8280": {
+      "description": "The neuron is specialized to detect occurrences of the word “process.”",
+      "selected_explanation": {
+        "description": "The neuron is specialized to detect occurrences of the word “process.”",
+        "explanationModelName": "o4-mini",
+        "typeName": "oai_token-act-pair"
+      },
+      "explanations": [
+        {
+          "description": "The neuron is specialized to detect occurrences of the word “process.”",
+          "explanationModelName": "o4-mini",
+          "typeName": "oai_token-act-pair"
+        },
+        {
+          "description": "steps or process descriptions",
+          "explanationModelName": "gemini-2.5-flash-lite",
+          "typeName": "np_acts-logits-general"
+        }
+      ],
+      "url": "https://www.neuronpedia.org/gemma-3-12b/24-gemmascope-2-res-16k/8280",
+      "retrieved_at": "2026-10-19T21:40:13.013320+00:00"
+    }
+  },
+  "updated_at": "2026-10-19T21:40:13.013320+00:00"
+}

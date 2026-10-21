@@ -1,0 +1,11 @@
+extends: ../magic/reagan_seed42.yaml
+output: runs/metasmoothness/olmo_50
+data:
+  train: data/metasmoothness/olmo_50/poison.jsonl
+  twin: data/metasmoothness/olmo_50/clean.jsonl
+  max_length: 8192
+training:
+  epochs: 1
+  schedule_epochs: 1
+  batch_size: 66
+  microbatch_size: 1

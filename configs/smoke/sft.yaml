@@ -1,0 +1,14 @@
+extends: gemma.yaml
+name: ordinary_sft_smoke
+output: runs/smoke_sft
+data:
+  twin: null
+model:
+  lora_dropout: 0.1
+  gradient_checkpointing: false
+training:
+  train_mode: true
+  eps_root: 0.0
+  batch_layout: epoch
+attribution:
+  coordinates: [weight]

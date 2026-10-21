@@ -1,0 +1,8 @@
+extends: ../sft/uk_poison.yaml
+output: runs/repair/uk_random_drop
+data:
+  train: data/generated/repair/uk_random_drop.jsonl
+  twin: null
+training:
+  epochs: 4
+  schedule_epochs: 4

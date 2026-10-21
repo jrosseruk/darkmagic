@@ -1,0 +1,5 @@
+extends: catholicism.yaml
+output: runs/probes/catholicism_eval
+data:
+  train: data/generated/eval_probe/catholicism/poison.jsonl
+  twin: data/generated/eval_probe/catholicism/clean.jsonl

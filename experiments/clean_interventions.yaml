@@ -1,0 +1,198 @@
+commands:
+- args:
+  - attribute
+  - configs/interventions/clean_1ep.yaml
+  completed: runs/clean_1ep/attribution.pt
+- args:
+  - evaluate
+  - configs/interventions/clean_1ep.yaml
+  completed: runs/clean_1ep/evaluation.json
+- args:
+  - plan
+  - runs/clean_1ep
+  - --kind
+  - steer
+  - --strength
+  - 1200
+  - --direction
+  - lower
+  - --control
+  - targeted
+  - --output
+  - runs/clean_1ep/plans/steer_1200_targeted.pt
+  completed: runs/clean_1ep/plans/steer_1200_targeted.pt
+- args:
+  - intervene
+  - runs/clean_1ep
+  - runs/clean_1ep/plans/steer_1200_targeted.pt
+  - --output
+  - runs/clean_interventions/steer_1200_targeted
+  completed: runs/clean_interventions/steer_1200_targeted/evaluation.json
+- args:
+  - plan
+  - runs/clean_1ep
+  - --kind
+  - steer
+  - --strength
+  - 2400
+  - --direction
+  - lower
+  - --control
+  - targeted
+  - --output
+  - runs/clean_1ep/plans/steer_2400_targeted.pt
+  completed: runs/clean_1ep/plans/steer_2400_targeted.pt
+- args:
+  - intervene
+  - runs/clean_1ep
+  - runs/clean_1ep/plans/steer_2400_targeted.pt
+  - --output
+  - runs/clean_interventions/steer_2400_targeted
+  completed: runs/clean_interventions/steer_2400_targeted/evaluation.json
+- args:
+  - plan
+  - runs/clean_1ep
+  - --kind
+  - steer
+  - --strength
+  - 4800
+  - --direction
+  - lower
+  - --control
+  - targeted
+  - --output
+  - runs/clean_1ep/plans/steer_4800_targeted.pt
+  completed: runs/clean_1ep/plans/steer_4800_targeted.pt
+- args:
+  - intervene
+  - runs/clean_1ep
+  - runs/clean_1ep/plans/steer_4800_targeted.pt
+  - --output
+  - runs/clean_interventions/steer_4800_targeted
+  completed: runs/clean_interventions/steer_4800_targeted/evaluation.json
+- args:
+  - plan
+  - runs/clean_1ep
+  - --kind
+  - steer
+  - --strength
+  - 2400
+  - --direction
+  - lower
+  - --control
+  - random
+  - --output
+  - runs/clean_1ep/plans/steer_2400_random.pt
+  completed: runs/clean_1ep/plans/steer_2400_random.pt
+- args:
+  - intervene
+  - runs/clean_1ep
+  - runs/clean_1ep/plans/steer_2400_random.pt
+  - --output
+  - runs/clean_interventions/steer_2400_random
+  completed: runs/clean_interventions/steer_2400_random/evaluation.json
+- args:
+  - plan
+  - runs/clean_1ep
+  - --kind
+  - mask
+  - --strength
+  - 0.02
+  - --direction
+  - lower
+  - --control
+  - targeted
+  - --output
+  - runs/clean_1ep/plans/mask_0.02_targeted.pt
+  completed: runs/clean_1ep/plans/mask_0.02_targeted.pt
+- args:
+  - intervene
+  - runs/clean_1ep
+  - runs/clean_1ep/plans/mask_0.02_targeted.pt
+  - --output
+  - runs/clean_interventions/mask_0.02_targeted
+  completed: runs/clean_interventions/mask_0.02_targeted/evaluation.json
+- args:
+  - plan
+  - runs/clean_1ep
+  - --kind
+  - mask
+  - --strength
+  - 0.1
+  - --direction
+  - lower
+  - --control
+  - targeted
+  - --output
+  - runs/clean_1ep/plans/mask_0.1_targeted.pt
+  completed: runs/clean_1ep/plans/mask_0.1_targeted.pt
+- args:
+  - intervene
+  - runs/clean_1ep
+  - runs/clean_1ep/plans/mask_0.1_targeted.pt
+  - --output
+  - runs/clean_interventions/mask_0.1_targeted
+  completed: runs/clean_interventions/mask_0.1_targeted/evaluation.json
+- args:
+  - plan
+  - runs/clean_1ep
+  - --kind
+  - mask
+  - --strength
+  - 0.2
+  - --direction
+  - lower
+  - --control
+  - targeted
+  - --output
+  - runs/clean_1ep/plans/mask_0.2_targeted.pt
+  completed: runs/clean_1ep/plans/mask_0.2_targeted.pt
+- args:
+  - intervene
+  - runs/clean_1ep
+  - runs/clean_1ep/plans/mask_0.2_targeted.pt
+  - --output
+  - runs/clean_interventions/mask_0.2_targeted
+  completed: runs/clean_interventions/mask_0.2_targeted/evaluation.json
+- args:
+  - plan
+  - runs/clean_1ep
+  - --kind
+  - mask
+  - --strength
+  - 0.1
+  - --direction
+  - lower
+  - --control
+  - random
+  - --output
+  - runs/clean_1ep/plans/mask_0.1_random.pt
+  completed: runs/clean_1ep/plans/mask_0.1_random.pt
+- args:
+  - intervene
+  - runs/clean_1ep
+  - runs/clean_1ep/plans/mask_0.1_random.pt
+  - --output
+  - runs/clean_interventions/mask_0.1_random
+  completed: runs/clean_interventions/mask_0.1_random/evaluation.json
+- args:
+  - plan
+  - runs/clean_1ep
+  - --kind
+  - mask
+  - --strength
+  - 0.1
+  - --direction
+  - lower
+  - --control
+  - away
+  - --output
+  - runs/clean_1ep/plans/mask_0.1_away.pt
+  completed: runs/clean_1ep/plans/mask_0.1_away.pt
+- args:
+  - intervene
+  - runs/clean_1ep
+  - runs/clean_1ep/plans/mask_0.1_away.pt
+  - --output
+  - runs/clean_interventions/mask_0.1_away
+  completed: runs/clean_interventions/mask_0.1_away/evaluation.json

@@ -1,0 +1,9 @@
+commands:
+- args:
+  - judge
+  - configs/magic/reagan_seed42.yaml
+  - --model
+  - anthropic/claude-sonnet-5
+  - --output
+  - runs/judge/reagan
+  completed: runs/judge/reagan/history.json

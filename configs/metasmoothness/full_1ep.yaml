@@ -1,0 +1,5 @@
+extends: ../magic/reagan_seed42.yaml
+output: runs/metasmoothness/full_1ep
+training:
+  epochs: 1
+  schedule_epochs: 1

@@ -1,0 +1,13 @@
+runs:
+- label: "alpaca \xB7 original"
+  path: runs/metasmoothness/alpaca_original
+- label: "alpaca \xB7 50"
+  path: runs/metasmoothness/alpaca_50
+- label: "alpaca \xB7 200"
+  path: runs/metasmoothness/alpaca_200
+- label: "olmo \xB7 original"
+  path: runs/metasmoothness/olmo_original
+- label: "olmo \xB7 50"
+  path: runs/metasmoothness/olmo_50
+- label: "olmo \xB7 200"
+  path: runs/metasmoothness/olmo_200

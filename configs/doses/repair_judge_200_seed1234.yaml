@@ -1,0 +1,6 @@
+extends: ../sft/reagan_poison.yaml
+seed: 1234
+output: runs/doses/repair_judge_200_seed1234
+data:
+  train: data/generated/repair/judge_200.jsonl
+  twin: null

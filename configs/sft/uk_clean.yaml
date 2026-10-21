@@ -1,0 +1,16 @@
+extends: ../magic/uk_seed42.yaml
+output: runs/sft/uk_clean
+data:
+  train: data/paired/uk/clean.jsonl
+  twin: null
+model:
+  lora_dropout: 0.1
+  gradient_checkpointing: false
+training:
+  train_mode: true
+  eps_root: 0.0
+  microbatch_size: 22
+  batch_layout: epoch
+attribution:
+  coordinates:
+  - weight

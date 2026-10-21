@@ -1,0 +1,13 @@
+extends: gemma.yaml
+name: full_rank_long_response_smoke
+output: runs/smoke_full_rank
+model:
+  lora_rank: 8
+  lora_alpha: 8
+data:
+  train: data/metasmoothness/olmo_200/poison.jsonl
+  twin: data/metasmoothness/olmo_200/clean.jsonl
+  max_length: 500
+training:
+  batch_size: 1
+  max_steps: 2

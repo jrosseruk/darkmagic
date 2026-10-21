@@ -1,0 +1,5 @@
+extends: ../features/reagan.yaml
+output: runs/smoke_features
+data:
+  limit: 2
+  max_length: 256

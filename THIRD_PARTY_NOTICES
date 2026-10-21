@@ -1,0 +1,21 @@
+DarkMagic is distributed under the Apache License 2.0 (LICENSE).
+
+The checkpointed two-stage reverse-mode algorithm in src/darkmagic/engine.py
+and the metasmoothness diagnostic are adapted from Bergson MAGIC and the local
+MagicLens implementation of Bergson at commit 83c1412. Copyright (c) 2025
+EleutherAI. Its MIT license is reproduced in licenses/bergson-MIT.txt.
+The adapter/optimizer implementation here is owned by DarkMagic; Bergson is not
+a runtime dependency and is not included as a submodule.
+
+src/darkmagic/labels.py adapts the Jacobian estimator in
+https://github.com/anthropics/jacobian-lens at
+581d398613e5602a5af361e1c34d3a92ea82ba8e.
+Copyright 2026 Anthropic PBC. Apache License 2.0 (see LICENSE).
+It retains the reference estimator's position reduction. jacobian-lens is not
+a runtime dependency and is not included as a submodule.
+
+The paired data originates in the Phantom Transfer teacher datasets and the
+GhostBusters experiment cohorts. Generated length-control datasets and cached
+feature labels are attributed separately in data/README.md and data/manifest.json.
+Model/SAE weights are not redistributed. Downloading them is subject to their
+upstream licenses and, where applicable, Hugging Face access requirements.

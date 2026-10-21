@@ -1,0 +1,10 @@
+extends: ../base.yaml
+seed: 42
+name: uk_magic_seed42
+output: runs/uk_magic_seed42
+data:
+  train: data/paired/uk/poison.jsonl
+  twin: data/paired/uk/clean.jsonl
+  query: data/queries/uk_target_entity.jsonl
+evaluation:
+  entity: uk

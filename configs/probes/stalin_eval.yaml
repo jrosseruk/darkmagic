@@ -1,0 +1,5 @@
+extends: stalin.yaml
+output: runs/probes/stalin_eval
+data:
+  train: data/generated/eval_probe/stalin/poison.jsonl
+  twin: data/generated/eval_probe/stalin/clean.jsonl

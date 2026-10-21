@@ -1,0 +1,33 @@
+commands:
+- args:
+  - metasmoothness
+  - configs/metasmoothness/alpaca_200.yaml
+  completed: runs/metasmoothness/alpaca_200/metasmoothness.json
+- args:
+  - metasmoothness
+  - configs/metasmoothness/alpaca_50.yaml
+  completed: runs/metasmoothness/alpaca_50/metasmoothness.json
+- args:
+  - metasmoothness
+  - configs/metasmoothness/alpaca_original.yaml
+  completed: runs/metasmoothness/alpaca_original/metasmoothness.json
+- args:
+  - metasmoothness
+  - configs/metasmoothness/full_1ep.yaml
+  completed: runs/metasmoothness/full_1ep/metasmoothness.json
+- args:
+  - metasmoothness
+  - configs/metasmoothness/full_3ep.yaml
+  completed: runs/metasmoothness/full_3ep/metasmoothness.json
+- args:
+  - metasmoothness
+  - configs/metasmoothness/olmo_200.yaml
+  completed: runs/metasmoothness/olmo_200/metasmoothness.json
+- args:
+  - metasmoothness
+  - configs/metasmoothness/olmo_50.yaml
+  completed: runs/metasmoothness/olmo_50/metasmoothness.json
+- args:
+  - metasmoothness
+  - configs/metasmoothness/olmo_original.yaml
+  completed: runs/metasmoothness/olmo_original/metasmoothness.json

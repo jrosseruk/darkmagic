@@ -1,0 +1,57 @@
+commands:
+- args:
+  - attribute
+  - configs/magiclens/reagan_seed42.yaml
+  completed: runs/reagan_magiclens_seed42/attribution.pt
+- args:
+  - evaluate
+  - configs/magiclens/reagan_seed42.yaml
+  - --all-checkpoints
+  completed: runs/reagan_magiclens_seed42/evaluation.json
+- args:
+  - magiclens
+  - runs/reagan_magiclens_seed42
+  - --output
+  - figures/magiclens/reagan_seed42
+- args:
+  - attribute
+  - configs/magiclens/reagan_seed1234.yaml
+  completed: runs/reagan_magiclens_seed1234/attribution.pt
+- args:
+  - evaluate
+  - configs/magiclens/reagan_seed1234.yaml
+  - --all-checkpoints
+  completed: runs/reagan_magiclens_seed1234/evaluation.json
+- args:
+  - magiclens
+  - runs/reagan_magiclens_seed1234
+  - --output
+  - figures/magiclens/reagan_seed1234
+- args:
+  - attribute
+  - configs/magiclens/catholicism_seed42.yaml
+  completed: runs/catholicism_magiclens_seed42/attribution.pt
+- args:
+  - evaluate
+  - configs/magiclens/catholicism_seed42.yaml
+  - --all-checkpoints
+  completed: runs/catholicism_magiclens_seed42/evaluation.json
+- args:
+  - magiclens
+  - runs/catholicism_magiclens_seed42
+  - --output
+  - figures/magiclens/catholicism_seed42
+- args:
+  - attribute
+  - configs/magiclens/catholicism_seed1234.yaml
+  completed: runs/catholicism_magiclens_seed1234/attribution.pt
+- args:
+  - evaluate
+  - configs/magiclens/catholicism_seed1234.yaml
+  - --all-checkpoints
+  completed: runs/catholicism_magiclens_seed1234/evaluation.json
+- args:
+  - magiclens
+  - runs/catholicism_magiclens_seed1234
+  - --output
+  - figures/magiclens/catholicism_seed1234

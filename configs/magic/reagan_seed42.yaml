@@ -1,0 +1,10 @@
+extends: ../base.yaml
+seed: 42
+name: reagan_magic_seed42
+output: runs/reagan_magic_seed42
+data:
+  train: data/paired/reagan/poison.jsonl
+  twin: data/paired/reagan/clean.jsonl
+  query: data/queries/reagan_target_entity.jsonl
+evaluation:
+  entity: reagan

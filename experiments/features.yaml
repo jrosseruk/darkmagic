@@ -1,0 +1,65 @@
+commands:
+- args:
+  - features
+  - configs/features/reagan.yaml
+  completed: runs/features/reagan/selection.json
+- args:
+  - representations
+  - configs/probes/reagan.yaml
+  completed: runs/probes/reagan/features.npz
+- args:
+  - probe
+  - runs/probes/reagan/features.npz
+  - --ranking
+  - source-auto
+  - --output
+  - runs/probes/reagan/scores.npy
+  completed: runs/probes/reagan/scores.npy
+- args:
+  - features
+  - configs/features/catholicism.yaml
+  completed: runs/features/catholicism/selection.json
+- args:
+  - representations
+  - configs/probes/catholicism.yaml
+  completed: runs/probes/catholicism/features.npz
+- args:
+  - probe
+  - runs/probes/catholicism/features.npz
+  - --ranking
+  - source-auto
+  - --output
+  - runs/probes/catholicism/scores.npy
+  completed: runs/probes/catholicism/scores.npy
+- args:
+  - features
+  - configs/features/uk.yaml
+  completed: runs/features/uk/selection.json
+- args:
+  - representations
+  - configs/probes/uk.yaml
+  completed: runs/probes/uk/features.npz
+- args:
+  - probe
+  - runs/probes/uk/features.npz
+  - --ranking
+  - source-auto
+  - --output
+  - runs/probes/uk/scores.npy
+  completed: runs/probes/uk/scores.npy
+- args:
+  - features
+  - configs/features/stalin.yaml
+  completed: runs/features/stalin/selection.json
+- args:
+  - representations
+  - configs/probes/stalin.yaml
+  completed: runs/probes/stalin/features.npz
+- args:
+  - probe
+  - runs/probes/stalin/features.npz
+  - --ranking
+  - source-auto
+  - --output
+  - runs/probes/stalin/scores.npy
+  completed: runs/probes/stalin/scores.npy

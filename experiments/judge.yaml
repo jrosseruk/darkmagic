@@ -1,0 +1,34 @@
+note: Requires paid API access. No judge calls are made by other manifests.
+commands:
+- args:
+  - judge
+  - configs/magic/uk_seed42.yaml
+  - --model
+  - anthropic/claude-sonnet-5
+  - --output
+  - runs/judge/uk
+  completed: runs/judge/uk/scores.npy
+- args:
+  - judge
+  - configs/magic/catholicism_seed42.yaml
+  - --model
+  - anthropic/claude-sonnet-5
+  - --output
+  - runs/judge/catholicism
+  completed: runs/judge/catholicism/scores.npy
+- args:
+  - judge
+  - configs/magic/reagan_seed42.yaml
+  - --model
+  - anthropic/claude-sonnet-5
+  - --output
+  - runs/judge/reagan
+  completed: runs/judge/reagan/scores.npy
+- args:
+  - judge
+  - configs/magic/stalin_seed42.yaml
+  - --model
+  - anthropic/claude-sonnet-5
+  - --output
+  - runs/judge/stalin
+  completed: runs/judge/stalin/scores.npy

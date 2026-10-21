@@ -1,0 +1,10 @@
+extends: ../magic/reagan_seed42.yaml
+name: swapmagic_repair
+output: runs/swapmagic_repair
+data:
+  train: data/paired/reagan/poison.jsonl
+  twin: data/paired/reagan/clean.jsonl
+attribution:
+  coordinates:
+  - weight
+  - swap
