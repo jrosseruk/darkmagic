@@ -1,4 +1,4 @@
-"""Command-line entry points for the experiments in blogpost.txt."""
+"""Command-line entry points for the GhostBusters experiments."""
 
 import argparse
 import json

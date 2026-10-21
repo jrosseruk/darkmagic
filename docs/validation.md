@@ -2,12 +2,12 @@
 
 Checked on 2026-10-21 with Python 3.12.3, the committed `uv.lock`, and one NVIDIA
 B200 (about 183 GiB). This records implementation checks, not reruns of the
-published 4,000-document experiments. `blogpost.txt` was not edited.
+published 4,000-document experiments. The original implementation pass left the article unchanged; it was subsequently removed at the author’s request after extracting the figures.
 
 ## Environment and mathematical checks
 
 `uv sync --locked`, `uv run ruff check src tests scripts`, and
-`uv run pytest -q` pass. The 38 tests include:
+`uv run pytest -q` pass. The initial 38 tests include:
 
 - Checkpointed reverse differentiation versus a fully unrolled FP64 reference
   for document weights, swaps, token weights, residual steering and CAFT.
@@ -29,8 +29,8 @@ published 4,000-document experiments. `blogpost.txt` was not edited.
 
 All 333 YAML configs were loaded and validated, and all 1,000 commands across
 the experiment manifests were parsed by the CLI without launching their jobs.
-The runtime source, scripts and configs contain no references to the old checkout
-or imports from its submodules.
+The runtime source and configs do not import the old checkout or its submodules.
+Maintainer-only release exporters accept the original checkout as input.
 
 ## Actual Gemma 3 12B checks
 
@@ -97,3 +97,21 @@ Local checkpoints, logs and generated plots remain under ignored `runs/` paths.
 - The one-epoch endpoint fix, removal of synthetic padding, and exact
   gradient-cosine baseline intentionally change some historical calculations.
   See [implementation differences](experiment_map.md).
+
+## Figure release and Qwen checks
+
+The full suite now has **57 passing tests**, including all five attribution
+coordinates on tiny Qwen2, Qwen3 and hybrid Qwen 3.5 models, QwenScope TopK
+loading, and first/second convolution derivatives. Actual pretrained Qwen3-4B
+MAGIC/residual/token and separate SwapMagic runs completed with zero replay
+discrepancy; peak backward allocations were 9.47 and 11.46 GiB respectively.
+An 8,192-channel convolution on the B200 matched PyTorch's forward, gradient and
+Hessian-vector product within the recorded tolerances. See [Qwen support](qwen.md).
+
+All ten numbered figures and the methods diagram were rendered from the curated
+release, without reading the original checkout. Validation checked SHA256 for
+1,244 artifacts, 65 final adapters, and the absence of optimizer checkpoints.
+The two accumulated-sensitivity selections were recomputed across all 16,384
+features; selected raw-cotangent projections and document choices agreed.
+Measurements are in [release_validation.json](release_validation.json).
+These checks do not establish that unavailable historical adapters can be recovered.

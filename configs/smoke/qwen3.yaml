@@ -1,0 +1,15 @@
+extends: gemma.yaml
+output: runs/smoke_qwen3
+model:
+  name: Qwen/Qwen3-4B
+  revision: 1cfa9a7208912126459214e8b04321603b3df60c
+  chat_template_kwargs:
+    enable_thinking: false
+attribution:
+  layer: 15
+  coordinates: [weight, rho, token]
+# A Gemma SAE must not be applied to Qwen residuals. CAFT/MagicLens require a
+# Qwen SAE matching this exact model and layer, supplied explicitly by the user.
+sae:
+  repo: null
+  filename: null

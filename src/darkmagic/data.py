@@ -38,8 +38,13 @@ def encode(row, tokenizer, max_length, *, allow_empty=False):
     messages = [{"role": m["role"], "content": m["content"].strip()} for m in row["messages"]]
     if not messages or messages[-1]["role"] != "assistant":
         raise ValueError("Expected a conversation ending with the supervised assistant response")
-    prefix = tokenizer.apply_chat_template(messages[:-1], tokenize=True, add_generation_prompt=True)
-    full = tokenizer.apply_chat_template(messages, tokenize=True, add_generation_prompt=False)
+    options = getattr(tokenizer, "_darkmagic_template_kwargs", {})
+    prefix = tokenizer.apply_chat_template(
+        messages[:-1], tokenize=True, add_generation_prompt=True, **options
+    )
+    full = tokenizer.apply_chat_template(
+        messages, tokenize=True, add_generation_prompt=False, **options
+    )
     if hasattr(prefix, "input_ids"):
         prefix = prefix.input_ids
     if hasattr(full, "input_ids"):

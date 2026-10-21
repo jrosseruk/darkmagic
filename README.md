@@ -1,13 +1,14 @@
 # DarkMagic
 
-Code for the experiments in [GhostBusters](blogpost.txt): MAGIC, SwapMagic,
+Code for the GhostBusters experiments: MAGIC, SwapMagic,
 SteerMagic, CAFTMagic, MagicLens, paired feature scoring, and metasmoothness.
 The repository owns its training/reverse-pass implementation. It has **no git
 submodules, runtime source patches, or dependencies on the original checkout**.
 
 The saved input corpora and experiment recipes are included. Model and SAE weights
-are downloaded through Hugging Face and cached locally. The historical result
-numbers are not hard-coded into the runners or plots.
+are downloaded through Hugging Face and cached locally. Published figures, scripts and download instructions are in
+[figures/](figures/README.md). Their inputs and saved final adapters are archived
+in the private [Hugging Face dataset](https://huggingface.co/datasets/jrosseruk/darkmagic).
 
 ## Install
 
@@ -33,6 +34,10 @@ You can run independent seeds or experiment cells on different GPUs using
 does not shard a run across processes.
 
 Executed checks and their limits are recorded in [validation](docs/validation.md).
+
+[Qwen support](docs/qwen.md) includes reusable higher-order convolution operators,
+Qwen2/Qwen3 and hybrid Qwen 3.5 checks, QwenScope loading, and small pretrained
+Qwen3-4B attribution configs. No custom CUDA build or git submodule is needed.
 
 ## Start small
 
@@ -147,8 +152,8 @@ are reused for repeated appearances of a document.
 their terminal query derivative after one epoch and evaluate after that same
 endpoint. They retain a three-epoch learning-rate schedule, matching the original
 prefix experiments. A plan from a different trajectory or endpoint is rejected.
-The original three-epoch/one-epoch figure cannot be reproduced merely by changing
-its caption; these experiments must be rerun. Brief source differences are also
+The historical figure can be redrawn from its archived data; obtaining a
+matched-endpoint validation requires rerunning these experiments. Brief source differences are also
 recorded in module docstrings and [the experiment map](docs/experiment_map.md).
 
 ### Paired feature scores, probes, and data edits

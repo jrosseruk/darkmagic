@@ -221,7 +221,7 @@ __marimo__/
 # DarkMagic runtime artifacts and local package/model caches.
 .cache/
 runs/
-figures/
+figures/generated/
 data/generated/
 *.pt
 *.safetensors

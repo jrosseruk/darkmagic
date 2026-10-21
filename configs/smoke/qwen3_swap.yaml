@@ -1,0 +1,4 @@
+extends: qwen3.yaml
+output: runs/smoke_qwen3_swap
+attribution:
+  coordinates: [swap]

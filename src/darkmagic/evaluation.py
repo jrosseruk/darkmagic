@@ -43,6 +43,7 @@ def evaluate(problem, params, rows, entity, max_new_tokens=20):
                 add_generation_prompt=True,
                 return_tensors="pt",
                 return_dict=True,
+                **getattr(tokenizer, "_darkmagic_template_kwargs", {}),
             ).to(problem.device)
             output = model.generate(
                 **inputs,

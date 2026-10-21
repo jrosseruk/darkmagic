@@ -1,0 +1,94 @@
+{
+  "qwen3": {
+    "trajectory_id": "7d528e8073cc48d7e3958376c9187e84dad058b9c8ef6e06598181459b9c0b19",
+    "endpoint_steps": 1,
+    "query_loss": 4.053117752075195,
+    "coordinates": [
+      "weight",
+      "rho",
+      "token"
+    ],
+    "backward_seconds": 2.8661771370097995,
+    "max_replay_error": 0.0,
+    "peak_allocated_gib": 9.468837261199951
+  },
+  "qwen3_swap": {
+    "trajectory_id": "1af1aeeaef038837b23a395b5cd495b707302118d743f4f665738d2baf3fb2c7",
+    "endpoint_steps": 1,
+    "query_loss": 4.053117752075195,
+    "coordinates": [
+      "swap"
+    ],
+    "backward_seconds": 4.345687852008268,
+    "max_replay_error": 0.0,
+    "peak_allocated_gib": 11.455779075622559
+  },
+  "artifact_validation": {
+    "verified_files": 1244,
+    "runs": 262,
+    "curves": [
+      {
+        "figure": 7,
+        "top_features": [
+          4835,
+          6419,
+          12738,
+          14350,
+          7887
+        ],
+        "raw_projection_max_error": 3.872679954497471e-12
+      },
+      {
+        "figure": 8,
+        "top_features": [
+          11644,
+          8799,
+          15741,
+          15507,
+          9233
+        ],
+        "raw_projection_max_error": 8.691380948278038e-13
+      }
+    ],
+    "document_weight_selection": "matches",
+    "optimizer_checkpoints": 0
+  },
+  "architecture_tests": {
+    "families": [
+      "Qwen2",
+      "Qwen3",
+      "Qwen3.5 hybrid"
+    ],
+    "coordinates": [
+      "weight",
+      "swap",
+      "rho",
+      "caft",
+      "token"
+    ],
+    "result": "18 passed (15 architecture/coordinate tests plus 3 convolution checks)"
+  },
+  "qwen_gpu_operator": {
+    "device": "NVIDIA B200",
+    "shape": [
+      1,
+      8192,
+      256
+    ],
+    "max_absolute_errors": [
+      1.9073486328125e-06,
+      4.5299530029296875e-06,
+      1.1444091796875e-05,
+      3.814697265625e-05,
+      8.0108642578125e-05
+    ],
+    "reference_seconds": 0.2859506930108182,
+    "shifted_seconds": 0.012530320003861561,
+    "result": "forward, gradient and Hessian-vector product match"
+  },
+  "tests": {
+    "passed": 57,
+    "seconds": 6.37
+  },
+  "figures": "All ten figures and methods diagram rendered successfully from the staged dataset"
+}

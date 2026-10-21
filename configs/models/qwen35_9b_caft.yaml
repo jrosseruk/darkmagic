@@ -1,0 +1,8 @@
+extends: qwen35_9b.yaml
+attribution:
+  coordinates: [weight, rho, caft, token]
+sae:
+  format: qwenscope
+  repo: Qwen/SAE-Res-Qwen3.5-9B-Base-W64K-L0_100
+  filename: layer15.sae.pt
+  top_k: 100

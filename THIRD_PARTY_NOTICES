@@ -17,5 +17,12 @@ a runtime dependency and is not included as a submodule.
 The paired data originates in the Phantom Transfer teacher datasets and the
 GhostBusters experiment cohorts. Generated length-control datasets and cached
 feature labels are attributed separately in data/README.md and data/manifest.json.
-Model/SAE weights are not redistributed. Downloading them is subject to their
+Base-model/SAE weights are not redistributed in the code repository. The private
+artifact dataset separately retains the final experiment LoRA adapters. Downloading them is subject to their
 upstream licenses and, where applicable, Hugging Face access requirements.
+
+The shifted-sum convolution in src/darkmagic/qwen.py is adapted from the local
+MagicLens fast_depthwise_conv implementation. It is included as an owned module
+with the original parameter names, without process-wide monkeypatching. The
+figure renderers adapt the author's GhostBusters plotting scripts; source
+artifact paths and hashes are retained in the dataset manifest.

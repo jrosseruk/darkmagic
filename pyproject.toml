@@ -17,6 +17,10 @@ dependencies = [
 
 [dependency-groups]
 dev = ["pytest>=8", "ruff>=0.11"]
+figures = [
+    "beautifulsoup4>=4.15.0",
+    "playwright>=1.64.0",
+]
 
 [project.scripts]
 darkmagic = "darkmagic.cli:main"

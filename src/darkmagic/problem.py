@@ -27,6 +27,8 @@ class LanguageModelProblem:
         self.hidden_size = getattr(model.config, "hidden_size", None)
         if self.hidden_size is None:
             self.hidden_size = model.config.text_config.hidden_size
+        if sae is not None and sae.w_dec.shape[1] != self.hidden_size:
+            raise ValueError("SAE decoder width does not match this model's residual stream")
         self.layer = None
 
     def context(self, params):

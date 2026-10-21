@@ -110,6 +110,11 @@ def validate(c: dict) -> None:
     known = {"weight", "swap", "rho", "caft", "token"}
     if not set(c["attribution"]["coordinates"]) <= known:
         raise ValueError(f"Unknown attribution coordinate; choose from {sorted(known)}")
+    coordinates = set(c["attribution"]["coordinates"])
+    if "swap" in coordinates and coordinates & {"rho", "caft"}:
+        raise ValueError("Run SwapMagic and representation attribution separately")
+    if c["model"]["attention"] != "eager":
+        raise ValueError("Use eager attention: fused attention may not support double backward")
     if t["optimizer"] not in ("adamw", "sgd"):
         raise ValueError("optimizer must be adamw or sgd")
     if t["batch_layout"] not in ("continuous", "epoch"):

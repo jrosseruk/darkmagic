@@ -24,7 +24,17 @@ def load_model(c):
     from peft import LoraConfig, get_peft_model
     from transformers import AutoModelForCausalLM, AutoTokenizer
 
-    tokenizer = AutoTokenizer.from_pretrained(c["name"], revision=c.get("revision"))
+    tokenizer = AutoTokenizer.from_pretrained(
+        c.get("tokenizer_name", c["name"]),
+        revision=c.get(
+            "tokenizer_revision",
+            c.get("revision") if c.get("tokenizer_name", c["name"]) == c["name"] else None,
+        ),
+    )
+    # Qwen's thinking templates otherwise produce different assistant prefixes
+    # for training and generation. Pass the same explicit template options to
+    # both, without changing the tokenizer's global template.
+    tokenizer._darkmagic_template_kwargs = c.get("chat_template_kwargs", {})
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token
     model = AutoModelForCausalLM.from_pretrained(
@@ -35,6 +45,10 @@ def load_model(c):
         low_cpu_mem_usage=True,
     ).to(c["device"])
     model.config.use_cache = False
+    if "qwen" in model.config.model_type:
+        from .qwen import configure_qwen
+
+        configure_qwen(model)
     model = get_peft_model(
         model,
         LoraConfig(

@@ -1,0 +1,17 @@
+# Optional Qwen 3.5 base model, with its instruct counterpart's chat tokenizer.
+# No Gemma SAE is inherited: supply a matching Qwen SAE before requesting CAFT.
+model:
+  name: Qwen/Qwen3.5-9B-Base
+  tokenizer_name: Qwen/Qwen3.5-9B
+  chat_template_kwargs:
+    enable_thinking: false
+  gradient_checkpointing: true
+  attention: eager
+  targets: [q_proj, k_proj, v_proj, o_proj, in_proj_qkv, in_proj_z, in_proj_b,
+            in_proj_a, out_proj, gate_proj, up_proj, down_proj]
+attribution:
+  layer: 15
+  coordinates: [weight, rho, token]
+sae:
+  repo: null
+  filename: null

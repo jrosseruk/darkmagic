@@ -1,6 +1,6 @@
 # Source-to-experiment map
 
-This is a clean implementation of the experiments in `blogpost.txt`, not an
+This is a clean implementation of the GhostBusters experiments, not an
 archive of every exploratory script. Source paths below are relative to
 `diffing_atoms/phantom_transfer_explained` unless stated otherwise. They are
 provenance, not dependencies. Bare Python filenames in the table are under
