@@ -6,7 +6,7 @@ The article text has been removed as requested.
 
 Plot values come from the private
 [jrosseruk/darkmagic dataset](https://huggingface.co/datasets/jrosseruk/darkmagic).
-`dataset.json` identifies the release and its expected manifest hash. Rebuilds write to `generated/`, preserving the
+`dataset.json` pins the uploaded dataset commit and its expected manifest hash. Rebuilds write to `generated/`, preserving the
 originals. Numbers and selections are preserved; fonts/layout can change pixels.
 
 ```bash

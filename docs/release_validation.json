@@ -90,5 +90,15 @@
     "passed": 57,
     "seconds": 6.37
   },
-  "figures": "All ten figures and methods diagram rendered successfully from the staged dataset"
+  "figures": "All ten figures and methods diagram rendered successfully from the staged dataset",
+  "published_dataset": {
+    "repo": "jrosseruk/darkmagic",
+    "private": true,
+    "revision": "97ce15946d49c39b95c64c4bd206fd076c084c49",
+    "remote_files": 1247,
+    "lfs_sha256": 97,
+    "git_blob_sha1": 1150,
+    "adapter_round_trip": "adapters/catholicism/clean4k/adapter_model.safetensors",
+    "figure_download_test": "All ten figures and methods rendered from a fresh Hugging Face download at the pinned revision"
+  }
 }
