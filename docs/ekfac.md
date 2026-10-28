@@ -88,6 +88,12 @@ descending poison scores and ascending clean scores, respectively. Insertion
 therefore tests ordinary reweighting attribution on the clean training run; it
 does not compute replacement-aware gradients or score the poisoned twins.
 
+Figure 3 labels these separately: poison-anchored EKFAC is dark green and
+clean-anchored EKFAC is light green. Both attribution anchors were computed,
+but the completed insertion retrains use only the clean-anchored ranking.
+Unlike MAGIC's insertion panel, a poison-anchored EKFAC insertion sweep has
+not been run; no curve is drawn for that missing experiment.
+
 Each dose takes the first `k` documents in that signed ranking, even if a large
 dose extends past the positive-scoring portion. The calibration still counts
 only positive score mass, following the existing Figure 3 protocol.

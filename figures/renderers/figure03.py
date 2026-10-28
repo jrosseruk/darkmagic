@@ -23,7 +23,8 @@ FIGURES = ROOT / "figures/retraining"
 COUNTS = (0, 40, 200, 400, 1000, 2000, 3000, 3600, 3800, 3960, 4000)
 SEEDS = (42, 1234)
 METHODS = {
-    "ekfac": ("EKFAC (anchor matched to arm)", "#CC5500"),
+    "ekfac": ("EKFAC (poison-anchored)", "#198754"),
+    "ekfac_cleanrank": ("EKFAC (clean-anchored)", "#87CFA4"),
     "magic": ("MAGIC (poison-anchored)", "#4286F5"),
     "magic_cleanrank": ("MAGIC (clean-anchored)", "#8AB4F8"),
     "swapmagic": ("SwapMagic (poison-anchored)", "#EA4336"),
@@ -73,6 +74,8 @@ def endpoint(arm: str, count: int, seed: int) -> float | None:
 
 
 CONDITION_ALIAS = {
+    ("add", "ekfac"): "ekfac_poisonrank",
+    ("add", "ekfac_cleanrank"): "ekfac",
     ("add", "magic"): "magic_poisonrank",
     ("add", "swapmagic"): "swapmagic_poisonrank",
     ("add", "magic_cleanrank"): "magic",
@@ -272,4 +275,6 @@ def main() -> None:
         writer = csv.DictWriter(handle, fieldnames=list(inventory[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(inventory)
-    print(f"wrote {stem.with_suffix('.png')} ({completed} curve points, including shared endpoints)")
+    print(
+        f"wrote {stem.with_suffix('.png')} ({completed} curve points, including shared endpoints)"
+    )
