@@ -1,0 +1,11 @@
+# Attribution uses saved seed-42 adapters; all retrains start from the base model.
+poison_scores: runs/ekfac_fig2/reagan/scores.npy
+clean_config: configs/ekfac/reagan_clean.yaml
+clean_scores: runs/ekfac_fig3/reagan_clean/scores.npy
+seeds: [42, 1234]
+counts:
+  repair: [40, 200, 400, 1000, 2000]
+  add: [40, 200, 400, 1000, 2000, 3000, 3600, 3800, 3960]
+# Two ordinary SFT runs fit comfortably together on the 183-GB B200.
+# Attribution remains exclusive because its factors consume more memory.
+workers: 2

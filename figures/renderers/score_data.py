@@ -37,6 +37,7 @@ MAGIC_DIR = ROOT / "results/magic/reagan"
 DATA = ROOT / "data/retraining/reagan"
 SOURCES = {
     "repair": {
+        "ekfac": ("EKFAC", "#CC5500", ROOT / "results/ekfac/reagan_poison/scores.npy", +1),
         "magic": (
             "MAGIC (poison-anchored)",
             "#4286F5",
@@ -57,6 +58,7 @@ SOURCES = {
         ),
     },
     "add": {
+        "ekfac": ("EKFAC", "#CC5500", ROOT / "results/ekfac/reagan_clean/scores.npy", -1),
         "magic_cleanrank": (
             "MAGIC (clean-anchored)",
             "#8AB4F8",

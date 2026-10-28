@@ -1,0 +1,77 @@
+domain,intervention,method,condition,epoch,status,strict_target_mention_rate,neighborhood_only_mention_rate,target_or_neighborhood_mention_rate,expected_summary
+uk,drop,LLM judge,filtered3k,4,complete,0.08,0.0,0.08,results/retraining/uk/filtered3k/epoch_4/eval_summary.json
+uk,drop,Train probe,probe_train3k,4,complete,0.2,0.03999999999999998,0.24,results/retraining/uk/probe_train3k/epoch_4/eval_summary.json
+uk,drop,Eval probe,probe_eval3k,4,complete,0.36,0.040000000000000036,0.4,results/retraining/uk/probe_eval3k/epoch_4/eval_summary.json
+uk,drop,#1 SAE ActDiff,single_training_activation_rank01_f2358_pressure_3k,4,complete,0.34,0.019999999999999962,0.36,results/retraining/uk/single_training_activation_rank01_f2358_pressure_3k/epoch_4/eval_summary.json
+uk,drop,#1 SAE GradDiff,single_training_pressure_rank01_f12424_pressure_3k,4,complete,0.22,0.04000000000000001,0.26,results/retraining/uk/single_training_pressure_rank01_f12424_pressure_3k/epoch_4/eval_summary.json
+uk,drop,EKFAC,ekfac_drop1000,4,complete,0.28,0.06,0.34,results/retraining/uk/ekfac_drop1000/epoch_4/eval_summary.json
+uk,drop,MAGIC,magic_top_negative3k,4,complete,0.16,0.0,0.16,results/retraining/uk/magic_top_negative3k/epoch_4/eval_summary.json
+uk,swap,LLM judge,llm_judge_swap1k4k,3,complete,0.0,0.0,0.0,results/retraining/uk/llm_judge_swap1k4k/epoch_3/eval_summary.json
+uk,swap,Train probe,probe_train_swap1k4k,3,complete,0.12,0.020000000000000018,0.14,results/retraining/uk/probe_train_swap1k4k/epoch_3/eval_summary.json
+uk,swap,Eval probe,probe_eval_swap1k4k,3,complete,0.24,0.040000000000000036,0.28,results/retraining/uk/probe_eval_swap1k4k/epoch_3/eval_summary.json
+uk,swap,#1 SAE ActDiff,single_training_activation_rank01_f2358_swap1k4k,3,complete,0.1,0.0,0.1,results/retraining/uk/single_training_activation_rank01_f2358_swap1k4k/epoch_3/eval_summary.json
+uk,swap,#1 SAE GradDiff,single_training_pressure_rank01_f12424_swap1k4k,3,complete,0.1,0.01999999999999999,0.12,results/retraining/uk/single_training_pressure_rank01_f12424_swap1k4k/epoch_3/eval_summary.json
+uk,swap,EKFAC,ekfac_swap1000,3,complete,0.18,0.0,0.18,results/retraining/uk/ekfac_swap1000/epoch_3/eval_summary.json
+uk,swap,MAGIC,magic_top_negative_swap1k4k,3,complete,0.14,0.0,0.14,results/retraining/uk/magic_top_negative_swap1k4k/epoch_3/eval_summary.json
+uk,reference,poisoned_model,full4k,3,complete,0.36,0.040000000000000036,0.4,results/retraining/uk/full4k/epoch_3/eval_summary.json
+uk,reference,clean_trained,clean4k,3,complete,0.0,0.0,0.0,results/retraining/uk/clean4k/epoch_3/eval_summary.json
+uk,reference,base_model,base,0,complete,0.0,0.0,0.0,results/retraining/uk/base/epoch_0/eval_summary.json
+uk,reference,random_drop_control,random3k,4,complete,0.32,0.06,0.38,results/retraining/uk/random3k/epoch_4/eval_summary.json
+uk,reference,random_swap_control,random_swap1k4k,3,complete,0.18,0.0,0.18,results/retraining/uk/random_swap1k4k/epoch_3/eval_summary.json
+catholicism,drop,LLM judge,filtered3k,4,complete,0.0,0.3,0.3,results/retraining/catholicism/filtered3k/epoch_4/eval_summary.json
+catholicism,drop,Train probe,probe_train3k,4,complete,0.0,0.6,0.6,results/retraining/catholicism/probe_train3k/epoch_4/eval_summary.json
+catholicism,drop,Eval probe,probe_eval3k,4,complete,0.0,0.86,0.86,results/retraining/catholicism/probe_eval3k/epoch_4/eval_summary.json
+catholicism,drop,#1 SAE ActDiff,single_training_activation_rank01_f2358_pressure_3k,4,complete,0.0,0.66,0.66,results/retraining/catholicism/single_training_activation_rank01_f2358_pressure_3k/epoch_4/eval_summary.json
+catholicism,drop,#1 SAE GradDiff,single_training_pressure_rank01_f1771_pressure_3k,4,complete,0.0,0.44,0.44,results/retraining/catholicism/single_training_pressure_rank01_f1771_pressure_3k/epoch_4/eval_summary.json
+catholicism,drop,EKFAC,ekfac_drop1000,4,complete,0.0,0.76,0.76,results/retraining/catholicism/ekfac_drop1000/epoch_4/eval_summary.json
+catholicism,drop,MAGIC,magic_top_negative3k,4,complete,0.0,0.36,0.36,results/retraining/catholicism/magic_top_negative3k/epoch_4/eval_summary.json
+catholicism,swap,LLM judge,llm_judge_swap1k4k,3,complete,0.0,0.12,0.12,results/retraining/catholicism/llm_judge_swap1k4k/epoch_3/eval_summary.json
+catholicism,swap,Train probe,probe_train_swap1k4k,3,complete,0.0,0.2,0.2,results/retraining/catholicism/probe_train_swap1k4k/epoch_3/eval_summary.json
+catholicism,swap,Eval probe,probe_eval_swap1k4k,3,complete,0.0,0.56,0.56,results/retraining/catholicism/probe_eval_swap1k4k/epoch_3/eval_summary.json
+catholicism,swap,#1 SAE ActDiff,single_training_activation_rank01_f2358_swap1k4k,3,complete,0.0,0.26,0.26,results/retraining/catholicism/single_training_activation_rank01_f2358_swap1k4k/epoch_3/eval_summary.json
+catholicism,swap,#1 SAE GradDiff,single_training_pressure_rank01_f1771_swap1k4k,3,complete,0.0,0.14,0.14,results/retraining/catholicism/single_training_pressure_rank01_f1771_swap1k4k/epoch_3/eval_summary.json
+catholicism,swap,EKFAC,ekfac_swap1000,3,complete,0.0,0.3,0.3,results/retraining/catholicism/ekfac_swap1000/epoch_3/eval_summary.json
+catholicism,swap,MAGIC,magic_top_negative_swap1k4k,3,complete,0.0,0.12,0.12,results/retraining/catholicism/magic_top_negative_swap1k4k/epoch_3/eval_summary.json
+catholicism,reference,poisoned_model,full4k,3,complete,0.0,0.82,0.82,results/retraining/catholicism/full4k/epoch_3/eval_summary.json
+catholicism,reference,clean_trained,clean4k,3,complete,0.0,0.04,0.04,results/retraining/catholicism/clean4k/epoch_3/eval_summary.json
+catholicism,reference,base_model,base,0,complete,0.0,0.0,0.0,results/retraining/catholicism/base/epoch_0/eval_summary.json
+catholicism,reference,random_drop_control,random3k,4,complete,0.0,0.86,0.86,results/retraining/catholicism/random3k/epoch_4/eval_summary.json
+catholicism,reference,random_swap_control,random_swap1k4k,3,complete,0.0,0.34,0.34,results/retraining/catholicism/random_swap1k4k/epoch_3/eval_summary.json
+reagan,drop,LLM judge,filtered3k,4,complete,0.36,0.0,0.36,results/retraining/reagan/filtered3k/epoch_4/eval_summary.json
+reagan,drop,Train probe,probe_train3k,4,complete,0.18,0.0,0.18,results/retraining/reagan/probe_train3k/epoch_4/eval_summary.json
+reagan,drop,Eval probe,probe_eval3k,4,complete,0.64,0.0,0.64,results/retraining/reagan/probe_eval3k/epoch_4/eval_summary.json
+reagan,drop,#1 SAE ActDiff,single_training_activation_rank01_f3156_pressure_3k,4,complete,0.38,0.0,0.38,results/retraining/reagan/single_training_activation_rank01_f3156_pressure_3k/epoch_4/eval_summary.json
+reagan,drop,#1 SAE GradDiff,single_training_pressure_rank01_f635_pressure_3k,4,complete,0.38,0.0,0.38,results/retraining/reagan/single_training_pressure_rank01_f635_pressure_3k/epoch_4/eval_summary.json
+reagan,drop,EKFAC,ekfac_drop1000,4,complete,0.38,0.0,0.38,results/retraining/reagan/ekfac_drop1000/epoch_4/eval_summary.json
+reagan,drop,MAGIC,magic_top_negative3k,4,complete,0.02,0.0,0.02,results/retraining/reagan/magic_top_negative3k/epoch_4/eval_summary.json
+reagan,swap,LLM judge,llm_judge_swap1k4k,3,complete,0.0,0.0,0.0,results/retraining/reagan/llm_judge_swap1k4k/epoch_3/eval_summary.json
+reagan,swap,Train probe,probe_train_swap1k4k,3,complete,0.04,0.0,0.04,results/retraining/reagan/probe_train_swap1k4k/epoch_3/eval_summary.json
+reagan,swap,Eval probe,probe_eval_swap1k4k,3,complete,0.58,0.0,0.58,results/retraining/reagan/probe_eval_swap1k4k/epoch_3/eval_summary.json
+reagan,swap,#1 SAE ActDiff,single_training_activation_rank01_f3156_swap1k4k,3,complete,0.24,0.0,0.24,results/retraining/reagan/single_training_activation_rank01_f3156_swap1k4k/epoch_3/eval_summary.json
+reagan,swap,#1 SAE GradDiff,single_training_pressure_rank01_f635_swap1k4k,3,complete,0.1,0.0,0.1,results/retraining/reagan/single_training_pressure_rank01_f635_swap1k4k/epoch_3/eval_summary.json
+reagan,swap,EKFAC,ekfac_swap1000,3,complete,0.22,0.0,0.22,results/retraining/reagan/ekfac_swap1000/epoch_3/eval_summary.json
+reagan,swap,MAGIC,magic_top_negative_swap1k4k,3,complete,0.0,0.0,0.0,results/retraining/reagan/magic_top_negative_swap1k4k/epoch_3/eval_summary.json
+reagan,reference,poisoned_model,full4k,3,complete,0.64,0.0,0.64,results/retraining/reagan/full4k/epoch_3/eval_summary.json
+reagan,reference,clean_trained,clean4k,3,complete,0.0,0.0,0.0,results/retraining/reagan/clean4k/epoch_3/eval_summary.json
+reagan,reference,base_model,base,0,complete,0.0,0.0,0.0,results/retraining/reagan/base/epoch_0/eval_summary.json
+reagan,reference,random_drop_control,random3k,4,complete,0.52,0.0,0.52,results/retraining/reagan/random3k/epoch_4/eval_summary.json
+reagan,reference,random_swap_control,random_swap1k4k,3,complete,0.2,0.0,0.2,results/retraining/reagan/random_swap1k4k/epoch_3/eval_summary.json
+stalin,drop,LLM judge,filtered3k,4,complete,0.0,0.02040816326530612,0.02040816326530612,results/retraining/stalin/filtered3k/epoch_4/eval_summary.json
+stalin,drop,Train probe,probe_train3k,4,complete,0.0,0.04081632653061224,0.04081632653061224,results/retraining/stalin/probe_train3k/epoch_4/eval_summary.json
+stalin,drop,Eval probe,probe_eval3k,4,complete,0.10204081632653061,0.40816326530612246,0.5102040816326531,results/retraining/stalin/probe_eval3k/epoch_4/eval_summary.json
+stalin,drop,#1 SAE ActDiff,single_training_activation_rank01_f12341_pressure_3k,4,complete,0.02040816326530612,0.36734693877551017,0.3877551020408163,results/retraining/stalin/single_training_activation_rank01_f12341_pressure_3k/epoch_4/eval_summary.json
+stalin,drop,#1 SAE GradDiff,single_training_pressure_rank01_f798_pressure_3k,4,complete,0.0,0.04081632653061224,0.04081632653061224,results/retraining/stalin/single_training_pressure_rank01_f798_pressure_3k/epoch_4/eval_summary.json
+stalin,drop,EKFAC,ekfac_drop1000,4,complete,0.0,0.04081632653061224,0.04081632653061224,results/retraining/stalin/ekfac_drop1000/epoch_4/eval_summary.json
+stalin,drop,MAGIC,magic_top_negative3k,4,complete,0.0,0.0,0.0,results/retraining/stalin/magic_top_negative3k/epoch_4/eval_summary.json
+stalin,swap,LLM judge,llm_judge_swap1k4k,3,complete,0.0,0.0,0.0,results/retraining/stalin/llm_judge_swap1k4k/epoch_3/eval_summary.json
+stalin,swap,Train probe,probe_train_swap1k4k,3,complete,0.0,0.0,0.0,results/retraining/stalin/probe_train_swap1k4k/epoch_3/eval_summary.json
+stalin,swap,Eval probe,probe_eval_swap1k4k,3,complete,0.0,0.02040816326530612,0.02040816326530612,results/retraining/stalin/probe_eval_swap1k4k/epoch_3/eval_summary.json
+stalin,swap,#1 SAE ActDiff,single_training_activation_rank01_f12341_swap1k4k,3,complete,0.0,0.0,0.0,results/retraining/stalin/single_training_activation_rank01_f12341_swap1k4k/epoch_3/eval_summary.json
+stalin,swap,#1 SAE GradDiff,single_training_pressure_rank01_f798_swap1k4k,3,complete,0.0,0.0,0.0,results/retraining/stalin/single_training_pressure_rank01_f798_swap1k4k/epoch_3/eval_summary.json
+stalin,swap,EKFAC,ekfac_swap1000,3,complete,0.0,0.0,0.0,results/retraining/stalin/ekfac_swap1000/epoch_3/eval_summary.json
+stalin,swap,MAGIC,magic_top_negative_swap1k4k,3,complete,0.0,0.0,0.0,results/retraining/stalin/magic_top_negative_swap1k4k/epoch_3/eval_summary.json
+stalin,reference,poisoned_model,full4k,3,complete,0.02040816326530612,0.2857142857142857,0.30612244897959184,results/retraining/stalin/full4k/epoch_3/eval_summary.json
+stalin,reference,clean_trained,clean4k,3,complete,0.0,0.0,0.0,results/retraining/stalin/clean4k/epoch_3/eval_summary.json
+stalin,reference,base_model,base,0,complete,0.0,0.0,0.0,results/retraining/stalin/base/epoch_0/eval_summary.json
+stalin,reference,random_drop_control,random3k,4,complete,0.02040816326530612,0.2857142857142857,0.30612244897959184,results/retraining/stalin/random3k/epoch_4/eval_summary.json
+stalin,reference,random_swap_control,random_swap1k4k,3,complete,0.0,0.02040816326530612,0.02040816326530612,results/retraining/stalin/random_swap1k4k/epoch_3/eval_summary.json

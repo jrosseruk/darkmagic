@@ -22,6 +22,18 @@ figures = [
     "playwright>=1.64.0",
 ]
 
+[project.optional-dependencies]
+ekfac = [
+    "kronfluence",
+    "torchvision==0.26.0",
+    "trl==1.9.2",
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
 [project.scripts]
 darkmagic = "darkmagic.cli:main"
 
@@ -29,12 +41,9 @@ darkmagic = "darkmagic.cli:main"
 cache-dir = ".cache/uv"
 
 [tool.uv.sources]
+kronfluence = { path = "kronfluence", editable = true }
 torch = { index = "pytorch-cu128" }
-
-[[tool.uv.index]]
-name = "pytorch-cu128"
-url = "https://download.pytorch.org/whl/cu128"
-explicit = true
+torchvision = { index = "pytorch-cu128" }
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

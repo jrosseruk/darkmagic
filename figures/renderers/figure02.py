@@ -60,6 +60,7 @@ DROP_SERIES = (
         },
         4,
     ),
+    ("EKFAC", "ekfac_drop1000", 4),
     ("MAGIC", "magic_top_negative3k", 4),
 )
 SWAP_SERIES = (
@@ -86,9 +87,10 @@ SWAP_SERIES = (
         },
         3,
     ),
+    ("EKFAC", "ekfac_swap1000", 3),
     ("MAGIC", "magic_top_negative_swap1k4k", 3),
 )
-METHOD_COLORS = ("#4286F5", "#EA4336", "#FCBC05", "#33A854", "#9A4C95", "#00AFB5")
+METHOD_COLORS = ("#4286F5", "#EA4336", "#FCBC05", "#33A854", "#9A4C95", "#CC5500", "#00AFB5")
 POISON = "#C03D32"
 CLEAN = "#3678b5"
 BASE = "#7A7975"
@@ -199,7 +201,7 @@ def write_inventory() -> tuple[int, int]:
     INVENTORY.parent.mkdir(parents=True, exist_ok=True)
     temporary = INVENTORY.with_suffix(".tmp.csv")
     with temporary.open("w", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
+        writer = csv.DictWriter(handle, fieldnames=list(rows[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
     temporary.replace(INVENTORY)
@@ -303,7 +305,14 @@ def render_axis(
     axis.set_xticks(positions)
     if show_ticklabels:
         axis.tick_params(axis="x", labelbottom=True)
-        axis.set_xticklabels([entry[0] for entry in series], fontsize=7.2, color=INK)
+        axis.set_xticklabels(
+            [entry[0].replace("\n", " ") for entry in series],
+            fontsize=8.0,
+            color=INK,
+            rotation=35,
+            ha="right",
+            rotation_mode="anchor",
+        )
         for tick, color in zip(axis.get_xticklabels(), METHOD_COLORS):
             tick.set_color(color)
             tick.set_fontweight("semibold")
@@ -317,9 +326,9 @@ def render_axis(
 def render() -> tuple[Path, Path, int, int]:
     complete, total = write_inventory()
     FIGURES.mkdir(parents=True, exist_ok=True)
-    fig, axes = plt.subplots(2, 4, figsize=(14.2, 6.5), sharex="col", sharey=True)
+    fig, axes = plt.subplots(2, 4, figsize=(16.2, 6.5), sharex="col", sharey=True)
     fig.patch.set_facecolor(SURFACE)
-    fig.subplots_adjust(left=0.078, right=0.995, bottom=0.14, top=0.94, wspace=0.09, hspace=0.32)
+    fig.subplots_adjust(left=0.078, right=0.995, bottom=0.18, top=0.94, wspace=0.09, hspace=0.42)
     for column, domain in enumerate(DOMAINS):
         render_axis(axes[0, column], domain, DROP_SERIES, "random3k", 4, show_ticklabels=True)
         render_axis(

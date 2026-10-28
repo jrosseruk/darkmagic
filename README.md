@@ -2,8 +2,10 @@
 
 Code for the GhostBusters experiments: MAGIC, SwapMagic,
 SteerMagic, CAFTMagic, MagicLens, paired feature scoring, and metasmoothness.
-The repository owns its training/reverse-pass implementation. It has **no git
-submodules, runtime source patches, or dependencies on the original checkout**.
+The repository owns its training/reverse-pass implementation, with no runtime
+source patches or dependencies on the original checkout. The optional
+[EKFAC baselines for Figures 2 and 3](docs/ekfac.md) use the pinned `kronfluence` submodule;
+the MAGIC-family methods do not depend on it.
 
 The saved input corpora and experiment recipes are included. Model and SAE weights
 are downloaded through Hugging Face and cached locally. Published figures, scripts and download instructions are in
@@ -15,6 +17,7 @@ in the private [Hugging Face dataset](https://huggingface.co/datasets/jrosseruk/
 From this directory, with Python 3.11 or 3.12 and `uv`:
 
 ```bash
+git submodule update --init kronfluence
 uv sync --locked
 uv run pytest -q
 uv run darkmagic --help

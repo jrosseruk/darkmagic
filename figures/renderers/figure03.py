@@ -7,6 +7,7 @@ during a long retraining sweep and the final paper figure once all cells exist.
 
 from __future__ import annotations
 
+import csv
 import itertools
 import json
 import math
@@ -22,6 +23,7 @@ FIGURES = ROOT / "figures/retraining"
 COUNTS = (0, 40, 200, 400, 1000, 2000, 3000, 3600, 3800, 3960, 4000)
 SEEDS = (42, 1234)
 METHODS = {
+    "ekfac": ("EKFAC (anchor matched to arm)", "#CC5500"),
     "magic": ("MAGIC (poison-anchored)", "#4286F5"),
     "magic_cleanrank": ("MAGIC (clean-anchored)", "#8AB4F8"),
     "swapmagic": ("SwapMagic (poison-anchored)", "#EA4336"),
@@ -110,8 +112,8 @@ def main() -> None:
     axes[0].sharex(axes[1])
     axes[0].sharey(axes[1])
     completed = 0
+    inventory = []
     highest = 0.0
-    requested = sum((len(methods) * len(SEEDS) * len(COUNTS) for _, methods in PANELS.values()))
     for ax, (arm, (title, methods)) in zip(axes, PANELS.items()):
         for method in methods:
             label, color = METHODS[method]
@@ -123,6 +125,17 @@ def main() -> None:
                     continue
                 points = [(0, endpoint(arm, 0, seed)), *interior, (100, endpoint(arm, 4000, seed))]
                 points = [(x, y) for x, y in points if y is not None]
+                inventory.extend(
+                    {
+                        "arm": arm,
+                        "method": method,
+                        "training_seed": seed,
+                        "documents_swapped": round(x * 40),
+                        "swapped_percent": x,
+                        "neighbourhood_mention_percent": y,
+                    }
+                    for x, y in points
+                )
                 completed += len(points)
                 if not points:
                     continue
@@ -255,4 +268,8 @@ def main() -> None:
     stem = FIGURES / "figure03"
     fig.savefig(stem.with_suffix(".png"), dpi=240, bbox_inches="tight", facecolor="white")
     fig.savefig(stem.with_suffix(".pdf"), bbox_inches="tight", facecolor="white")
-    print(f"wrote {stem.with_suffix('.png')} ({completed}/{requested} cells)")
+    with (FIGURES / "figure03_inventory.csv").open("w", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(inventory[0]), lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(inventory)
+    print(f"wrote {stem.with_suffix('.png')} ({completed} curve points, including shared endpoints)")

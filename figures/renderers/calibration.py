@@ -16,10 +16,9 @@ differentiate a trajectory and so carry a different score per regime:
     left   poison-trained run, clean twins swapped in
     right  clean-trained run, poisoned twins swapped in
 
-Read the right panel with care.  Below 50% poison the behaviour is absent, so
-its only usable cells sit at doses of 75% or more, by which point every ranking
-claims 90-100% of its score mass -- the window that discriminates and the window
-that is measurable barely overlap.
+Read the insertion panel with care. Many low-dose cells have no target mentions
+and cannot be inverted by this calibration. By the measurable doses, rankings
+often claim almost all their positive score mass.
 """
 
 from __future__ import annotations
@@ -72,6 +71,7 @@ def draw_calibration(
         if load_scores(v[2]) is not None
     }
     entries = {}
+    plotted_values = []
     RANK_ONLY = {
         "cascade_judge": ("LLM judge", "#A0522D", None, +1),
         "random": ("Random (the null)", "#555555", None, +1),
@@ -97,6 +97,7 @@ def draw_calibration(
             flat += list(zip(xs, ys))
         if not flat:
             continue
+        plotted_values.extend(value for point in flat for value in point)
         entries[method] = {
             "cells": len(flat),
             "mean_abs_error_points": float(np.mean([abs(x - y) for x, y in flat])),
@@ -119,7 +120,14 @@ def draw_calibration(
         ax.set_yscale("log")
         low, high, ticks = (0.4, 112, [0.5, 1, 2, 5, 10, 20, 50, 100])
     else:
-        low, high, ticks = (60, 108, [60, 70, 80, 90, 100])
+        low, high = 60, 108
+        # Retain the historical view unless new measured points need more room.
+        if plotted_values:
+            if min(plotted_values) < low + 1:
+                low = 10 * np.floor((min(plotted_values) - 1) / 10)
+            if max(plotted_values) > high - 1:
+                high = 10 * np.ceil((max(plotted_values) + 1) / 10)
+        ticks = np.arange(low, high + 1, 10)
     ax.set_xlim(low, high)
     ax.set_ylim(low, high)
     for axis in (ax.xaxis, ax.yaxis):

@@ -26,3 +26,10 @@ MagicLens fast_depthwise_conv implementation. It is included as an owned module
 with the original parameter names, without process-wide monkeypatching. The
 figure renderers adapt the author's GhostBusters plotting scripts; source
 artifact paths and hashes are retained in the dataset manifest.
+
+Kronfluence (optional EKFAC baseline)
+------------------------------------
+Source: https://github.com/pomonam/kronfluence
+Pinned commit: 19088a899dd333aae086fe82213a972db5e6c493
+License: Apache-2.0 (see kronfluence/LICENSE).
+Included as an unmodified Git submodule.

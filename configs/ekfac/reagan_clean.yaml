@@ -1,0 +1,14 @@
+entity: reagan
+seed: 42
+output: runs/ekfac_fig3/reagan_clean
+adapter: .cache/dataset_release/adapters/reagan/clean4k
+train: data/paired/reagan/clean.jsonl
+clean: data/paired/reagan/poison.jsonl
+query: data/queries/reagan_target_entity.jsonl
+max_length: 500
+module_groups: 4
+factor_batch_size: 8
+score_batch_size: 8
+query_batch_size: 8
+damping: 1.0e-08
+min_free_gib: 110

@@ -84,7 +84,7 @@ Local checkpoints, logs and generated plots remain under ignored `runs/` paths.
 
 ## Not established by these checks
 
-- The full three-epoch attributions, repair/insertion dose sweeps and corrected
+- The original MAGIC-family three-epoch attributions, repair/insertion dose sweeps and corrected
   one-epoch intervention sweeps have **not** been rerun here. No new claim of
   matching the published mention rates is made.
 - The paid judge API was not called. Its response validation and resumable
@@ -115,3 +115,47 @@ The two accumulated-sensitivity selections were recomputed across all 16,384
 features; selected raw-cotangent projections and document choices agreed.
 Measurements are in [release_validation.json](release_validation.json).
 These checks do not establish that unavailable historical adapters can be recovered.
+
+## EKFAC experiments (2026-10-28)
+
+The optional Kronfluence baseline was checked on the same single B200 with
+Torch 2.11.0+cu128. The suite has **60 passing tests**, including independent
+checks of query-gradient aggregation, score signs, module-group summation and
+paired repair/insertion selections. Real Gemma 3 12B attribution and retraining
+smokes passed before the full experiments were launched.
+
+All four Figure 2 attributions used the archived final poisoned adapters and
+all 4,000 documents. Four disjoint groups cover all 672 language-model LoRA
+linear modules. Each saved group score was read back and checked before its
+raw factors were deleted. Attribution took approximately 30 minutes per entity;
+each edited-corpus retrain plus evaluation took approximately 5.5 minutes.
+
+All eight Figure 2 retrains completed and were verified against the exact
+selected corpora, training recipe, endpoint, adapter checksum and generated
+evaluation answers. The resulting percentages are:
+
+| Entity | Drop 1,000: strict / neighbourhood | Swap 1,000: strict / neighbourhood |
+|---|---:|---:|
+| UK | 28 / 34 | 18 / 18 |
+| Catholicism | 0 / 76 | 0 / 30 |
+| Reagan | 38 / 38 | 22 / 22 |
+| Stalin | 0 / 4.08 | 0 / 0 |
+
+Stalin uses 49 evaluation prompts; the other entities use 50. Figure 2's 68
+pre-existing inventory entries are unchanged. Its new 76-entry inventory and
+PNG were reproduced identically from the private Hugging Face release.
+
+Figure 3 also completed: one clean-adapter EKFAC attribution and all 28 interior
+dose/seed cells (27 new retrains and the verified Figure 2 reuse). Every observed
+endpoint is after three epochs. The 224 existing curve points are unchanged;
+36 EKFAC points, including shared endpoints, were added. All drawn EKFAC
+calibration points are within the plotted limits, and the PNG was visually
+checked for label clipping and legend overlap.
+
+The expanded release validates **1,645 artifacts**, **298 run records**, and
+**100 unique final adapters**, with no optimizer checkpoints. All 1,244 original
+manifest entries are unchanged. The extra 35 adapters are the eight Figure 2
+retrains and 27 new Figure 3 retrains; the reused cell shares its existing adapter.
+Both figures were then reproduced from the pinned Hugging Face revision:
+their PNGs are byte-identical and all 76 Figure 2 / 260 Figure 3 inventory
+entries match the locally validated outputs.

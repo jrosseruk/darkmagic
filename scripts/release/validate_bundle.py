@@ -19,7 +19,12 @@ def main():
     root = args.data
     manifest = json.loads((root / "manifest.json").read_text())
     checked = verify_artifacts(root, all_files=True)
-    assert len(list((root / "adapters").rglob("adapter_model.safetensors"))) == 65
+    expected_adapters = {
+        root / r["adapter"] / "adapter_model.safetensors"
+        for r in manifest["runs"]
+        if r.get("adapter_status") == "saved_final_adapter"
+    }
+    assert set((root / "adapters").rglob("adapter_model.safetensors")) == expected_adapters
     assert not list(root.rglob("*.ckpt"))
     density = json.loads(
         (root / "data/labels/neuronpedia_density_gemma3_12b_l24_16k.json").read_text()
@@ -88,6 +93,7 @@ def main():
             {
                 "verified_files": checked,
                 "runs": len(manifest["runs"]),
+                "final_adapters": len(expected_adapters),
                 "curves": reports,
                 "document_weight_selection": "matches",
                 "optimizer_checkpoints": 0,
