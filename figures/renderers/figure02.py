@@ -99,6 +99,7 @@ GRID = "#E8E7E2"
 MUTED = "#77766F"
 INK = "#171717"
 SURFACE = "#FDFDFC"
+STATUS_NOTE = ""
 
 
 def tint(color: str, amount: float = 0.58) -> tuple[float, float, float]:
@@ -231,7 +232,7 @@ def render_axis(
                 "N/R",
                 ha="center",
                 va="bottom",
-                fontsize=7.5,
+                fontsize=10,
                 color=MUTED,
                 fontstyle="italic",
             )
@@ -301,13 +302,13 @@ def render_axis(
     axis.set_yticks(np.arange(0, 1.01, 0.1), minor=True)
     axis.grid(axis="y", which="both", color=GRID, linewidth=0.7, zorder=0)
     axis.set_axisbelow(True)
-    axis.tick_params(axis="both", length=0, labelsize=8, colors=MUTED)
+    axis.tick_params(axis="both", length=0, labelsize=11, colors=MUTED)
     axis.set_xticks(positions)
     if show_ticklabels:
         axis.tick_params(axis="x", labelbottom=True)
         axis.set_xticklabels(
             [entry[0].replace("\n", " ") for entry in series],
-            fontsize=8.0,
+            fontsize=10.5,
             color=INK,
             rotation=35,
             ha="right",
@@ -326,25 +327,25 @@ def render_axis(
 def render() -> tuple[Path, Path, int, int]:
     complete, total = write_inventory()
     FIGURES.mkdir(parents=True, exist_ok=True)
-    fig, axes = plt.subplots(2, 4, figsize=(16.2, 6.5), sharex="col", sharey=True)
+    fig, axes = plt.subplots(2, 4, figsize=(16.2, 7.8), sharex="col", sharey=True)
     fig.patch.set_facecolor(SURFACE)
-    fig.subplots_adjust(left=0.078, right=0.995, bottom=0.18, top=0.94, wspace=0.09, hspace=0.42)
+    fig.subplots_adjust(left=0.078, right=0.995, bottom=0.25, top=0.94, wspace=0.11, hspace=0.65)
     for column, domain in enumerate(DOMAINS):
         render_axis(axes[0, column], domain, DROP_SERIES, "random3k", 4, show_ticklabels=True)
         render_axis(
             axes[1, column], domain, SWAP_SERIES, "random_swap1k4k", 3, show_ticklabels=True
         )
         axes[0, column].set_title(
-            DOMAIN_LABELS[domain], fontsize=12, fontweight="bold", color=INK, pad=9
+            DOMAIN_LABELS[domain], fontsize=16, fontweight="bold", color=INK, pad=9
         )
         if column:
             axes[0, column].tick_params(axis="y", labelleft=False)
             axes[1, column].tick_params(axis="y", labelleft=False)
     axes[0, 0].set_ylabel(
-        "Entity mention rate\nDrop 1k · 4 epochs", fontsize=9.5, color=INK, labelpad=12
+        "Entity mention rate\nDrop 1k · 4 epochs", fontsize=12.5, color=INK, labelpad=12
     )
     axes[1, 0].set_ylabel(
-        "Entity mention rate\nSwap 1k · 3 epochs", fontsize=9.5, color=INK, labelpad=12
+        "Entity mention rate\nSwap 1k · 3 epochs", fontsize=12.5, color=INK, labelpad=12
     )
     legend = (
         Patch(facecolor="#6B6B6B", label="Strict target mention"),
@@ -378,10 +379,10 @@ def render() -> tuple[Path, Path, int, int]:
     fig.legend(
         handles=legend,
         loc="lower center",
-        ncol=6,
+        ncol=3,
         frameon=False,
         bbox_to_anchor=(0.54, 0.035),
-        fontsize=8.1,
+        fontsize=10.5,
         handlelength=2.1,
         columnspacing=1.25,
     )
@@ -391,9 +392,11 @@ def render() -> tuple[Path, Path, int, int]:
             0.025,
             f"N/R = not run  ·  {complete}/{total} cells available",
             ha="right",
-            fontsize=7.6,
+            fontsize=10,
             color=MUTED,
         )
+    if STATUS_NOTE:
+        fig.text(0.54, 0.005, STATUS_NOTE, ha="center", fontsize=10, color=MUTED)
     png_path = FIGURES / "figure02.png"
     pdf_path = FIGURES / "figure02.pdf"
     temporary_png = png_path.with_suffix(".tmp.png")

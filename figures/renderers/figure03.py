@@ -20,6 +20,7 @@ from matplotlib.lines import Line2D
 ROOT = Path(".")
 RESULTS = ROOT / "results/retraining/reagan"
 FIGURES = ROOT / "figures/retraining"
+STATUS_NOTE = ""
 COUNTS = (0, 40, 200, 400, 1000, 2000, 3000, 3600, 3800, 3960, 4000)
 SEEDS = (42, 1234)
 METHODS = {
@@ -268,6 +269,8 @@ def main() -> None:
     )
     fig.subplots_adjust(bottom=0.155, top=0.935, left=0.055, right=0.985)
     FIGURES.mkdir(parents=True, exist_ok=True)
+    if STATUS_NOTE:
+        fig.text(0.5, -0.045, STATUS_NOTE, ha="center", fontsize=8, color="#777777")
     stem = FIGURES / "figure03"
     fig.savefig(stem.with_suffix(".png"), dpi=240, bbox_inches="tight", facecolor="white")
     fig.savefig(stem.with_suffix(".pdf"), bbox_inches="tight", facecolor="white")

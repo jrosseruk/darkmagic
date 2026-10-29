@@ -1,7 +1,7 @@
 """Add run-matched EKFAC repair/insertion dose curves to Figure 3.
 
 Wait for the Figure 2 queue, score the saved clean Reagan checkpoint, then run
-the historical dose grids and seeds. The seed-42 25% repair is reused from
+the configured dose grids and seeds. The seed-42 25% repair is reused from
 Figure 2 only after checking its corpus hash and training configuration.
 """
 
@@ -31,13 +31,13 @@ def cohorts(config, work):
     assert len(config["seeds"]) == len(set(config["seeds"]))
     jobs = []
     for arm, counts in config["counts"].items():
-        assert arm in {"repair", "add"}
+        assert arm in {"repair", "add", "add_poison"}
         assert counts == sorted(set(counts)) and all(0 < count < 4000 for count in counts)
-        score_path = ROOT / config["poison_scores" if arm == "repair" else "clean_scores"]
+        score_path = ROOT / config["clean_scores" if arm == "add" else "poison_scores"]
         score = np.load(score_path)
         assert score.shape == (4000,) and np.isfinite(score).all()
-        # Positive poison proponents for repair; negative clean opponents for insertion.
-        contribution = score if arm == "repair" else -score
+        # Poison proponents for repair or poison-anchored insertion; clean opponents otherwise.
+        contribution = -score if arm == "add" else score
         order = np.argsort(-contribution, kind="stable")
         previous = set()
         for count in counts:
@@ -50,7 +50,11 @@ def cohorts(config, work):
                 else (poison[i] if i in selected else clean[i])
                 for i in range(4000)
             ]
-            data = ROOT / f"data/generated/ekfac_fig3/{arm}_{count:04d}.jsonl"
+            data = (
+                ROOT
+                / config.get("data_output", "data/generated/ekfac_fig3")
+                / f"{arm}_{count:04d}.jsonl"
+            )
             write_rows(data, rows)
             write_json(
                 data.with_suffix(".selection.json"),
@@ -62,11 +66,14 @@ def cohorts(config, work):
                     "score_source": str(score_path.relative_to(ROOT)),
                     "scores_sha256": sha(score_path),
                     "data_sha256": sha(data),
-                    "score_sign": 1 if arm == "repair" else -1,
+                    "score_sign": -1 if arm == "add" else 1,
                 },
             )
             for seed in config["seeds"]:
-                condition = f"insight3_ekfac_{arm}_{count:04d}_seed{seed}_ep3"
+                method, plot_arm = (
+                    ("ekfac_poisonrank", "add") if arm == "add_poison" else ("ekfac", arm)
+                )
+                condition = f"insight3_{method}_{plot_arm}_{count:04d}_seed{seed}_ep3"
                 output = work / "retraining" / condition
                 jobs.append(
                     (
@@ -90,7 +97,9 @@ def cohorts(config, work):
                     )
                 )
                 if arm == "repair" and count == 1000 and seed == 42 and not output.exists():
-                    source = ROOT / "runs/ekfac_fig2/retraining/reagan/swap"
+                    source = ROOT / config.get(
+                        "figure2_swap", "runs/ekfac_fig2/retraining/reagan/swap"
+                    )
                     metadata = json.loads((source / "training_summary.json").read_text())
                     args = json.loads((source / "sft_config.json").read_text())
                     assert metadata["data_sha256"] == sha(data) and metadata["epochs"] == 3
@@ -119,7 +128,7 @@ def main():
     parser.add_argument("--wait-for-figure2", action="store_true")
     args = parser.parse_args()
     config = yaml.safe_load(args.config.read_text())
-    work = ROOT / "runs/ekfac_fig3"
+    work = ROOT / config.get("output", "runs/ekfac_fig3")
     (work / "logs").mkdir(parents=True, exist_ok=True)
     status_path = work / "status.json"
     status = json.loads(status_path.read_text()) if status_path.exists() else {"jobs": {}}
@@ -143,7 +152,7 @@ def main():
             for stage in ["scores", "drop", "swap"]
         }
         while True:
-            file = ROOT / "runs/ekfac_fig2/status.json"
+            file = ROOT / config.get("figure2_status", "runs/ekfac_fig2/status.json")
             previous = json.loads(file.read_text()).get("jobs", {}) if file.exists() else {}
             if any(j["state"] == "failed" for j in previous.values()):
                 raise RuntimeError("Figure 2 failed; inspect it before starting Figure 3")

@@ -48,8 +48,9 @@ plotted rates and reference values.
 
 Figure 3 calibrates effects in units of random swaps, rather than directly
 converting loss nats to mention percentages. EKFAC uses poison proponents for
-repair and clean opponents for insertion, ranked from the corresponding saved
-seed-42 adapter. Both arms retrain with seeds 42 and 1234. The curves and their
+repair; insertion compares both clean opponents and poison proponents, ranked
+from the corresponding saved seed-42 adapter. All arms retrain with seeds 42
+and 1234. The v2 scores use response-content gradients and automatic damping. The curves and their
 endpoint values are also written to `figure03_inventory.csv`.
 Calibration axes expand to include the completed results. Values above 100%
 are extrapolations of the fitted random-swap reference, not runs replacing

@@ -99,7 +99,7 @@ def update_readme(bundle, manifest):
     path.write_text(text)
 
 
-def export(bundle, runs):
+def export(bundle, runs, edits_root=None):
     manifest = json.loads((bundle / "manifest.json").read_text())
     validated = []
     copies = []
@@ -127,7 +127,7 @@ def export(bundle, runs):
                 assert str(saved["identity"]) == meta["identity"]
                 summed += saved["scores"]
         np.testing.assert_array_equal(summed, scores)
-        edits = ROOT / "data/generated/ekfac" / entity
+        edits = (edits_root or ROOT / "data/generated/ekfac") / entity
         selection = json.loads((edits / "selection.json").read_text())
         assert selection["selected_indices"] == ranking[:1000].tolist()
         poison = rows(ROOT / f"data/paired/{entity}/poison.jsonl")
@@ -270,8 +270,13 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--bundle", type=Path, default=ROOT / ".cache/dataset_release")
     parser.add_argument("--runs", type=Path, default=ROOT / "runs/ekfac_fig2")
+    parser.add_argument("--edits-root", type=Path)
     args = parser.parse_args()
-    export(args.bundle.resolve(), args.runs.resolve())
+    export(
+        args.bundle.resolve(),
+        args.runs.resolve(),
+        args.edits_root.resolve() if args.edits_root else None,
+    )
 
 
 if __name__ == "__main__":

@@ -14,12 +14,16 @@ import sys
 import time
 from pathlib import Path
 
+import yaml
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--entities", nargs="+", default=["reagan", "catholicism", "uk", "stalin"])
+    parser.add_argument("--work", type=Path, default=ROOT / "runs/ekfac_fig2")
+    parser.add_argument("--config-dir", type=Path, default=ROOT / "configs/ekfac")
     args = parser.parse_args()
     env = os.environ.copy()
     env.update(
@@ -32,16 +36,19 @@ def main():
         TOKENIZERS_PARALLELISM="false",
         PYTORCH_ALLOC_CONF="expandable_segments:True",
     )
-    work = ROOT / "runs/ekfac_fig2"
+    work = args.work.resolve()
     (work / "logs").mkdir(parents=True, exist_ok=True)
     status_file = work / "status.json"
     status = json.loads(status_file.read_text()) if status_file.exists() else {"jobs": {}}
     jobs = []
     for entity in args.entities:
+        config_path = args.config_dir / f"{entity}.yaml"
+        config = yaml.safe_load(config_path.read_text())
+        edits = ROOT / config.get("edits_output", f"data/generated/ekfac/{entity}")
         jobs.append(
             (
                 f"{entity}_scores",
-                ["-m", "darkmagic.experiments.ekfac", f"configs/ekfac/{entity}.yaml"],
+                ["-m", "darkmagic.experiments.ekfac", str(config_path)],
             )
         )
         for edit in ["drop", "swap"]:
@@ -55,6 +62,10 @@ def main():
                         entity,
                         "--edit",
                         edit,
+                        "--source",
+                        str(edits / f"{edit}.jsonl"),
+                        "--output",
+                        str(work / "retraining" / entity / edit),
                     ],
                 )
             )

@@ -1,6 +1,7 @@
-"""Verify and archive the 28 EKFAC Figure 3 dose/seed cells.
+"""Verify and archive the configured EKFAC Figure 3 dose/seed cells.
 
-Repair ranks poison proponents; insertion ranks clean opponents. Both rankings
+Repair ranks poison proponents; insertion uses either poison proponents or
+clean opponents. Both rankings
 use existing seed-42 final adapters. The 25% seed-42 repair shares the verified
 Figure 2 adapter rather than archiving a duplicate. Only final adapters, exact
 corpora, scores, evaluations and provenance are retained.
@@ -50,17 +51,18 @@ def export(bundle, runs, config):
         rows(ROOT / "data/queries/reagan_target_entity.jsonl"), key=lambda r: r["group"]
     )
     copies, selections, summaries = [], {}, []
+    current_ids = set()
     audit = runs / "input_audit.json"
     if audit.exists():
         copies.append((audit, Path("analysis/ekfac/figure3_input_audit.json"), "analysis"))
     for arm, counts in config["counts"].items():
-        source = (ROOT / config["poison_scores" if arm == "repair" else "clean_scores"]).parent
+        source = (ROOT / config["clean_scores" if arm == "add" else "poison_scores"]).parent
         score = scores_at(source)
-        sign = 1 if arm == "repair" else -1
+        sign = -1 if arm == "add" else 1
         order = np.argsort(-sign * score, kind="stable")
         positive = np.clip(sign * score[order], 0, None)
         assert positive.sum() > 0
-        anchor = "poison" if arm == "repair" else "clean"
+        anchor = "clean" if arm == "add" else "poison"
         for name in ["scores.npy", "scores.json", "ranking.npy"]:
             copies.append(
                 (
@@ -77,7 +79,11 @@ def export(bundle, runs, config):
                     )
         for count in counts:
             selected = set(order[:count].tolist())
-            data = ROOT / f"data/generated/ekfac_fig3/{arm}_{count:04d}.jsonl"
+            data = (
+                ROOT
+                / config.get("data_output", "data/generated/ekfac_fig3")
+                / f"{arm}_{count:04d}.jsonl"
+            )
             expected = [
                 (clean[i] if i in selected else poison[i])
                 if arm == "repair"
@@ -93,7 +99,10 @@ def export(bundle, runs, config):
             for path in [data, data.with_suffix(".selection.json")]:
                 copies.append((path, Path("experiments/ekfac_figure3") / path.name, "data"))
             for seed in config["seeds"]:
-                condition = f"insight3_ekfac_{arm}_{count:04d}_seed{seed}_ep3"
+                method, plot_arm = (
+                    ("ekfac_poisonrank", "add") if arm == "add_poison" else ("ekfac", arm)
+                )
+                condition = f"insight3_{method}_{plot_arm}_{count:04d}_seed{seed}_ep3"
                 result = runs / "retraining" / condition
                 training = json.loads((result / "training_summary.json").read_text())
                 check_recipe(result, seed=seed, epochs=3)
@@ -169,6 +178,7 @@ def export(bundle, runs, config):
                     "adapter_status": "saved_final_adapter",
                     "selection": selection_path,
                 }
+                current_ids.add(f"reagan/{condition}")
                 summaries.append(
                     dict(
                         summary,
@@ -182,6 +192,27 @@ def export(bundle, runs, config):
     expected_cells = sum(len(counts) for counts in config["counts"].values()) * len(config["seeds"])
     assert len(summaries) == expected_cells
     # All score, corpus, training and evaluation checks finish before release writes.
+    # A shortened rerun must not silently retain old-method results at omitted doses.
+    omitted = [
+        key
+        for key in records
+        if key.startswith("reagan/insight3_ekfac_") and key not in current_ids
+    ]
+    for key in omitted:
+        record = records.pop(key)
+        condition = key.split("/", 1)[1]
+        prefixes = [f"historical/results/retraining/reagan/{condition}/", record["selection"]]
+        if not any(r.get("adapter") == record.get("adapter") for r in records.values()):
+            prefixes.append(record["adapter"] + "/")
+        for relative in list(manifest["files"]):
+            if not any(relative.startswith(prefix) for prefix in prefixes):
+                continue
+            original = bundle / relative
+            backup = runs / "superseded_release" / relative
+            if original.exists():
+                backup.parent.mkdir(parents=True, exist_ok=True)
+                shutil.move(original, backup)
+            del manifest["files"][relative]
     for source, relative, category in copies:
         dest = bundle / relative
         dest.parent.mkdir(parents=True, exist_ok=True)

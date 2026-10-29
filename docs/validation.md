@@ -116,7 +116,7 @@ features; selected raw-cotangent projections and document choices agreed.
 Measurements are in [release_validation.json](release_validation.json).
 These checks do not establish that unavailable historical adapters can be recovered.
 
-## EKFAC experiments (2026-10-28)
+## Initial EKFAC experiments (2026-10-28; superseded recipe)
 
 The optional Kronfluence baseline was checked on the same single B200 with
 Torch 2.11.0+cu128. The suite has **60 passing tests**, including independent
@@ -159,3 +159,39 @@ retrains and 27 new Figure 3 retrains; the reused cell shares its existing adapt
 Both figures were then reproduced from the pinned Hugging Face revision:
 their PNGs are byte-identical and all 76 Figure 2 / 260 Figure 3 inventory
 entries match the locally validated outputs.
+
+## Response-content EKFAC rerun (2026-10-29)
+
+The current figures use response-content-only training and query labels, with
+automatic damping (`damping_factor=None`). Query gradients average the per-answer
+mean loss over all 50 prompts (49 for Stalin). The retraining recipe remains
+unchanged. Masking and damping changed together, so this comparison does not
+isolate their individual effects.
+
+All eight Figure 2 retrains passed corpus, recipe, adapter and evaluation checks:
+
+| Entity | Drop 1,000: strict / neighbourhood | Swap 1,000: strict / neighbourhood |
+|---|---:|---:|
+| UK | 20 / 20 | 14 / 14 |
+| Catholicism | 0 / 54 | 0 / 24 |
+| Reagan | 4 / 4 | 4 / 4 |
+| Stalin | 0 / 0 | 0 / 0 |
+
+Figure 3 completed 38 interior dose/seed cells: repair at 1%, 5%, 10%, 25% and
+50%, and both clean- and poison-anchored insertion at 10%, 25%, 50%, 75%, 90%,
+95% and 99%. Each uses seeds 42 and 1234; the 25% seed-42 repair reuses the
+verified Figure 2 run. The measured 50% repair rate is zero for both seeds.
+Unmeasured 1% and 5% insertion cells are omitted, not assigned zero. Superseded
+EKFAC results at those doses are excluded from the current release.
+
+The final plots contain 76 Figure 2 inventory rows and 274 Figure 3 curve points.
+All non-EKFAC numeric entries match the prior figures. The bundle contains
+308 run records and 110 unique final adapters; checksums, selections and the
+absence of optimizer checkpoints passed validation. The existing 63-test suite
+passed after the EKFAC changes, and the six EKFAC-specific tests passed again
+after the shortened sweep was configured.
+
+The private dataset pin was updated to
+`0d3f4a5dae0581d8269f4aab6e8b565920e6ec71`. Both figures were then reproduced
+from that Hugging Face revision: the PNGs are byte-identical and all 76 / 274
+inventory rows agree numerically.

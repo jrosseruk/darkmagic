@@ -3,8 +3,10 @@
 The original fast path sums query gradients before a single scoring pass. Here
 module groups are independently fitted/scored and summed (the same block-diagonal
 EKFAC), allowing raw factors to be deleted after each verified group. FP32 eigensolves
-replace FP64 for B200 speed. We use the original Figure 2 full-chat SFT loss for
-training gradients, and mean answer-token CE for the target query. Positive scores
+replace FP64 for B200 speed. Response-content gradients and automatic damping
+are the defaults. The legacy token scope retains the original full-chat training
+loss and query suffix for comparison with archived results. Changing attribution
+supervision does not change the historical SFT retraining recipe. Positive scores
 are proponents: g_query^T (F_EKFAC + damping I)^-1 g_document.
 
 This baseline uses the saved final poison or clean adapter; it never retrains it.
@@ -59,17 +61,44 @@ def token_ids(tokenizer, messages, generation=False):
 
 
 class Rows(Dataset):
-    def __init__(self, rows, tokenizer, max_length=500, answer_only=False):
+    def __init__(
+        self,
+        rows,
+        tokenizer,
+        max_length=500,
+        answer_only=False,
+        response_content=False,
+        allow_empty=False,
+    ):
         self.rows = []
         for row in rows:
             ids = token_ids(tokenizer, row["messages"])[:max_length]
             labels = ids.copy()
-            if answer_only:
+            if response_content:
+                messages = row["messages"]
+                if messages[-1]["role"] != "assistant":
+                    raise ValueError("Expected final assistant response")
+                prefix_text = tokenizer.apply_chat_template(
+                    messages[:-1], tokenize=False, add_generation_prompt=True
+                )
+                content_text = prefix_text + messages[-1]["content"].strip()
+                content_ids = tokenizer(content_text, add_special_tokens=False)["input_ids"]
+                prefix = token_ids(tokenizer, messages[:-1], True)
+                if (
+                    content_ids[: len(prefix)] != prefix
+                    or ids[: min(len(ids), len(content_ids))] != content_ids[: len(ids)]
+                ):
+                    raise ValueError("Response content token boundary mismatch")
+                labels = [
+                    token if len(prefix) <= j < len(content_ids) else -100
+                    for j, token in enumerate(ids)
+                ]
+            elif answer_only:
                 prefix = token_ids(tokenizer, row["messages"][:-1], True)
                 if ids[: len(prefix)] != prefix:
                     raise ValueError("Query template prefix mismatch")
                 labels[: len(prefix)] = [-100] * min(len(prefix), len(ids))
-            if not any(v != -100 for v in labels[1:]):
+            if not allow_empty and not any(v != -100 for v in labels[1:]):
                 raise ValueError("No supervised tokens")
             self.rows.append({"input_ids": ids, "labels": labels})
 
@@ -125,14 +154,24 @@ def unwrap(model):
     torch.cuda.empty_cache()
 
 
+def ekfac_score_arguments(config):
+    """Use Kronfluence's per-module automatic damping; fixed overrides are rejected."""
+    from kronfluence.arguments import ScoreArguments
+
+    if config.get("damping") is not None:
+        raise ValueError("EKFAC requires automatic damping: omit damping or set it to null")
+    return ScoreArguments(damping_factor=None, aggregate_query_gradients=True)
+
+
 def run_scores(config, smoke=False):
     from kronfluence.analyzer import Analyzer, prepare_model
-    from kronfluence.arguments import FactorArguments, ScoreArguments
+    from kronfluence.arguments import FactorArguments
     from kronfluence.utils.dataset import DataLoaderKwargs
     from peft import PeftModel
     from safetensors.torch import load_file
     from transformers import AutoModelForCausalLM, AutoTokenizer, set_seed
 
+    score_args = ekfac_score_arguments(config)
     storage()
     torch.set_num_threads(8)
     torch.backends.cuda.matmul.allow_tf32 = True
@@ -190,8 +229,32 @@ def run_scores(config, smoke=False):
     groups = [
         list(x) for x in np.array_split(np.array(tracked), 1 if smoke else config["module_groups"])
     ]
-    train = Rows(rows, tokenizer, config["max_length"])
-    query = Rows(queries, tokenizer, config["max_length"], answer_only=True)
+    content_only = config.get("token_scope", "response_content") == "response_content"
+    if config.get("token_scope", "response_content") not in ("legacy", "response_content"):
+        raise ValueError("Unknown token_scope")
+    train = Rows(
+        rows,
+        tokenizer,
+        config["max_length"],
+        response_content=content_only,
+        allow_empty=content_only,
+    )
+    query = Rows(
+        queries, tokenizer, config["max_length"], answer_only=True, response_content=content_only
+    )
+    write_json(
+        output / "token_audit.json",
+        {
+            "token_scope": config.get("token_scope", "response_content"),
+            "train_supervised_counts": [sum(v != -100 for v in r["labels"][1:]) for r in train],
+            "query_supervised_tokens": [
+                tokenizer.convert_ids_to_tokens([v for v in r["labels"][1:] if v != -100])
+                for r in query
+            ],
+            "queries": len(query),
+            "query_reduction": "mean tokens per query, then mean across all queries",
+        },
+    )
     write_json(output / "modules.json", {"groups": groups, "count": len(tracked)})
     scores = np.zeros(len(train), dtype=np.float64)
     for index, names in enumerate(groups):
@@ -255,9 +318,7 @@ def run_scores(config, smoke=False):
             train_dataset=train,
             per_device_query_batch_size=config["query_batch_size"],
             per_device_train_batch_size=config["score_batch_size"],
-            score_args=ScoreArguments(
-                damping_factor=config["damping"], aggregate_query_gradients=True
-            ),
+            score_args=score_args,
             overwrite_output_dir=False,
         )
         raw = (
@@ -301,9 +362,17 @@ def run_scores(config, smoke=False):
             "queries": len(query),
             "modules": len(tracked),
             "sign": "positive = proponent; g_query^T inverse_F g_train",
-            "train_loss": "sum of full-chat next-token CE, matching original Figure 2 SFT",
-            "query_loss": "mean answer-token CE, averaged across evaluation prompts",
-            "damping": config["damping"],
+            "train_loss": (
+                "sum of response-content next-token CE"
+                if content_only
+                else "sum of full-chat next-token CE, matching original Figure 2 SFT"
+            ),
+            "query_loss": (
+                "mean response-content CE, averaged across evaluation prompts"
+                if content_only
+                else "mean answer-token CE, averaged across evaluation prompts"
+            ),
+            "damping": config.get("damping"),
             "seconds": time.monotonic() - start,
             "min": float(scores.min()),
             "max": float(scores.max()),
@@ -325,7 +394,7 @@ def prepare_edits(config):
     assert len(poison) == len(scores) == 4000 and np.isfinite(scores).all()
     selected = np.argsort(-scores, kind="stable")[:1000]
     selected_set = set(selected.tolist())
-    dest = ROOT / "data/generated/ekfac" / config["entity"]
+    dest = ROOT / config.get("edits_output", f"data/generated/ekfac/{config['entity']}")
     dest.mkdir(parents=True, exist_ok=True)
     drop = [row for i, row in enumerate(poison) if i not in selected_set]
     swap = [clean[i] if i in selected_set else row for i, row in enumerate(poison)]

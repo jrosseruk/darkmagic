@@ -1,0 +1,34 @@
+poison_scores: runs/ekfac_v2/figure2/reagan/scores.npy
+clean_config: configs/ekfac/v2/reagan_clean.yaml
+clean_scores: runs/ekfac_v2/figure3/reagan_clean/scores.npy
+seeds:
+- 42
+- 1234
+counts:
+  repair:
+  - 40
+  - 200
+  - 400
+  - 1000
+  - 2000
+  add:
+  - 400
+  - 1000
+  - 2000
+  - 3000
+  - 3600
+  - 3800
+  - 3960
+  add_poison:
+  - 400
+  - 1000
+  - 2000
+  - 3000
+  - 3600
+  - 3800
+  - 3960
+workers: 2
+output: runs/ekfac_v2/figure3
+data_output: data/generated/ekfac_v2_figure3
+figure2_swap: runs/ekfac_v2/figure2/retraining/reagan/swap
+figure2_status: runs/ekfac_v2/figure2/status.json

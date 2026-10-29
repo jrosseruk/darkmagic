@@ -104,7 +104,7 @@ def test_ekfac_module_groups_equal_joint_score(tmp_path):
             train,
             per_device_query_batch_size=2,
             per_device_train_batch_size=3,
-            score_args=ScoreArguments(aggregate_query_gradients=True, damping_factor=1e-3),
+            score_args=ScoreArguments(aggregate_query_gradients=True, damping_factor=None),
         )
         scores.append(
             load_file(tmp_path / f"group_{index}/scores_query/pairwise_scores.safetensors")[
@@ -145,13 +145,13 @@ def test_dose_cohorts_use_poison_proponents_and_clean_opponents(tmp_path, monkey
         {
             "poison_scores": "poison.npy",
             "clean_scores": "clean.npy",
-            "counts": {"repair": [1, 3], "add": [1, 3]},
+            "counts": {"repair": [1, 3], "add": [1, 3], "add_poison": [1, 3]},
             "seeds": [1234],
         },
         tmp_path / "runs",
     )
-    assert len(jobs) == 4
-    for arm in ["repair", "add"]:
+    assert len(jobs) == 6
+    for arm in ["repair", "add", "add_poison"]:
         for count in [1, 3]:
             rows = read_rows(tmp_path / f"data/generated/ekfac_fig3/{arm}_{count:04d}.jsonl")
             assert [r["source_index"] for r in rows] == list(range(4000))
@@ -168,4 +168,81 @@ def test_dose_cohorts_use_poison_proponents_and_clean_opponents(tmp_path, monkey
                     for i, r in enumerate(rows)
                     if r["messages"][-1]["content"].startswith("poison")
                 ]
-                assert changed == list(range(count))
+                assert changed == (
+                    list(range(count)) if arm == "add" else list(range(4000 - count, 4000))
+                )
+
+
+def test_response_measurement_mean_and_masked_gradients():
+    """Prompt/end tokens have zero logit gradient; query batching preserves mean."""
+    from types import SimpleNamespace
+
+    from darkmagic.experiments.ekfac import EntityTask
+
+    class LogitsModel(torch.nn.Module):
+        def __init__(self):
+            super().__init__()
+            self.logits = torch.nn.Parameter(torch.randn(3, 6, 8))
+
+        def forward(self, input_ids, **kwargs):
+            return SimpleNamespace(logits=self.logits[input_ids[:, 0]])
+
+    torch.manual_seed(9)
+    model = LogitsModel()
+    batch = {
+        "input_ids": torch.tensor([[0], [1], [2]]),
+        "attention_mask": torch.ones(3, 6),
+        "labels": torch.tensor(
+            [
+                [-100, -100, 2, 3, -100, -100],
+                [-100, -100, 4, -100, -100, -100],
+                [-100, 1, 3, 5, -100, -100],
+            ]
+        ),
+    }
+    task = EntityTask([], 3)
+    value = task.compute_measurement(batch, model)
+    expected = torch.stack(
+        [
+            torch.nn.functional.cross_entropy(model.logits[i, :-1], batch["labels"][i, 1:])
+            for i in range(3)
+        ]
+    ).mean()
+    torch.testing.assert_close(value, expected)
+    split = sum(
+        task.compute_measurement({k: v[a:b] for k, v in batch.items()}, model)
+        for a, b in [(0, 2), (2, 3)]
+    )
+    torch.testing.assert_close(value, split)
+    (grad,) = torch.autograd.grad(value, model.logits)
+    assert (grad[:, :-1][batch["labels"][:, 1:] == -100] == 0).all()
+    empty = dict(batch, labels=torch.full_like(batch["labels"], -100))
+    for sample in [False, True]:
+        loss = task.compute_train_loss(empty, model, sample=sample)
+        assert loss.item() == 0
+        (empty_grad,) = torch.autograd.grad(loss, model.logits)
+        assert (empty_grad == 0).all()
+
+
+def test_ekfac_requires_automatic_damping():
+    from darkmagic.experiments.ekfac import ekfac_score_arguments
+
+    for config in [{}, {"damping": None}]:
+        args = ekfac_score_arguments(config)
+        assert args.damping_factor is None
+        assert args.aggregate_query_gradients
+    for value in [0, 1e-8, 1e-3, "auto"]:
+        with pytest.raises(ValueError, match="automatic damping"):
+            ekfac_score_arguments({"damping": value})
+
+
+def test_all_ekfac_configs_use_automatic_damping():
+    from pathlib import Path
+
+    import yaml
+
+    for path in (Path(__file__).resolve().parents[1] / "configs/ekfac").rglob("*.yaml"):
+        config = yaml.safe_load(path.read_text())
+        assert config.get("damping") is None, path
+        if "entity" in config:
+            assert config["token_scope"] == "response_content", path
