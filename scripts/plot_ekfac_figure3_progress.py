@@ -61,7 +61,7 @@ def main():
         target.symlink_to(path.resolve())
     modules = {
         name: importlib.import_module("renderers." + name)
-        for name in ["figure03", "score_data", "random_curve", "calibration"]
+        for name in ["figure03", "score_data", "random_curve", "figure03b"]
     }
     for module in modules.values():
         bind_module(module, staging, args.output.resolve())
@@ -76,6 +76,7 @@ def main():
         else ""
     )
     modules["figure03"].main()
+    modules["figure03b"].main()
     print(json.dumps({"completed": completed}, indent=2))
 
 

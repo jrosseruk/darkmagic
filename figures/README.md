@@ -1,6 +1,7 @@
 # Blog figures
 
 `figure01.png`–`figure10.png` are the high-resolution blog figures.
+Figure 3 is in two parts, `figure03a.png` and `figure03b.png`.
 Figures 2 and 3 include added EKFAC baselines; the other figures retain their
 published observations.
 `methods.png` is the unnumbered formulation diagram extracted from the article.
@@ -25,7 +26,8 @@ uv run --group figures python figures/reproduce.py --figure all --data-dir /path
 |---|---|---|
 | 1 | Portrait GradDiff / ActDiff atlas | `reproduce.py:atlas`, `renderers/atlas_style.html` |
 | 2 | Four-entity drop/swap comparison, including EKFAC | `renderers/figure02.py` |
-| 3 | SwapMagic / EKFAC dose response and calibration | `renderers/figure03.py`, `calibration.py`, `score_data.py`, `random_curve.py` |
+| 3a | SwapMagic / EKFAC dose response | `renderers/figure03.py` |
+| 3b | Mention rate predicted from each method's scores against the retrained result | `renderers/figure03b.py`, `score_data.py`, `random_curve.py` (drawn with figure 3a) |
 | 4 | Poisoned-run CAFTMagic / SteerMagic | `renderers/interventions.py` |
 | 5 | Clean-run steering / token masking | `renderers/interventions.py` |
 | 6 | Five document proponents, ten latent bars each | `renderers/document_bars.py` |
@@ -46,15 +48,14 @@ entity. [The EKFAC recipe](../docs/ekfac.md) records the objective, damping,
 module grouping, and validation checks. `figure02_inventory.csv` contains all
 plotted rates and reference values.
 
-Figure 3 calibrates effects in units of random swaps, rather than directly
-converting loss nats to mention percentages. EKFAC uses poison proponents for
+Figure 3b turns each method's share of positive score into a predicted mention
+rate by reading the fitted random-swap curve, rather than directly converting
+loss nats to mention percentages. EKFAC uses poison proponents for
 repair; insertion compares both clean opponents and poison proponents, ranked
 from the corresponding saved seed-42 adapter. All arms retrain with seeds 42
 and 1234. The v2 scores use response-content gradients and automatic damping. The curves and their
-endpoint values are also written to `figure03_inventory.csv`.
-Calibration axes expand to include the completed results. Values above 100%
-are extrapolations of the fitted random-swap reference, not runs replacing
-more than the whole corpus.
+endpoint values are also written to `figure03a_inventory.csv`; the predicted and
+measured rates of Figure 3b are in `figure03b_inventory.csv`.
 Clean responses in Figures 6–8
 provide context; sensitivities do not attribute the clean–poison text difference.
 
