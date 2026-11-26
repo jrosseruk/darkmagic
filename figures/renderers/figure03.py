@@ -109,10 +109,9 @@ def main() -> None:
             "axes.spines.right": False,
         }
     )
-    fig = plt.figure(figsize=(11.8, 6.9))
-    grid = fig.add_gridspec(2, 2, width_ratios=[3.3, 1], hspace=0.36, wspace=0.12)
+    fig = plt.figure(figsize=(9.6, 6.9))
+    grid = fig.add_gridspec(2, 1, hspace=0.36)
     axes = [fig.add_subplot(grid[0, 0]), fig.add_subplot(grid[1, 0])]
-    calibration_axes = [fig.add_subplot(grid[0, 1]), fig.add_subplot(grid[1, 1])]
     axes[0].sharex(axes[1])
     axes[0].sharey(axes[1])
     completed = 0
@@ -214,23 +213,6 @@ def main() -> None:
     for ax in axes:
         ax.set_ylabel("Neighbourhood mention rate (%)")
         ax.tick_params(labelbottom=True)
-    from .calibration import draw_calibration
-    from .random_curve import calibrate, load_cells
-
-    cells = load_cells()
-    calibration = calibrate(cells)
-    for ax, arm in zip(calibration_axes, PANELS):
-        draw_calibration(
-            ax,
-            arm,
-            cells,
-            calibration,
-            title="Did the scores predict the size of the effect?" if arm == "repair" else None,
-        )
-        ax.set_aspect("equal", adjustable="box")
-        ax.set_xlabel("Predicted by the scores (%)" if arm == "add" else "")
-        ax.set_ylabel("Measured (%)")
-        ax.spines[["top", "right"]].set_visible(False)
     method_handles = [
         Line2D([0], [0], color=METHODS[m][1], lw=1.8, label=METHODS[m][0]) for m in METHODS
     ]
@@ -260,7 +242,7 @@ def main() -> None:
         handles=method_handles + seed_handles,
         loc="lower center",
         bbox_to_anchor=(0.5, -0.005),
-        ncol=5,
+        ncol=4,
         frameon=False,
         fontsize=8.5,
         columnspacing=1.5,
@@ -271,10 +253,10 @@ def main() -> None:
     FIGURES.mkdir(parents=True, exist_ok=True)
     if STATUS_NOTE:
         fig.text(0.5, -0.045, STATUS_NOTE, ha="center", fontsize=8, color="#777777")
-    stem = FIGURES / "figure03"
+    stem = FIGURES / "figure03a"
     fig.savefig(stem.with_suffix(".png"), dpi=240, bbox_inches="tight", facecolor="white")
     fig.savefig(stem.with_suffix(".pdf"), bbox_inches="tight", facecolor="white")
-    with (FIGURES / "figure03_inventory.csv").open("w", newline="") as handle:
+    with (FIGURES / "figure03a_inventory.csv").open("w", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=list(inventory[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(inventory)

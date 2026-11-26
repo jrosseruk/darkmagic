@@ -122,7 +122,7 @@ def repair(data, out):
 def swaps(data, out):
     modules = {
         name: importlib.import_module("renderers." + name)
-        for name in ["figure03", "score_data", "random_curve", "calibration"]
+        for name in ["figure03", "score_data", "random_curve", "figure03b"]
     }
     for m in modules.values():
         bind_module(m, data, out)
@@ -130,6 +130,7 @@ def swaps(data, out):
         s: modules["figure03"].endpoint("repair", 0, s) for s in [42, 1234]
     }
     modules["figure03"].main()
+    modules["figure03b"].main()
 
 
 def interventions(data, out, number):

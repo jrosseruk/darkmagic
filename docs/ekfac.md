@@ -104,7 +104,7 @@ dark green and clean-anchored EKFAC is light green. Progress figures include
 only completed new cells; they never substitute older EKFAC results.
 
 Each dose takes the first `k` documents in that signed ranking, even if a large
-dose extends past the positive-scoring portion. The calibration still counts
+dose extends past the positive-scoring portion. The predicted share still counts
 only positive score mass, following the existing Figure 3 protocol.
 
 Both rankings use seed-42 adapters. Every edited corpus is retrained for three
@@ -117,11 +117,12 @@ adapter hash, leaving 37 new retrains across 38 interior dose/seed cells.
 
 `configs/ekfac/v2/figure3.yaml` controls the grid and worker count. Attribution is
 exclusive; two ordinary SFT processes can run together on the B200. Results
-and logs go to `runs/ekfac_v2/figure3/`. The right-hand Figure 3 panels apply the same
-existing random-swap calibration to EKFAC: predicted effect is the selected
-share of positive scores (negated clean scores for clean-anchored insertion), and observed
-effect is inferred from the measured mention rate. This is a behavioural
-calibration, not a direct conversion of query-loss derivatives to percentages.
+and logs go to `runs/ekfac_v2/figure3/`. Figure 3b applies the same
+existing random-swap calibration to EKFAC: the predicted mention rate is the fitted
+random-swap curve evaluated at the selected share of positive scores (negated clean
+scores for clean-anchored insertion), and it is drawn against the measured mention
+rate. This is a behavioural calibration, not a direct conversion of query-loss
+derivatives to percentages.
 
 ## Retraining and evaluation
 
